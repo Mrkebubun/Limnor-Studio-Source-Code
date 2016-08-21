@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="resxtemplate" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+  &lt;xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"&gt;
+    &lt;xsd:import namespace="http://www.w3.org/XML/1998/namespace" /&gt;
+    &lt;xsd:element name="root" msdata:IsDataSet="true"&gt;
+      &lt;xsd:complexType&gt;
+        &lt;xsd:choice maxOccurs="unbounded"&gt;
+          &lt;xsd:element name="metadata"&gt;
+            &lt;xsd:complexType&gt;
+              &lt;xsd:sequence&gt;
+                &lt;xsd:element name="value" type="xsd:string" minOccurs="0" /&gt;
+              &lt;/xsd:sequence&gt;
+              &lt;xsd:attribute name="name" use="required" type="xsd:string" /&gt;
+              &lt;xsd:attribute name="type" type="xsd:string" /&gt;
+              &lt;xsd:attribute name="mimetype" type="xsd:string" /&gt;
+              &lt;xsd:attribute ref="xml:space" /&gt;
+            &lt;/xsd:complexType&gt;
+          &lt;/xsd:element&gt;
+          &lt;xsd:element name="assembly"&gt;
+            &lt;xsd:complexType&gt;
+              &lt;xsd:attribute name="alias" type="xsd:string" /&gt;
+              &lt;xsd:attribute name="name" type="xsd:string" /&gt;
+            &lt;/xsd:complexType&gt;
+          &lt;/xsd:element&gt;
+          &lt;xsd:element name="data"&gt;
+            &lt;xsd:complexType&gt;
+              &lt;xsd:sequence&gt;
+                &lt;xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" /&gt;
+                &lt;xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" /&gt;
+              &lt;/xsd:sequence&gt;
+              &lt;xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" /&gt;
+              &lt;xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" /&gt;
+              &lt;xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" /&gt;
+              &lt;xsd:attribute ref="xml:space" /&gt;
+            &lt;/xsd:complexType&gt;
+          &lt;/xsd:element&gt;
+          &lt;xsd:element name="resheader"&gt;
+            &lt;xsd:complexType&gt;
+              &lt;xsd:sequence&gt;
+                &lt;xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" /&gt;
+              &lt;/xsd:sequence&gt;
+              &lt;xsd:attribute name="name" type="xsd:string" use="required" /&gt;
+            &lt;/xsd:complexType&gt;
+          &lt;/xsd:element&gt;
+        &lt;/xsd:choice&gt;
+      &lt;/xsd:complexType&gt;
+    &lt;/xsd:element&gt;
+  &lt;/xsd:schema&gt;
+  &lt;resheader name="resmimetype"&gt;
+    &lt;value&gt;text/microsoft-resx&lt;/value&gt;
+  &lt;/resheader&gt;
+  &lt;resheader name="version"&gt;
+    &lt;value&gt;2.0&lt;/value&gt;
+  &lt;/resheader&gt;
+  &lt;resheader name="reader"&gt;
+    &lt;value&gt;System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&lt;/value&gt;
+  &lt;/resheader&gt;
+  &lt;resheader name="writer"&gt;
+    &lt;value&gt;System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&lt;/value&gt;
+  &lt;/resheader&gt;
+&lt;/root&gt;</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="WinApp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>WinApp.csproj;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="KioskApp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>KioskApp.csproj;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ConsoleApp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>ConsoleApp.csproj;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ConsoleAppD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>ConsoleAppD.csproj;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="KioskAppD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>KioskAppD.csproj;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="WinAppD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>WinAppD.csproj;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ClassLib" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>ClassLib.csproj;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ClassLibD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>ClassLibD.csproj;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="aspxHead" xml:space="preserve">
+    <value>&lt;%@ Page Language="C#" AutoEventWireup="false" CodeBehind="{0}" Inherits="{1}" %&gt;</value>
+  </data>
+  <data name="dataSourceInterface_php" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\dataSourceInterface.php.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="FastJSON_class_php" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\FastJSON.class.php.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="jsonDataBind_php" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\jsonDataBind.php.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="JsonProcessPage_php" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\JsonProcessPage.php.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="jsonSource_mySqlI_php" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\jsonSource_mySqlI.php.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="sqlClient_php" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\sqlClient.php.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MySqlCredential_php" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\MySqlCredential.php.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DebugInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\DebugInfo.html;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="WebApp_php" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\WebApp.php.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="json2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\json2.js;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="json_min" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\json_min.js;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="modal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\modal.js;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="modal_min" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>webApp\modal_min.js;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="appmanifest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>appmanifest.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="app_config" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>app.config.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+</root>

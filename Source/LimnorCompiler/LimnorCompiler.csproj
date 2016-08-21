@@ -1,1 +1,382 @@
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{189F2454-38B3-4F8F-8FBE-623C6AF34A4E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LimnorCompiler</RootNamespace>
+    <AssemblyName>LimnorCompiler</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Limnor56 DOTNET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;Limnor56 DOTNET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CopyProtection, Version=1.1.4653.16168, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Distribute\CopyProtection.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationParameters.cs" />
+    <Compile Include="AssemblyDetails.cs" />
+    <Compile Include="AssemblyInfoBuilder.cs" />
+    <Compile Include="ClassCompiler.cs" />
+    <Compile Include="ClassMemberField.cs" />
+    <Compile Include="CodeCompiler.cs" />
+    <Compile Include="Compiler.cs" />
+    <Compile Include="CompilerSettings.cs" />
+    <Compile Include="ComponentCompileResult.cs" />
+    <Compile Include="CPUVersion.cs" />
+    <Compile Include="DlgDatabaseConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgDatabaseConnection.Designer.cs">
+      <DependentUpon>DlgDatabaseConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgUnusedFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgUnusedFiles.Designer.cs">
+      <DependentUpon>DlgUnusedFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnumCompileTarget.cs" />
+    <Compile Include="FormCompile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompile.Designer.cs">
+      <DependentUpon>FormCompile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrameworkVersion.cs" />
+    <Compile Include="ICompilerLog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceFile.cs" />
+    <Compile Include="Resources1.Designer.cs">
+      <DependentUpon>Resources1.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourceService.cs" />
+    <Compile Include="SourceValueDictionary.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeDomHelper\CodeDomHelper.csproj">
+      <Project>{63ACA503-C1F1-44B5-80EF-D6822E0A92BC}</Project>
+      <Name>CodeDomHelper</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTransfer\DataTransfer.csproj">
+      <Project>{587D2CA5-A0C1-46F1-A901-53DE14154B83}</Project>
+      <Name>DataTransfer</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Drawing2D\Drawing2D.csproj">
+      <Project>{D07DAF1C-D5B9-4049-9B77-88E77E74A0F7}</Project>
+      <Name>Drawing2D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\DynamicEventLinker\DynamicEventLinker.csproj">
+      <Project>{FC941E3E-3232-40B5-AE21-BF4E7BA8CBD5}</Project>
+      <Name>DynamicEventLinker</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\FileUtil\FileUtil.csproj">
+      <Project>{286619B2-161A-4076-BE1E-66E46E9F79C4}</Project>
+      <Name>FileUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\HtmlAgilityPack\HtmlAgilityPack VS2008.csproj">
+      <Project>{193BB801-054F-4729-9D5D-FCE1E32594BF}</Project>
+      <Name>HtmlAgilityPack VS2008</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\IISutility\IISutility.csproj">
+      <Project>{0D209AA3-E3A5-4EE5-8CB2-D79DF71DEDA2}</Project>
+      <Name>IISutility</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\LimnorDatabase\LimnorDatabase.csproj">
+      <Project>{77E6BE2E-B10D-40BD-A439-BFDA0AF47D21}</Project>
+      <Name>LimnorDatabase</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\LimnorDesigner\LimnorDesigner.csproj">
+      <Project>{301AA317-15CA-4BA9-A981-13D211B7298E}</Project>
+      <Name>LimnorDesigner</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\LimnorKiosk\LimnorKiosk.csproj">
+      <Project>{08C4C36E-4F08-4AA7-9064-1B04D01CD095}</Project>
+      <Name>LimnorKiosk</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MathComponent\MathComponent.csproj">
+      <Project>{AAF6A35C-F035-4CB7-99B7-B5566842BF21}</Project>
+      <Name>MathComponent</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MathExp\MathExp.csproj">
+      <Project>{A7287685-2A25-4A8D-9604-FC95CA9432C0}</Project>
+      <Name>MathExp</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MathItem\MathItem.csproj">
+      <Project>{e3e00d54-4c75-4bf2-9609-59d75c8174cf}</Project>
+      <Name>MathItem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhpComponents\PhpComponents.csproj">
+      <Project>{32576bd6-317f-4264-af7a-3f8e12f6fbea}</Project>
+      <Name>PhpComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginManager\PluginManager.csproj">
+      <Project>{A4D86D2E-8D98-47CE-A949-8B8970B5A498}</Project>
+      <Name>PluginManager</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ProgElements\ProgElements.csproj">
+      <Project>{CEE3B972-82A2-4069-B64E-3703400CBE8D}</Project>
+      <Name>ProgElements</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Reporting\Reporting.csproj">
+      <Project>{2e9b12e3-2768-444e-b3a9-327fa836ba6b}</Project>
+      <Name>Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TraceLog\TraceLog.csproj">
+      <Project>{12B36BAB-E964-4BD8-8E4C-CB856BE9147F}</Project>
+      <Name>TraceLog</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VPL\VPL.csproj">
+      <Project>{66ED66A8-13A5-4E70-B482-8143EC714DEF}</Project>
+      <Name>VPL</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VSPrj\VSPrj.csproj">
+      <Project>{3CE654BD-4A8B-4069-BCCE-C46AC55E056C}</Project>
+      <Name>VSPrj</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfHost\WcfHost.csproj">
+      <Project>{E7A655C7-F8C7-4A02-B1F1-755019BD51A3}</Project>
+      <Name>WcfHost</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebBuilder\WebBuilder.csproj">
+      <Project>{26578B6E-E604-4765-9FCA-95DA597B7190}</Project>
+      <Name>WebBuilder</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebServerBuilder\WebServerBuilder.csproj">
+      <Project>{52A1E501-EEB4-4131-B864-2B5F0630265F}</Project>
+      <Name>WebServerBuilder</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebServerProcessor\WebServerProcessor.csproj">
+      <Project>{50C75605-C26F-4B6F-B1F2-EA36360B10E2}</Project>
+      <Name>WebServerProcessor</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsManager\WindowsManager.csproj">
+      <Project>{9E36ACAB-AE6D-49BD-978C-121AAF5C1360}</Project>
+      <Name>WindowsManager</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsUtility\WindowsUtility.csproj">
+      <Project>{345C1F39-8E66-4464-9CBE-537F792E6B10}</Project>
+      <Name>WindowsUtility</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlSerializer\XmlSerializer.csproj">
+      <Project>{BDDB3976-4FBD-4F85-85AA-ED8D6474C141}</Project>
+      <Name>XmlSerializer</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlUtil\XmlUtil.csproj">
+      <Project>{C025E0A3-A59B-465B-A4DE-9E90534B63F4}</Project>
+      <Name>XmlUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassLib.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassLibD.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ConsoleApp.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ConsoleAppD.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="KioskApp.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="KioskAppD.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WinAppD.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgDatabaseConnection.resx">
+      <DependentUpon>DlgDatabaseConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgUnusedFiles.resx">
+      <DependentUpon>DlgUnusedFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCompile.resx">
+      <DependentUpon>FormCompile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WinApp.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="webApp\dataSourceInterface.php.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="webApp\FastJSON.class.php.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="webApp\jsonDataBind.php.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="webApp\JsonProcessPage.php.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="webApp\jsonSource_mySqlI.php.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="webApp\sqlClient.php.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="webApp\WebApp.php.txt" />
+    <None Include="app.config.txt" />
+    <Content Include="appmanifest.xml" />
+    <Content Include="webApp\DebugInfo.html" />
+    <Content Include="webApp\json.js" />
+    <Content Include="webApp\json2.js" />
+    <Content Include="webApp\jsonDataBind.js" />
+    <Content Include="webApp\json_min.js" />
+    <Content Include="webApp\json_n_db.js" />
+    <Content Include="webApp\modal.js" />
+    <None Include="webApp\modal_min.js" />
+    <Content Include="webApp\MySqlCredential.php.txt" />
+    <Content Include="webApp\treeview.js" />
+    <Content Include="webApp\treeview\empty_0.png" />
+    <Content Include="webApp\treeview\empty_dn.png" />
+    <Content Include="webApp\treeview\empty_up.png" />
+    <Content Include="webApp\treeview\empty_up_dn.png" />
+    <Content Include="webApp\treeview\folder.gif" />
+    <Content Include="webApp\treeview\h1.png" />
+    <Content Include="webApp\treeview\l_up_dn.png" />
+    <Content Include="webApp\treeview\minus_0.png" />
+    <Content Include="webApp\treeview\minus_dn.png" />
+    <Content Include="webApp\treeview\minus_up.png" />
+    <Content Include="webApp\treeview\minus_up_dn.png" />
+    <Content Include="webApp\treeview\plus_0.png" />
+    <Content Include="webApp\treeview\plus_dn.png" />
+    <Content Include="webApp\treeview\plus_up.png" />
+    <Content Include="webApp\treeview\plus_up_dn.png" />
+    <Content Include="webApp\treeview\vl.png" />
+    <Content Include="webApp\treeview\w20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)$(ConfigurationName)
+copy $(TargetDir)$(TargetName).pdb $(SolutionDir)$(ConfigurationName)</PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>
