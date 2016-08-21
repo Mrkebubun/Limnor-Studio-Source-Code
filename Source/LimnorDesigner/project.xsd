@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Project"
+    targetNamespace="http://tempuri.org/project.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/project.xsd"
+    xmlns:mstns="http://tempuri.org/project.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="Component" />
+
+  <xs:element name="References">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Reference" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" minOccurs="1" maxOccurs="1" type="xs:string" />
+              <xs:element name="HintPath" minOccurs="0" maxOccurs="1" type="xs:string" />
+            </xs:sequence>
+            <xs:attribute name="Include" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="Components">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Component" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="Component">
+    <xs:attribute name="filename" type="xs:string" use="required" />
+    <xs:attribute name="ID" type="xs:int" use="required" />
+  </xs:complexType>
+  
+  
+</xs:schema>

@@ -1,0 +1,2506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{301AA317-15CA-4BA9-A981-13D211B7298E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LimnorDesigner</RootNamespace>
+    <AssemblyName>LimnorDesigner</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;USEHTMLEDITOR DOTNET40 HTMLDEBUG0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;USEHTMLEDITOR DOTNET40 HTMLDEBUG0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CopyProtection">
+      <HintPath>..\..\Distribute\CopyProtection.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionAttachEvent.cs" />
+    <Compile Include="ActionDetachEvent.cs" />
+    <Compile Include="Action\ActionInvalid.cs" />
+    <Compile Include="Action\ActionScript.cs" />
+    <Compile Include="Action\AB_ActionList.cs" />
+    <Compile Include="Action\AB_Break.cs" />
+    <Compile Include="Action\AB_CastAs.cs" />
+    <Compile Include="Action\AB_ConditionBranch.cs" />
+    <Compile Include="Action\AB_DecisionTableActions.cs" />
+    <Compile Include="Action\AB_ForLoop.cs" />
+    <Compile Include="Action\AB_Group.cs" />
+    <Compile Include="Action\AB_LoopActions.cs" />
+    <Compile Include="Action\AB_MethodReturn.cs" />
+    <Compile Include="Action\AB_Squential.cs" />
+    <Compile Include="Action\AB_SubMethodAction.cs" />
+    <Compile Include="Action\ActionAssignInstance.cs" />
+    <Compile Include="Action\ActionAssignment.cs" />
+    <Compile Include="Action\ActionBranchParameter.cs" />
+    <Compile Include="Action\ActionBranchParameterPointer.cs" />
+    <Compile Include="Action\ActionList.cs" />
+    <Compile Include="Action\ActionAssignComponent.cs" />
+    <Compile Include="Action\DecisionTable.cs" />
+    <Compile Include="Action\IAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Action\ActionExecMath.cs" />
+    <Compile Include="Action\ActionInput.cs" />
+    <Compile Include="Action\ActionMethodReturn.cs" />
+    <Compile Include="Action\ActionSubmethod.cs" />
+    <Compile Include="Action\Constructor.cs" />
+    <Compile Include="Action\IActionGroup.cs" />
+    <Compile Include="Action\IActionListHolder.cs" />
+    <Compile Include="Action\IActionMethodPointer.cs" />
+    <Compile Include="Action\IActionsHolder.cs" />
+    <Compile Include="Action\IInlineActionHolder.cs" />
+    <Compile Include="Action\InlineAction.cs" />
+    <Compile Include="Action\IPropertySetter.cs" />
+    <Compile Include="Action\EnumWebActionType.cs" />
+    <Compile Include="Action\ISingleAction.cs" />
+    <Compile Include="Action\ISubMethod.cs" />
+    <Compile Include="Action\JavascriptAction.cs" />
+    <Compile Include="Action\NoAction.cs" />
+    <Compile Include="Action\ParameterValueCollection.cs" />
+    <Compile Include="Action\TypeEditorSelectAction.cs" />
+    <Compile Include="Action\VoidAction.cs" />
+    <Compile Include="Action\WebBuilderUtil.cs" />
+    <Compile Include="ActiveTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ArrayPointer.cs" />
+    <Compile Include="ArrayVariable.cs" />
+    <Compile Include="AssemblyPointer.cs" />
+    <Compile Include="AssignToSelector.cs" />
+    <Compile Include="AttributeConstructor.cs" />
+    <Compile Include="BreakPoint.cs" />
+    <Compile Include="ClassProperties.cs" />
+    <Compile Include="ClassTypePointer.cs" />
+    <Compile Include="ClassWizard.cs" />
+    <Compile Include="CollectionScoper.cs" />
+    <Compile Include="CollectionVariable.cs" />
+    <Compile Include="ComboBoxClassPointer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CompilerUtil.cs" />
+    <Compile Include="ComponentLoader.cs" />
+    <Compile Include="ComponentPointer.cs" />
+    <Compile Include="ConstObjectPointer.cs" />
+    <Compile Include="ConstObjectPointerJsValue.cs" />
+    <Compile Include="ConstructorPointer.cs" />
+    <Compile Include="DesignerMessageFilter.cs" />
+    <Compile Include="DesignTimeType\ClassPointerX.cs" />
+    <Compile Include="DesignTimeType\EventInfoInterface.cs" />
+    <Compile Include="DesignTimeType\EventInfoX.cs" />
+    <Compile Include="DesignTimeType\MethodInfoInterface.cs" />
+    <Compile Include="DesignTimeType\MethodInfoX.cs" />
+    <Compile Include="DesignTimeType\ParameterInfoX.cs" />
+    <Compile Include="DesignTimeType\PropertyInfoInterface.cs" />
+    <Compile Include="DesignTimeType\PropertyInfoX.cs" />
+    <Compile Include="DesignTimeType\TypeX.cs" />
+    <Compile Include="DialogCompileCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogCompileCode.Designer.cs">
+      <DependentUpon>DialogCompileCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogCopyDLL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogCopyDLL.Designer.cs">
+      <DependentUpon>DialogCopyDLL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogOneTimeMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogOneTimeMessage.Designer.cs">
+      <DependentUpon>DialogOneTimeMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogSelectCollectiontype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogSelectCollectiontype.Designer.cs">
+      <DependentUpon>DialogSelectCollectiontype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogSelectWebName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogSelectWebName.Designer.cs">
+      <DependentUpon>DialogSelectWebName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogSessionVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogSessionVariables.Designer.cs">
+      <DependentUpon>DialogSessionVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgEditArrayItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgEditArrayItems.Designer.cs">
+      <DependentUpon>DlgEditArrayItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgMakeTypeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgMakeTypeList.Designer.cs">
+      <DependentUpon>DlgMakeTypeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgNewName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgNewName.Designer.cs">
+      <DependentUpon>DlgNewName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSelectHandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectHandler.Designer.cs">
+      <DependentUpon>DlgSelectHandler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSelectTypeParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectTypeParameters.Designer.cs">
+      <DependentUpon>DlgSelectTypeParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSessionVariable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSessionVariable.Designer.cs">
+      <DependentUpon>DlgSessionVariable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnumMethodStyle.cs" />
+    <Compile Include="EventMap\ComponentIconClass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventMap\ComponentIconClassType.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventMap\IEventMapSource.cs" />
+    <Compile Include="Event\WebClientEventHandlerMethod.cs" />
+    <Compile Include="FilePathList.cs" />
+    <Compile Include="FormImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImage.Designer.cs">
+      <DependentUpon>FormImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLanguageIcon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLanguageIcon.Designer.cs">
+      <DependentUpon>FormLanguageIcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProgress.Designer.cs">
+      <DependentUpon>FormProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRTF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRTF.Designer.cs">
+      <DependentUpon>FormRTF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWeb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWeb.designer.cs">
+      <DependentUpon>FormWeb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Indentation.cs" />
+    <Compile Include="InterfaceMethodPointer.cs" />
+    <Compile Include="LimnorStudioRuntimeConfig.cs" />
+    <Compile Include="MethodBuilder\AB_AssignActions.cs" />
+    <Compile Include="MethodBuilder\ActionBlock.cs" />
+    <Compile Include="MethodBuilder\ActionViewerAssignAction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewerGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\AssignHandler.cs" />
+    <Compile Include="MethodBuilder\ComponentIconLocalSubScope.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ComponentIconMethodReturnPointer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ComponentIconSubscopeVariable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\CustomMethodReturn.cs" />
+    <Compile Include="MethodBuilder\DlgVariableName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\DlgVariableName.Designer.cs">
+      <DependentUpon>DlgVariableName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\ExceptionHandler.cs" />
+    <Compile Include="LimnorWebApp.cs" />
+    <Compile Include="DlgDesigners.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgDesigners.Designer.cs">
+      <DependentUpon>DlgDesigners.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CollectionTypePointer.cs" />
+    <Compile Include="DlgRename.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgRename.Designer.cs">
+      <DependentUpon>DlgRename.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgText.Designer.cs">
+      <DependentUpon>DlgText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ITreeNodeObject.cs" />
+    <Compile Include="LimnorScreenSaverApp.cs" />
+    <Compile Include="MethodBuilder\ActionViewerCastAs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\CollectionPointer.cs" />
+    <Compile Include="MethodBuilder\ILocalvariable.cs" />
+    <Compile Include="MethodBuilder\IMethodDialog.cs" />
+    <Compile Include="MethodBuilder\JsMethodCompiler.cs" />
+    <Compile Include="MethodBuilder\MethodAction.cs" />
+    <Compile Include="MethodBuilder\MethodActionForeach.cs" />
+    <Compile Include="MethodBuilder\MethodActionGroup.cs" />
+    <Compile Include="MethodBuilder\MethodAssignActions.cs" />
+    <Compile Include="MethodBuilder\MethodDataTransfer.cs" />
+    <Compile Include="MethodBuilder\MethodDiagramViewerActionGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\SubscopeActions.cs" />
+    <Compile Include="MethodBuilder\TabPageActionGroup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\TopActionGroupDesignerHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\TopActionGroupDiagramViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\TypeEditorExceptionHandler.cs" />
+    <Compile Include="MethodBuilder\TypeEditorSubscopeActions.cs" />
+    <Compile Include="MethodBuilder\WebClientHandlerDesignerHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\WebClientHandlerDiagramViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodEditContext.cs" />
+    <Compile Include="ObjectExplorerGac.cs" />
+    <Compile Include="ProjectSupportFiles.cs" />
+    <Compile Include="PropertyValue.cs" />
+    <Compile Include="Remoting\DlgAddWcfService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Remoting\DlgAddWcfService.Designer.cs">
+      <DependentUpon>DlgAddWcfService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Remoting\DlgAddWebService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Remoting\DlgAddWebService.Designer.cs">
+      <DependentUpon>DlgAddWebService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Remoting\DlgAskFileOverwrite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Remoting\DlgAskFileOverwrite.Designer.cs">
+      <DependentUpon>DlgAskFileOverwrite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Remoting\DlgManageWebService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Remoting\DlgManageWebService.Designer.cs">
+      <DependentUpon>DlgManageWebService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Remoting\DlgUpdateWebServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Remoting\DlgUpdateWebServices.Designer.cs">
+      <DependentUpon>DlgUpdateWebServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Remoting\FormWebUtil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Remoting\FormWebUtil.Designer.cs">
+      <DependentUpon>FormWebUtil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesManager\ResourcePointerFilePath.cs" />
+    <Compile Include="ResourcesManager\TreeNoderesourceFile.cs" />
+    <Compile Include="ResourcesManager\TreeNoderesourceAudio.cs" />
+    <Compile Include="ResourcesManager\DlgMapResources.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResourcesManager\DlgMapResources.Designer.cs">
+      <DependentUpon>DlgMapResources.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesManager\DlgResMan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResourcesManager\DlgResMan.Designer.cs">
+      <DependentUpon>DlgResMan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventMap\ComponentIconEvent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventMap\ComponentIconFireEvent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventMap\ComponentIconProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventMap\DialogSelectComponentIcon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventMap\DialogSelectComponentIcon.Designer.cs">
+      <DependentUpon>DialogSelectComponentIcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventMap\EventIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventMap\EventPath.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EventMap\EventPath.Designer.cs">
+      <DependentUpon>EventPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventMap\EventPathData.cs" />
+    <Compile Include="EventMap\EventPathHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EventMap\EventPathHolder.Designer.cs">
+      <DependentUpon>EventPathHolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventMap\EventPort.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventMap\ComponentIconEventMethod.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventMap\ListBoxComponentIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IIconHolder.cs" />
+    <Compile Include="LimnorDesignerConstants.cs" />
+    <Compile Include="LimnorService.cs" />
+    <Compile Include="MethodBuilder\CollectionForEachMethodInfo.cs" />
+    <Compile Include="MethodBuilder\ComponentIconCollectionPointer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\CustomConstructorPointer.cs" />
+    <Compile Include="MethodBuilder\IConstructor.cs" />
+    <Compile Include="MethodBuilder\MethodCreateComponent.cs" />
+    <Compile Include="MethodBuilder\MethodBreak.cs" />
+    <Compile Include="MethodBuilder\TreeNodeCustomConstructorPointer.cs" />
+    <Compile Include="ParameterClassCollectionItem.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesManager\DlgSelectResourceName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResourcesManager\DlgSelectResourceName.Designer.cs">
+      <DependentUpon>DlgSelectResourceName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesManager\PictureBoxResEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ResourcesManager\ResourceCodePointer.cs" />
+    <Compile Include="ResourcesManager\ResourceFromFile.cs" />
+    <Compile Include="ResourcesManager\ResourceLanguage1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceLanguage1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesManager\ResourceManager.cs" />
+    <Compile Include="ResourcesManager\ResourcePointer.cs" />
+    <Compile Include="ResourcesManager\ResourcePointerAudio.cs" />
+    <Compile Include="ResourcesManager\ResourcePointerFile.cs" />
+    <Compile Include="ResourcesManager\ResourcePointerIcon.cs" />
+    <Compile Include="ResourcesManager\ResourcePointerImage.cs" />
+    <Compile Include="ResourcesManager\ResourceString.cs" />
+    <Compile Include="ResourcesManager\TextBoxResEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ResourcesManager\TreeNodeCulture.cs" />
+    <Compile Include="ResourcesManager\TreeNodeResource.cs" />
+    <Compile Include="ResourcesManager\TreeNodeResourceCode.cs" />
+    <Compile Include="ResourcesManager\TreeNodeResourceFilePath.cs" />
+    <Compile Include="ResourcesManager\TreeNoderesourceIcon.cs" />
+    <Compile Include="ResourcesManager\TreeNodeResourceImage.cs" />
+    <Compile Include="ResourcesManager\TreeNodeResourceString.cs" />
+    <None Include="Resources\CodeFileWcfProxy.cs" />
+    <Compile Include="ResourcesManager\TypeSelectorLanguage.cs">
+    </Compile>
+    <Compile Include="SessionVariable.cs" />
+    <Compile Include="SeverStatePointer.cs" />
+    <Compile Include="SourceValuePointerList.cs" />
+    <Compile Include="StringCollectionPointer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StringCollectionVariable.cs" />
+    <Compile Include="ListForEachMethodInfo.cs" />
+    <Compile Include="ListVariable.cs" />
+    <Compile Include="ListPointer.cs" />
+    <Compile Include="DebugDelegates.cs" />
+    <Compile Include="Debugger.cs" />
+    <Compile Include="DesignObjects.cs" />
+    <Compile Include="DesignService.cs" />
+    <Compile Include="dlgObjectUsage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgObjectUsage.Designer.cs">
+      <DependentUpon>dlgObjectUsage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSelAssemblies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelAssemblies.designer.cs">
+      <DependentUpon>DlgSelAssemblies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSelectEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectEvent.Designer.cs">
+      <DependentUpon>DlgSelectEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSelectMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectMethod.Designer.cs">
+      <DependentUpon>DlgSelectMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSelectProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectProperty.Designer.cs">
+      <DependentUpon>DlgSelectProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Event\CustomEventHandlerType.cs" />
+    <Compile Include="Event\CustomEventPointer.cs" />
+    <Compile Include="Event\EventClass.cs" />
+    <Compile Include="Event\EventHandlerMethod.cs" />
+    <Compile Include="Event\EventParamPointer.cs" />
+    <Compile Include="Event\EventPointer.cs" />
+    <Compile Include="Event\FireEventMethod.cs" />
+    <Compile Include="Interface\InterfaceCustomMethod.cs" />
+    <Compile Include="Interface\InterfaceCustomProperty.cs" />
+    <Compile Include="Interface\InterfaceEventPointer.cs" />
+    <Compile Include="Interface\InterfaceMethodPointer.cs" />
+    <Compile Include="Interface\InterfacePropertyPointer.cs" />
+    <Compile Include="FormDebugger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDebugger.Designer.cs">
+      <DependentUpon>FormDebugger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWarning.Designer.cs">
+      <DependentUpon>FormWarning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ICodeCompiler.cs" />
+    <Compile Include="ICustomPointer.cs" />
+    <Compile Include="Interface\BaseMethod.cs" />
+    <Compile Include="Interface\InterfaceClass.cs" />
+    <Compile Include="Interface\InterfacePointer.cs" />
+    <Compile Include="Interface\MethodOverride.cs" />
+    <Compile Include="Interface\ParameterClassBaseProperty.cs" />
+    <Compile Include="Interface\PropertyOverride.cs" />
+    <Compile Include="Interface\TreeNodeInterface.cs" />
+    <Compile Include="ITypeScopeHolder.cs" />
+    <Compile Include="MathExpMethod.cs" />
+    <Compile Include="MathNodeActionInput.cs" />
+    <Compile Include="MathNodeField.cs" />
+    <Compile Include="MenuUtil\ClassWrapper.cs" />
+    <Compile Include="MenuUtil\EventItem.cs" />
+    <Compile Include="MenuUtil\EventItemClassPointer.cs" />
+    <Compile Include="MenuUtil\LimnorContextMenuCollection.cs" />
+    <Compile Include="MenuUtil\MenuItemData.cs" />
+    <Compile Include="MenuUtil\MethodItem.cs" />
+    <Compile Include="MenuUtil\MethodItemClassPointer.cs" />
+    <Compile Include="MenuUtil\MethodItemWrapper.cs" />
+    <Compile Include="MenuUtil\PropertyItem.cs" />
+    <Compile Include="MenuUtil\PropertyItemClassPointer.cs" />
+    <Compile Include="MethodBuilder\AB_Constructor.cs" />
+    <Compile Include="MethodBuilder\ActionGroupDesignerHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionGroupDiagramViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Action\Action.cs" />
+    <Compile Include="Action\ActionBranching.cs" />
+    <Compile Include="Action\AB_ActionString.cs" />
+    <Compile Include="Action\AB_ActionSingle.cs" />
+    <Compile Include="Action\BranchList.cs" />
+    <Compile Include="MethodBuilder\ActionListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionListControl.Designer.cs">
+      <DependentUpon>ActionListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionPort.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewer.designer.cs">
+      <DependentUpon>ActionViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewerActionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewerConstructor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewerDecisionTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewerIF.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewerLoop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewerSingleAction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewerSubMethod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViwerForLoop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ComponentIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ComponentIconActionBranchParameter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ComponentIconArrayPointer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ComponentIconData.cs" />
+    <Compile Include="MethodBuilder\ComponentIconLocal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ComponentIconParameter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ComponentIconsHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ComponentIconsHolder.Designer.cs">
+      <DependentUpon>ComponentIconsHolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\ConstructorClass.cs" />
+    <Compile Include="MethodBuilder\ComponentIconListPointer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\CustomMethodParameterPointer.cs" />
+    <Compile Include="MethodBuilder\CustomMethodPointer.cs" />
+    <Compile Include="MethodBuilder\DebugBehaviorService.cs" />
+    <Compile Include="MethodBuilder\DecisionTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\DecisionTableControl.Designer.cs">
+      <DependentUpon>DecisionTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\DlgActionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\DlgActionList.Designer.cs">
+      <DependentUpon>DlgActionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\dlgConstructorParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\dlgConstructorParameters.Designer.cs">
+      <DependentUpon>dlgConstructorParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\DlgDecisionTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\DlgDecisionTable.Designer.cs">
+      <DependentUpon>DlgDecisionTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\DlgMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\DlgMethod.Designer.cs">
+      <DependentUpon>DlgMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\dlgMethodTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\dlgMethodTest.designer.cs">
+      <DependentUpon>dlgMethodTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\FileName.cs" />
+    <Compile Include="MethodBuilder\IActionOwner.cs" />
+    <Compile Include="MethodBuilder\IMethodDiagram.cs" />
+    <Compile Include="MethodBuilder\IMethodPointerHolder.cs" />
+    <Compile Include="MethodBuilder\ListItem.cs" />
+    <Compile Include="MethodBuilder\LocalVariable.cs" />
+    <Compile Include="MethodBuilder\MethodCreateValue.cs" />
+    <Compile Include="MethodBuilder\MethodDebugDesigner.cs" />
+    <Compile Include="MethodBuilder\MethodDesignerHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\MethodDesignerHolder.designer.cs">
+      <DependentUpon>MethodDesignerHolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\MethodDiagramViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\MethodDiagramViewer.designer.cs">
+      <DependentUpon>MethodDiagramViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\MethodInfoPointer.cs" />
+    <Compile Include="MethodBuilder\MethodNameCreation.cs" />
+    <Compile Include="MethodBuilder\MethodClass.cs" />
+    <Compile Include="ClassInstancePointer.cs" />
+    <Compile Include="ComponentSerializer.cs" />
+    <Compile Include="DataTypePointer.cs" />
+    <Compile Include="DebugConsole.cs" />
+    <Compile Include="DebugRun.cs" />
+    <Compile Include="DebugRunForm.cs" />
+    <Compile Include="DesignerException.cs" />
+    <Compile Include="DesignUtil.cs" />
+    <Compile Include="ClassPointer.cs" />
+    <Compile Include="DictionaryProperty.cs" />
+    <Compile Include="DlgComponents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgComponents.Designer.cs">
+      <DependentUpon>DlgComponents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventAction.cs" />
+    <Compile Include="FormActionParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormActionParameters.Designer.cs">
+      <DependentUpon>FormActionParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMsg.Designer.cs">
+      <DependentUpon>FormMsg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmObjectExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmObjectExplorer.Designer.cs">
+      <DependentUpon>FrmObjectExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IXDesignerViewer.cs" />
+    <Compile Include="LimnorApp.cs" />
+    <Compile Include="LimnorConsole.cs" />
+    <Compile Include="LimnorKiosk.cs" />
+    <Compile Include="LimnorWinApp.cs" />
+    <Compile Include="MethodBuilder\MethodParamPointer.cs" />
+    <Compile Include="MethodBuilder\MethodPointer.cs" />
+    <Compile Include="MethodBuilder\MethodReturnAttribute.cs" />
+    <Compile Include="MethodBuilder\MethodReturnMethod.cs" />
+    <Compile Include="MethodBuilder\MethodSegment.cs" />
+    <Compile Include="MethodBuilder\MethodTest.cs" />
+    <Compile Include="MethodBuilder\MethodTestData.cs" />
+    <Compile Include="MethodBuilder\MethodWrapper.cs" />
+    <Compile Include="MethodBuilder\SubMethodInfo.cs" />
+    <Compile Include="MethodBuilder\SubMethodInfoPointer.cs" />
+    <Compile Include="MethodBuilder\TreeNodeConstructor.cs" />
+    <Compile Include="MethodBuilder\TypeEditorMethodPointer.cs" />
+    <Compile Include="MethodBuilder\UndoDelComponent.cs" />
+    <Compile Include="MethodBuilder\UndoActionGroupState.cs" />
+    <Compile Include="MultiPanes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MultiPanes.Designer.cs">
+      <DependentUpon>MultiPanes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NameChangeEventArg.cs" />
+    <Compile Include="NameID.cs" />
+    <Compile Include="NamespaceClass.cs" />
+    <Compile Include="NullObjectPointer.cs" />
+    <Compile Include="ObjectExplorer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectTextID.cs" />
+    <Compile Include="ParameterClass.cs" />
+    <Compile Include="ParameterClassArrayIndex.cs" />
+    <Compile Include="ParameterClassSubMethod.cs" />
+    <Compile Include="ParameterListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ParameterListBox.Designer.cs">
+      <DependentUpon>ParameterListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParameterValue.cs">
+    </Compile>
+    <Compile Include="ProjectSerializer.cs" />
+    <Compile Include="PropertiesWrapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyPointer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Property\CustomPropertyPointer.cs" />
+    <Compile Include="Property\GetterClass.cs" />
+    <Compile Include="Property\IProperty.cs" />
+    <Compile Include="Property\MathNodePropertyField.cs" />
+    <Compile Include="Property\MathNodePropertySetValue.cs" />
+    <Compile Include="Property\PropertyClass.cs" />
+    <Compile Include="Property\PropertyReturnAction.cs" />
+    <Compile Include="Property\PropertyValueClass.cs" />
+    <Compile Include="Property\SetterClass.cs" />
+    <Compile Include="Property\SetterPointer.cs" />
+    <Compile Include="Property\TypeEditorGetter.cs" />
+    <Compile Include="Property\TypeEditorSetter.cs" />
+    <Compile Include="RootComponentData.cs" />
+    <Compile Include="StaticPropertyHolder.cs" />
+    <Compile Include="TextBoxAutoComplete.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThisPointer.cs" />
+    <Compile Include="TreeNodeDatabaseConnection.cs" />
+    <Compile Include="TreeNodeLocalizeResource.cs" />
+    <Compile Include="TypeConverterObjectString.cs" />
+    <Compile Include="TypeConverterParameterValue.cs" />
+    <Compile Include="TypeEditorClassType.cs" />
+    <Compile Include="TypeEditorExpressionValue.cs" />
+    <Compile Include="TypeEditorHandlerMethod.cs" />
+    <Compile Include="TypeEditors.cs" />
+    <Compile Include="TypeEditorSessionVariable.cs" />
+    <Compile Include="TypeEditorSessionVariables.cs" />
+    <Compile Include="TypeEditorValue.cs" />
+    <Compile Include="TypeOfPointer.cs" />
+    <Compile Include="TypePointer.cs" />
+    <Compile Include="TypeSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TypeSelector.Designer.cs">
+      <DependentUpon>TypeSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TypeSelectorWebPage.cs" />
+    <Compile Include="TypeSelectorWebSite.cs" />
+    <Compile Include="UITypeEditorMathExpression2.cs" />
+    <Compile Include="UserControlDebugger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDebugger.Designer.cs">
+      <DependentUpon>UserControlDebugger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualProgrammingDesigner.cs" />
+    <Compile Include="WebControlHtml.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebHandlerBlock.cs" />
+    <Compile Include="WebWizard.cs" />
+    <Compile Include="Web\ComponentIconHtmlElement.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Web\DialogCreateWebFolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Web\DialogCreateWebFolder.Designer.cs">
+      <DependentUpon>DialogCreateWebFolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web\DialogHtml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Web\DialogHtml.Designer.cs">
+      <DependentUpon>DialogHtml.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web\DialogHtmlFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Web\DialogHtmlFile.Designer.cs">
+      <DependentUpon>DialogHtmlFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web\DialogSelectHtmlMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Web\DialogSelectHtmlMap.Designer.cs">
+      <DependentUpon>DialogSelectHtmlMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web\EnumHtmlCursor.cs" />
+    <Compile Include="Web\FormHtmlEditorDebug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Web\FormHtmlEditorDebug.Designer.cs">
+      <DependentUpon>FormHtmlEditorDebug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web\HtmlDomEnums.cs" />
+    <Compile Include="Web\HtmlElementPointer.cs" />
+    <Compile Include="Web\HtmlElementUnknown.cs" />
+    <Compile Include="Web\HtmlElement_a.cs" />
+    <Compile Include="Web\HtmlElement_area.cs" />
+    <Compile Include="Web\HtmlElement_Base.cs" />
+    <Compile Include="Web\HtmlElement_bdo.cs" />
+    <Compile Include="Web\HtmlElement_blockquote.cs" />
+    <Compile Include="Web\HtmlElement_body.cs" />
+    <Compile Include="Web\HtmlElement_br.cs" />
+    <Compile Include="Web\HtmlElement_button.cs" />
+    <Compile Include="Web\HtmlElement_col.cs" />
+    <Compile Include="Web\HtmlElement_document.cs" />
+    <Compile Include="Web\HtmlElement_embed.cs" />
+    <Compile Include="Web\HtmlElement_fileupload.cs" />
+    <Compile Include="Web\HtmlElement_flash.cs" />
+    <Compile Include="Web\HtmlElement_input_checkbox.cs" />
+    <Compile Include="Web\HtmlElement_cite.cs" />
+    <Compile Include="Web\HtmlElement_code.cs" />
+    <Compile Include="Web\HtmlElement_dd.cs" />
+    <Compile Include="Web\HtmlElement_div.cs" />
+    <Compile Include="Web\HtmlElement_dl.cs" />
+    <Compile Include="Web\HtmlElement_fieldset.cs" />
+    <Compile Include="Web\HtmlElement_form.cs" />
+    <Compile Include="Web\HtmlElement_h1.cs" />
+    <Compile Include="Web\HtmlElement_head.cs" />
+    <Compile Include="Web\HtmlElement_hr.cs" />
+    <Compile Include="Web\HtmlElement_iframe.cs" />
+    <Compile Include="Web\HtmlElement_img.cs" />
+    <Compile Include="Web\HtmlElement_input.cs" />
+    <Compile Include="Web\HtmlElement_input_file.cs" />
+    <Compile Include="Web\HtmlElement_input_hidden.cs" />
+    <Compile Include="Web\HtmlElement_input_password.cs" />
+    <Compile Include="Web\HtmlElement_input_radio.cs" />
+    <Compile Include="Web\HtmlElement_input_reset.cs" />
+    <Compile Include="Web\HtmlElement_input_submit.cs" />
+    <Compile Include="Web\HtmlElement_input_text.cs" />
+    <Compile Include="Web\HtmlElement_kbd.cs" />
+    <Compile Include="Web\HtmlElement_label.cs" />
+    <Compile Include="Web\HtmlElement_li.cs" />
+    <Compile Include="Web\HtmlElement_link.cs" />
+    <Compile Include="Web\HtmlElement_map.cs" />
+    <Compile Include="Web\HtmlElement_menu.cs" />
+    <Compile Include="Web\HtmlElement_menubar.cs" />
+    <Compile Include="Web\HtmlElement_music.cs" />
+    <Compile Include="Web\HtmlElement_object.cs" />
+    <Compile Include="Web\HtmlElement_ol.cs" />
+    <Compile Include="Web\HtmlElement_optgroup.cs" />
+    <Compile Include="Web\HtmlElement_option.cs" />
+    <Compile Include="Web\HtmlElement_p.cs" />
+    <Compile Include="Web\HtmlElement_pre.cs" />
+    <Compile Include="Web\HtmlElement_script.cs" />
+    <Compile Include="Web\HtmlElement_select.cs" />
+    <Compile Include="Web\HtmlElement_span.cs" />
+    <Compile Include="Web\HtmlElement_table.cs" />
+    <Compile Include="Web\HtmlElement_td.cs" />
+    <Compile Include="Web\HtmlElement_textarea.cs" />
+    <Compile Include="Web\HtmlElement_treeitem.cs" />
+    <Compile Include="Web\HtmlElement_tv.cs" />
+    <Compile Include="Web\HtmlElement_ul.cs" />
+    <Compile Include="Web\HtmlElement_window.cs" />
+    <Compile Include="Web\HtmlUtility2.cs" />
+    <Compile Include="Web\IDesignerFormView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\IWebHost.cs" />
+    <Compile Include="Web\screen.cs" />
+    <Compile Include="Web\ScriptManager.cs" />
+    <Compile Include="Web\TreeNodeHtmlElement.cs" />
+    <Compile Include="Web\TreeNodeHtmlElementCollection.cs" />
+    <Compile Include="Web\TreeNodeHtmlEventCollection.cs" />
+    <Compile Include="Web\TreeNodeHtmlMethodCollection.cs" />
+    <Compile Include="Web\TreeNodeHtmlPropertyCollection.cs" />
+    <Compile Include="Web\TypeEditorHtmlImgSrc.cs" />
+    <Compile Include="Web\TypeEditorHtmlMap.cs" />
+    <Compile Include="Web\WebChildPage.cs" />
+    <Compile Include="Web\WebHost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Web\WebHost.Designer.cs">
+      <DependentUpon>WebHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web\WebPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WrapDataTypePointer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Component.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Drawing2D\Drawing2D.csproj">
+      <Project>{D07DAF1C-D5B9-4049-9B77-88E77E74A0F7}</Project>
+      <Name>Drawing2D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\DynamicEventLinker\DynamicEventLinker.csproj">
+      <Project>{FC941E3E-3232-40B5-AE21-BF4E7BA8CBD5}</Project>
+      <Name>DynamicEventLinker</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\FileUtil\FileUtil.csproj">
+      <Project>{286619B2-161A-4076-BE1E-66E46E9F79C4}</Project>
+      <Name>FileUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\HtmlAgilityPack\HtmlAgilityPack VS2008.csproj">
+      <Project>{193BB801-054F-4729-9D5D-FCE1E32594BF}</Project>
+      <Name>HtmlAgilityPack VS2008</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\IISutility\IISutility.csproj">
+      <Project>{0D209AA3-E3A5-4EE5-8CB2-D79DF71DEDA2}</Project>
+      <Name>IISutility</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\LFilePath\LFilePath.csproj">
+      <Project>{CE3B2995-8D4C-4632-BF4B-24EA0E3E86F9}</Project>
+      <Name>LFilePath</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\LimnorDatabase\LimnorDatabase.csproj">
+      <Project>{77E6BE2E-B10D-40BD-A439-BFDA0AF47D21}</Project>
+      <Name>LimnorDatabase</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\LimnorKiosk\LimnorKiosk.csproj">
+      <Project>{08C4C36E-4F08-4AA7-9064-1B04D01CD095}</Project>
+      <Name>LimnorKiosk</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\LimnorWebBrowser\LimnorWebBrowser.csproj">
+      <Project>{11785358-04F2-4262-AD53-F10769210337}</Project>
+      <Name>LimnorWebBrowser</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MathExp\MathExp.csproj">
+      <Project>{A7287685-2A25-4A8D-9604-FC95CA9432C0}</Project>
+      <Name>MathExp</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\PhpComponents\PhpComponents.csproj">
+      <Project>{32576BD6-317F-4264-AF7A-3F8E12F6FBEA}</Project>
+      <Name>PhpComponents</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginManager\PluginManager.csproj">
+      <Project>{A4D86D2E-8D98-47CE-A949-8B8970B5A498}</Project>
+      <Name>PluginManager</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\PMEXmlParser\PMEXmlParser\PMEXmlParser.csproj">
+      <Project>{EA85C1D2-751B-4B1F-846E-5129A49DBC97}</Project>
+      <Name>PMEXmlParser</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ProgElements\ProgElements.csproj">
+      <Project>{CEE3B972-82A2-4069-B64E-3703400CBE8D}</Project>
+      <Name>ProgElements</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Reporting\Reporting.csproj">
+      <Project>{2e9b12e3-2768-444e-b3a9-327fa836ba6b}</Project>
+      <Name>Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RichTextbox\RichTextBoxEx.csproj">
+      <Project>{89628c9e-f0a3-4223-822d-6ad69fb605ff}</Project>
+      <Name>RichTextBoxEx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TraceLog\TraceLog.csproj">
+      <Project>{12B36BAB-E964-4BD8-8E4C-CB856BE9147F}</Project>
+      <Name>TraceLog</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\UIUtil\UIUtil.csproj">
+      <Project>{4AA4020F-EDB8-4A53-8EAE-00740985A910}</Project>
+      <Name>UIUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VOB\VOB.csproj">
+      <Project>{bd196c20-f9eb-48a0-be42-31906dfc0a91}</Project>
+      <Name>VOB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VPLDrawing\VPLDrawing.csproj">
+      <Project>{09A4BD50-F0A7-45E1-AA4B-635B8F5E37E2}</Project>
+      <Name>VPLDrawing</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VPL\VPL.csproj">
+      <Project>{66ED66A8-13A5-4E70-B482-8143EC714DEF}</Project>
+      <Name>VPL</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VSPrj\VSPrj.csproj">
+      <Project>{3CE654BD-4A8B-4069-BCCE-C46AC55E056C}</Project>
+      <Name>VSPrj</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfHost\WcfHost.csproj">
+      <Project>{E7A655C7-F8C7-4A02-B1F1-755019BD51A3}</Project>
+      <Name>WcfHost</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebBuilder\WebBuilder.csproj">
+      <Project>{26578B6E-E604-4765-9FCA-95DA597B7190}</Project>
+      <Name>WebBuilder</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebServerBuilder\WebServerBuilder.csproj">
+      <Project>{52A1E501-EEB4-4131-B864-2B5F0630265F}</Project>
+      <Name>WebServerBuilder</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebServerProcessor\WebServerProcessor.csproj">
+      <Project>{50C75605-C26F-4B6F-B1F2-EA36360B10E2}</Project>
+      <Name>WebServerProcessor</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsManager\WindowsManager.csproj">
+      <Project>{9E36ACAB-AE6D-49BD-978C-121AAF5C1360}</Project>
+      <Name>WindowsManager</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsUtility\WindowsUtility.csproj">
+      <Project>{345C1F39-8E66-4464-9CBE-537F792E6B10}</Project>
+      <Name>WindowsUtility</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlSerializer\XmlSerializer.csproj">
+      <Project>{BDDB3976-4FBD-4F85-85AA-ED8D6474C141}</Project>
+      <Name>XmlSerializer</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlUtil\XmlUtil.csproj">
+      <Project>{C025E0A3-A59B-465B-A4DE-9E90534B63F4}</Project>
+      <Name>XmlUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DialogOneTimeMessage.resx">
+      <DependentUpon>DialogOneTimeMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgNewName.resx">
+      <DependentUpon>DlgNewName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSelectHandler.resx">
+      <DependentUpon>DlgSelectHandler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImage.resx">
+      <DependentUpon>FormImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProgress.resx">
+      <DependentUpon>FormProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRTF.resx">
+      <DependentUpon>FormRTF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWeb.resx">
+      <DependentUpon>FormWeb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\defObjectIcon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\attributes.bmp" />
+    <EmbeddedResource Include="Resources\eventHandlers.bmp" />
+    <EmbeddedResource Include="Resources\events.bmp" />
+    <EmbeddedResource Include="Resources\methods.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\properties.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\event.bmp" />
+    <EmbeddedResource Include="Resources\eventHandler.bmp" />
+    <EmbeddedResource Include="Resources\method.bmp" />
+    <EmbeddedResource Include="Resources\methodAsHandler.bmp" />
+    <EmbeddedResource Include="Resources\param.bmp" />
+    <EmbeddedResource Include="Resources\property.bmp" />
+    <EmbeddedResource Include="Resources\prop_readonly.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\enumValue.bmp" />
+    <EmbeddedResource Include="Resources\enumValues.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormActionParameters.resx">
+      <DependentUpon>FormActionParameters.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmObjectExplorer.resx">
+      <DependentUpon>FrmObjectExplorer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\cancel.bmp" />
+    <EmbeddedResource Include="Resources\OK.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormMsg.resx">
+      <DependentUpon>FormMsg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultiPanes.resx">
+      <DependentUpon>MultiPanes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\arrorLT.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\maxbuttonHighlight.bmp" />
+    <EmbeddedResource Include="Resources\maxbuttonNormal.bmp" />
+    <EmbeddedResource Include="Resources\maxRestoreHighlight.bmp" />
+    <EmbeddedResource Include="Resources\maxRestoreNormal.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\run.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\actions.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\methods_withActs.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\propertyWithAction.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\propertiesWithAction.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\actiongroup.bmp" />
+    <EmbeddedResource Include="Resources\actiongroups.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\form2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\consoleApp.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\console2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\objects.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgComponents.resx">
+      <DependentUpon>DlgComponents.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\object.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MethodBuilder\ActionViewer.resx">
+      <DependentUpon>ActionViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\DlgMethod.resx">
+      <DependentUpon>DlgMethod.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\dlgMethodTest.resx">
+      <DependentUpon>dlgMethodTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\MethodDesignerHolder.resx">
+      <DependentUpon>MethodDesignerHolder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\MethodDiagramViewer.resx">
+      <DependentUpon>MethodDiagramViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\msgbox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\abc.bmp" />
+    <EmbeddedResource Include="Resources\bool.bmp" />
+    <EmbeddedResource Include="Resources\byte.bmp" />
+    <EmbeddedResource Include="Resources\char.bmp" />
+    <EmbeddedResource Include="Resources\date.bmp" />
+    <EmbeddedResource Include="Resources\decimal.bmp" />
+    <EmbeddedResource Include="Resources\int.bmp" />
+    <EmbeddedResource Include="Resources\obj.bmp" />
+    <EmbeddedResource Include="Resources\sbyte.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ParameterListBox.resx">
+      <DependentUpon>ParameterListBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\abd_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_void.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\eargv.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormDebugger.resx">
+      <DependentUpon>FormDebugger.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\3color.bmp" />
+    <EmbeddedResource Include="UserControlDebugger.resx">
+      <DependentUpon>UserControlDebugger.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\btRun.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dlgObjectUsage.resx">
+      <DependentUpon>dlgObjectUsage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSelAssemblies.resx">
+      <DependentUpon>DlgSelAssemblies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSelectMethod.resx">
+      <DependentUpon>DlgSelectMethod.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSelectProperty.resx">
+      <DependentUpon>DlgSelectProperty.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\dlgConstructorParameters.resx">
+      <DependentUpon>dlgConstructorParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\breakPoint.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\breakPointPause.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\breakPointActionEnd.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActionBreakStart.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActionBreakStartPause.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActionBreakEnd.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActionBreakEndPause.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActionBreakStartEnd.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActionBreakStartEndPause1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActionBreakStartEndPause2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prop_readonly1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\propertyWithAction1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\propertiesWithAction1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\methods_withActs1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\methods1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\methodAsHandler1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\method1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eventHandlers1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eventHandler1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attributes1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actiongroups1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actiongroup1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\run1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\objects1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\objects2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\objects21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\propRet.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\method2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\method21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\methods2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\methods21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\console21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abd_21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events211.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event211.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events22.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property211.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property212.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property213.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property214.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property215.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property2151.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property21511.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property215111.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property2151111.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property216.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property217.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property2171.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property22.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property218.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property23.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property219.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property2110.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property221.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property2181.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties211.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties22.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\methods211.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\methods22.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actiongroup2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actiongroup11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgSelectEvent.resx">
+      <DependentUpon>DlgSelectEvent.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\array.bmp" />
+    <EmbeddedResource Include="TypeSelector.resx">
+      <DependentUpon>TypeSelector.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event31.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event22.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event221.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event32.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event311.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property2161.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property21611.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\array1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\array11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormWarning.resx">
+      <DependentUpon>FormWarning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\math.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eq.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\method3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_new.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\actionInput.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\propertyField.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\propertyValue.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_interface2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ret.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\interfaces.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ob_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\po_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obp_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obpv_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obv_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\opa_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obva_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obpva_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obpa_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oba_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oa_property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ob_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oa_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oba_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\op_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\opa_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obp_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obpa_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obv_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obva_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obpv_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obpva_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actRet.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c_interface.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MethodBuilder\ActionListControl.resx">
+      <DependentUpon>ActionListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\DecisionTableControl.resx">
+      <DependentUpon>DecisionTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\DlgActionList.resx">
+      <DependentUpon>DlgActionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\DlgDecisionTable.resx">
+      <DependentUpon>DlgDecisionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\decisionTable.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MethodBuilder\ComponentIconsHolder.resx">
+      <DependentUpon>ComponentIconsHolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\actionList.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sc.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loopBreak.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\cloud.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\earth.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgDesigners.resx">
+      <DependentUpon>DlgDesigners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\webMethod.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\co_method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgRename.resx">
+      <DependentUpon>DlgRename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesManager\DlgResMan.resx">
+      <DependentUpon>DlgResMan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventMap\DialogSelectComponentIcon.resx">
+      <DependentUpon>DialogSelectComponentIcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventMap\EventPathHolder.resx">
+      <DependentUpon>EventPathHolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesManager\ResourceLanguage1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceLanguage1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\winService.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_method.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_handler.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newLineBreak.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_up.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_down.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del_breakPoint.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_eventSelected.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ok.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_removeFromEvent.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_upIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_downIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_breakpoint.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_del_breakPoint.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_eventHandlers.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_eventSelectedByMouse.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_moveUnlinked.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_moveIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_webMethod.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_methodIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\av_forEach.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_av_forEach.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_custProp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_custEvent.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_custEventSelected.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_custEventSelectedbyMouse.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_delEvent.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_createEventFireAction.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_setProperty.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_handlerMethod.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_overrideMethod.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_overrideProperty.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_action.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_copy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_rename.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_changeIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_var.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_constructor.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_customMethodAction.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_custPropAction.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_propAction.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_assembly.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_baseClass.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_interfaceIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_prop.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_param.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newCustProp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newConstructor.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_constructor1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_attributes.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newAttribute.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_obj.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newMethodAction.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_methods.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_dialog.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newPropAction.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_properties.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_events.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_replace.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_actLst.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_condition.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newParam.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_class.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newVar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newAction.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_loop.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_decisionTable.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_door.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_loopBreak.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newMethod.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newEvent.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newWebMethod.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_earth.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connections.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_connections.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_strings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_imgs.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_icons.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\strings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\audio.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\audios.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\files.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_file.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resx.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_regionLanguage.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_language.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_language.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\da.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\de.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\el.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\en.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\es.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\et.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\he.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\is.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\it.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\km.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pt-br.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pt-pt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\th.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zh-CHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zh-TW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgText.resx">
+      <DependentUpon>DlgText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesManager\DlgMapResources.resx">
+      <DependentUpon>DlgMapResources.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesManager\DlgSelectResourceName.resx">
+      <DependentUpon>DlgSelectResourceName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesManager\_res.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ResourcesManager\ResourceHelp.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_selected.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_dots.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sub_param.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_action_invalid.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_as.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\largeIcon_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\largeIcon_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smallIcon_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smallIcon_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_array.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DialogCompileCode.resx">
+      <DependentUpon>DialogCompileCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogCopyDLL.resx">
+      <DependentUpon>DialogCopyDLL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogSelectCollectiontype.resx">
+      <DependentUpon>DialogSelectCollectiontype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogSelectWebName.resx">
+      <DependentUpon>DialogSelectWebName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgEditArrayItems.resx">
+      <DependentUpon>DlgEditArrayItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgMakeTypeList.resx">
+      <DependentUpon>DlgMakeTypeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSelectTypeParameters.resx">
+      <DependentUpon>DlgSelectTypeParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSessionVariable.resx">
+      <DependentUpon>DlgSessionVariable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLanguageIcon.resx">
+      <DependentUpon>FormLanguageIcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\DlgVariableName.resx">
+      <DependentUpon>DlgVariableName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Remoting\DlgAddWcfService.resx">
+      <DependentUpon>DlgAddWcfService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Remoting\DlgAddWebService.resx">
+      <DependentUpon>DlgAddWebService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Remoting\DlgAskFileOverwrite.resx">
+      <DependentUpon>DlgAskFileOverwrite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Remoting\DlgManageWebService.resx">
+      <DependentUpon>DlgManageWebService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Remoting\DlgUpdateWebServices.resx">
+      <DependentUpon>DlgUpdateWebServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Remoting\FormWebUtil.resx">
+      <DependentUpon>FormWebUtil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\msg.bmp" />
+    <EmbeddedResource Include="Web\DialogHtml.resx">
+      <DependentUpon>DialogHtml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Web\FormHtmlEditorDebug.resx">
+      <DependentUpon>FormHtmlEditorDebug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Web\WebHost.resx">
+      <DependentUpon>WebHost.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_defInst.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_webServerHandler.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_webHandler2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webMethod1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\services.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newService.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zh-CHS1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zh_HK.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zh_MO.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zh_SG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_dataTransfer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_handler1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bringToFront.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sendToBack.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_action1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_webServerMethod.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_webClientMethod.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_webClientMethod1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_webServerMethod1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_webClientMethod2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_webServerMethod2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_custPropClient.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_custPropClientNew.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_custPropServer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_custPropServerNew.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_custPropClient_act.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_custPropServer_act.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_genericParameter.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_close.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\startHtmlEditor.js" />
+    <None Include="Resources\_html.ico" />
+    <None Include="Resources\_body.ico" />
+    <None Include="Resources\_hmlElement.ico" />
+    <None Include="Resources\htmlEditor.bmp" />
+    <None Include="Resources\webPageEditor.bmp" />
+    <None Include="Resources\panAll.cur" />
+    <Content Include="Web\emptyPageEdit.htm" />
+    <EmbeddedResource Include="DialogSessionVariables.resx">
+      <DependentUpon>DialogSessionVariables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Web\DialogCreateWebFolder.resx">
+      <DependentUpon>DialogCreateWebFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Web\DialogHtmlFile.resx">
+      <DependentUpon>DialogHtmlFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Web\DialogSelectHtmlMap.resx">
+      <DependentUpon>DialogSelectHtmlMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Web\startHtmlEditor.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)$(ConfigurationName)
+copy $(TargetDir)$(TargetName).pdb $(SolutionDir)$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>
