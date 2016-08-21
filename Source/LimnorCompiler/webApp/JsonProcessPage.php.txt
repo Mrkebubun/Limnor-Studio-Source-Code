@@ -1,0 +1,810 @@
+<?php
+/*
+	Json Data Binding Library -- An abstract class for server side processing and make client response
+	Copyright Longflow Enterprises Ltd
+	2011
+
+	each server response php page should derive a sub-class from this class
+	and implement abstract functions to do processing
+*/
+
+$thisInstance;
+
+function myErrorHandler($errno, $errstr, $errfile, $errline)
+{
+	//var_dump(debug_backtrace());
+	if (!(error_reporting() & $errno)) {
+		// This error code is not included in error_reporting
+		return;
+	}
+	$e;
+	switch ($errno) {
+	case E_USER_ERROR:
+		$e = "<b>My ERROR</b> [$errno] $errstr<br />\n  Fatal error on line $errline in file $errfile,  PHP ". PHP_VERSION ." ( ". PHP_OS . ")<br />\nAborting...<br />\n";
+		$GLOBALS["debugError"] = $e;
+		echo $e;
+		exit(1);
+		break;
+	case E_USER_WARNING:
+		$e = "<b>My WARNING</b> [$errno] $errstr<br />\n";
+		$GLOBALS["debugError"] = $e;
+		echo $e;
+		break;
+	case E_USER_NOTICE:
+		$e = "<b>My NOTICE</b> [$errno] $errstr<br />\n";
+		$GLOBALS["debugError"] = $e;
+		echo $e;
+		break;
+	default:
+		$e = "error type: [$errno] $errstr<br />\n";
+		$GLOBALS["debugError"] = $e;
+		echo $e;
+		break;
+	}
+	//$thisInstance->AddDownloadValue('serverFailure','Cannot update file.');
+	/* Don't execute PHP internal error handler */
+	return true;
+}
+//function variableIsDefined($v)
+//{
+//	$defined_vars = get_defined_vars();
+//	return array_key_exists($v, $defined_vars);
+//}
+class KeyValue
+{
+	public $key;
+	public $value;
+}
+abstract class JsonProcessPage
+{
+	public $PhpPhysicalFolder;
+	public $IPAddress;
+	public $IPAddress2;
+	public $ServerErrorMessage;
+	public $ActionFail;
+	protected $jsonFromClient; //a WebRequestOrResponse from client
+	protected $response;       //a WebRequestOrResponse to be sent to the client
+	protected $shoudlSendResponse = true;
+	public $DEBUG = false;
+	protected $DEBUG_SYMBOL="F3E767376E6546a8A15D97951C849CE5";
+	abstract protected function OnRequestStart();
+	abstract protected function OnRequestClientData();
+	abstract protected function OnRequestGetData($value);
+	abstract protected function OnRequestPutData($value);
+	abstract protected function OnRequestExecution($method, $value);
+	abstract protected function OnRequestFinish();
+	
+	function __construct()
+	{
+		$this->DEBUG = false;
+		$this->IPAddress = $_SERVER['REMOTE_ADDR'];
+		$this->IPAddress2 = $this->get_ip_address();
+		$this->response = new WebRequestOrResponse();
+		$this->shoudlSendResponse = true;
+		$this->ServerErrorMessage = '';
+		$this->ActionFail = false;
+		$GLOBALS["debug"] = false;
+	}
+	public function get_ip_address()
+	{
+		if (!empty($_SERVER['HTTP_CLIENT_IP']) && $this->validate_ip($_SERVER['HTTP_CLIENT_IP']))
+			return $_SERVER['HTTP_CLIENT_IP'];
+
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+		{
+			$iplist = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+			foreach ($iplist as $ip)
+			{
+				if ($this->validate_ip($ip))
+					return $ip;
+			}
+		}
+
+		if (!empty($_SERVER['HTTP_X_FORWARDED']) && $this->validate_ip($_SERVER['HTTP_X_FORWARDED']))
+			return $_SERVER['HTTP_X_FORWARDED'];
+		if (!empty($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']) && $this->validate_ip($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']))
+			return $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'];
+		if (!empty($_SERVER['HTTP_FORWARDED_FOR']) && $this->validate_ip($_SERVER['HTTP_FORWARDED_FOR']))
+			return $_SERVER['HTTP_FORWARDED_FOR'];
+		if (!empty($_SERVER['HTTP_FORWARDED']) && $this->validate_ip($_SERVER['HTTP_FORWARDED']))
+			return $_SERVER['HTTP_FORWARDED'];
+
+		return $_SERVER['REMOTE_ADDR'];
+	}
+
+	public function validate_ip($ip)
+	{
+		if (filter_var($ip, FILTER_VALIDATE_IP, 
+							FILTER_FLAG_IPV4 | 
+							FILTER_FLAG_IPV6 |
+							FILTER_FLAG_NO_PRIV_RANGE | 
+							FILTER_FLAG_NO_RES_RANGE) === false)
+			return false;
+		self::$ip = $ip;
+		return true;
+	}
+	public function __call($method, $args)
+	{
+		if (isset($this->$method) === true) {
+			$func = $this->$method;
+			$func();
+		}
+	}
+	private function init()
+	{
+		if($this->response == null)
+		{
+			$this->response = new WebRequestOrResponse();
+			$this->shoudlSendResponse = true;
+		}
+		if($this->response->Calls == null)
+		{
+			$this->response->Calls = array();
+		}
+		if($this->response->values == null)
+		{
+			$this->response->values = array();
+		}
+	}
+	protected function AddApplyDataBindMethod($dataName)
+	{
+		$this->init();
+		$this->response->Calls = array_values($this->response->Calls);
+		if($dataName == null)
+		{
+			$this->response->Calls[] = '_setDataSource.call(this);';
+		}
+		else
+		{
+			$this->response->Calls[] = '_setDataSource.call(this,\''.$dataName.'\');';
+		}
+	}
+	public function SetServerComponentName($name)
+	{
+		$this->response->serverComponentName = $name;
+	}
+	public function AddClientScript($script)
+	{
+		$this->init();
+		$this->response->Calls = array_values($this->response->Calls);
+		$this->response->Calls[] = $script;
+	}
+	public function AddDownloadValue($name, $value)
+	{
+		$this->init();
+		$this->response->values[$name] = $value;
+	}
+	public function LogDebugInfo($msg)
+	{
+		if($this->DEBUG)
+		{
+			echo $msg;
+		}
+	}
+	protected function AddDataTable($name)
+	{
+		return $this->response->addTable($name);
+	}
+	//DataTableUpdator
+	protected function UpdateData($db)
+	{
+		$this->LogDebugInfo("Start UpdateData<br>");
+		$db->SetDebug($this->DEBUG);
+		$ret = true;
+		if ($this->jsonFromClient->Data != null)
+		{
+			$tn = count($this->jsonFromClient->Data);
+			if ($tn > 0)
+			{
+				foreach ($this->jsonFromClient->Data as $tbl)
+				{
+					if ($db->TableName != $tbl->TableName)
+					{
+						continue;
+					}
+					if ($tbl->Rows == null)
+					{
+						continue;
+					}
+					$rn = count($tbl->Rows);
+					if($rn == 0)
+					{
+						continue;
+					}
+					if ($tbl->Columns == null)
+					{
+						continue;
+					}
+					$cn = count($tbl->Columns);
+					if($cn == 0)
+					{
+						continue;
+					}
+					$pn = 0;
+					if($tbl->PrimaryKey != null)
+					{
+						$pn = count($tbl->PrimaryKey);
+					}
+					//
+					$hasUpdate = false;
+					$hasAdded = false;
+					$hasDeleted = false;
+					$keyColumnIndex = array();
+					$ColumnIndex = array();
+					for ($r = 0; $r < $rn; $r++)
+					{
+						$ru = $tbl->Rows[$r];// as JsonDataRowUpdate;
+						if (!$hasAdded)
+						{
+							if (property_exists($ru,'added'))
+							{
+								if ($ru->added)
+								{
+									$hasAdded = true;
+								}
+							}
+						}
+						if (!$hasDeleted)
+						{
+							if (property_exists($ru,'deleted'))
+							{
+								if($ru->deleted)
+								{
+									$hasDeleted = true;
+								}
+							}
+						}
+						if (!$hasUpdate)
+						{
+							$b = property_exists($ru,'added');
+							if($b)
+							{
+								$b = $ru->added;
+							}
+							if(!$b)
+							{
+								$b = property_exists($ru,'deleted');
+								if($b)
+								{
+									$b = $ru->deleted;
+								}
+							}
+							if (!$b)
+							{
+								$hasUpdate = true;
+							}
+						}
+						if ($hasAdded && $hasUpdate && $hasDeleted)
+						{
+							break;
+						}
+					}
+					if ($hasUpdate || $hasDeleted)
+					{
+						$keyColumnIndex = array(); 
+						for ($k = 0; $k < $pn; $k++)
+						{
+							for ($c = 0; $c < $cn; $c++)
+							{
+								if ($tbl->PrimaryKey[$k] ==  $tbl->Columns[$c]->Name)
+								{
+									$keyColumnIndex[$k] = $c;
+									break;
+								}
+							}
+						}
+					}
+					if ($hasUpdate || $hasDeleted || $hasAdded)
+					{
+						for ($c = 0; $c < $cn;$c++)
+						{
+							$ColumnIndex[$tbl->Columns[$c]->Name] = $c;
+						}
+					}
+					//
+					if ($hasUpdate)
+					{
+						$firstC = true;
+						$db->Parameters = array();
+						$sbQry = "UPDATE ".
+						$db->NameDelimitBegin.
+						$db->SourceTableName.
+						$db->NameDelimitEnd.
+								" SET ";
+						for ($c = 0; $c < $cn;$c++)
+						{
+							if ($tbl->Columns[$c]->ReadOnly)
+							{
+							}
+							else
+							{
+								if ($firstC)
+								{
+									$firstC = false;
+								}
+								else
+								{
+									$sbQry .= ", ";
+								}
+								$sbQry .= $db->NameDelimitBegin;
+								$sbQry .= $tbl->Columns[$c]->Name;
+								$sbQry .= $db->NameDelimitEnd;
+								$sbQry .= "=?";
+								$db->AddParameter($tbl->Columns[$c], $c);
+							}
+						}
+						$sbQry .= " WHERE ";
+						for ($k = 0; $k < $pn; $k++)
+						{
+							if ($k > 0)
+							{
+								$sbQry .= " AND ";
+							}
+							$sbQry .= $db->NameDelimitBegin;
+							$sbQry .= $tbl->PrimaryKey[$k];
+							$sbQry .= $db->NameDelimitEnd;
+							$sbQry .= "=?";
+							$db->AddFilterParameter($tbl->Columns[$ColumnIndex[$tbl->PrimaryKey[$k]]], $k);
+						}
+						//
+						$db->SetQuery($sbQry);
+						//
+						$rCount = 0;
+						$rfCount = 0;
+						for ($r = 0; $r < $rn; $r++)
+						{
+							$ru = $tbl->Rows[$r]; // as JsonDataRowUpdate;
+							$b = property_exists($ru,'added');
+							if($b)
+							{
+								$b = $ru->added;
+							}
+							if(!$b)
+							{
+								$b = property_exists($ru,'deleted');
+								if($b)
+								{
+									$b = $ru->deleted;
+								}
+							}
+							if (!$b)
+							{
+								for ($c = 0; $c < $cn; $c++)
+								{
+									if ($tbl->Columns[$c]->ReadOnly)
+									{
+									}
+									else
+									{
+										$db->SetParameterValue($tbl->Columns[$c],$c, $ru->ItemArray[$c]);
+									}
+								}
+								for ($k = 0; $k < $pn; $k++)
+								{
+									$db->SetFilterParameterValue($tbl->Columns[$ColumnIndex[$tbl->PrimaryKey[$k]]], $k, $ru->ItemArray[$keyColumnIndex[$k]]);
+								}
+								if($db->ExecuteNonQuery())
+								{
+									$rCount++;
+								}
+								else
+								{
+									$rfCount++;
+									$this->ServerErrorMessage = $this->ServerErrorMessage.'<br>'.$db->ErrorMessage;
+									$this->ActionFail = true;
+									$ret = false;
+								}
+							}
+						}
+						if($this->DEBUG)
+						{
+							echo "MySql: rows updated:". $rCount. "<br>";
+							echo "MySql: rows failed updating:". $rfCount. "<br>";
+						}
+					}
+					if ($hasAdded)
+					{
+						$autoNumberList = array();
+						$rCount = 0;
+						$rfCount = 0;
+						for ($r = 0; $r < $rn; $r++)
+						{
+							$ru = $tbl->Rows[$r];// as JsonDataRowUpdate;
+							$b = property_exists($ru,'added');
+							if($b)
+							{
+								$b = $ru->added;
+							}
+							if(!$b)
+							{
+								continue;
+							}
+							$firstC = true;
+							$db->Parameters = array();
+							$sbQry = "INSERT INTO ";
+							$sbValues = "";
+							$sbQry .= $db->NameDelimitBegin;
+							$sbQry .= $db->SourceTableName;
+							$sbQry .= $db->NameDelimitEnd;
+							$sbQry .= " (";
+							for ($c = 0; $c < $cn; $c++)
+							{
+								if ($tbl->Columns[$c]->ReadOnly)
+								{
+								}
+								else if($ru->ItemArray[$c] == NULL)
+								{
+								}
+								else
+								{
+									if ($firstC)
+									{
+										$firstC = false;
+									}
+									else
+									{
+										$sbQry .= ", ";
+										$sbValues .= ",";
+									}
+									$sbQry .= $db->NameDelimitBegin;
+									$sbQry .= $tbl->Columns[$c]->Name;
+									$sbQry .= $db->NameDelimitEnd;
+									$sbValues .= "?";
+									$db->AddParameter($tbl->Columns[$c], $c);
+								}
+							}
+							$sbQry .= ") VALUES (";
+							$sbQry .= $sbValues;
+							$sbQry .= ")";
+							//
+							$db->SetQuery($sbQry);
+							//
+							$useAutoNumber = false;
+							$curId = 0;
+							$newId = 0;
+							for ($c = 0; $c < $cn; $c++)
+							{
+								if ($tbl->Columns[$c]->ReadOnly)
+								{
+									if ($tbl->Columns[$c]->isAutoNumber)
+									{
+										$useAutoNumber = true;
+										$curId = $ru->ItemArray[$c];
+									}
+								}
+								else if($ru->ItemArray[$c] == NULL)
+								{
+								}
+								else
+								{
+									$db->SetParameterValue($tbl->Columns[$c], $c, $ru->ItemArray[$c]);
+								}
+							}
+							$bOK = false;
+							if($useAutoNumber)
+							{
+								$newId = $db->CreateNewRecord();
+								if($newId === false)
+								{
+									
+								}
+								else
+								{
+									$bOK = true;
+									$kv = new KeyValue();
+									$kv->key = $curId;
+									$kv->value = $newId;
+									$autoNumberList[] = $kv;
+								}
+							}
+							else
+							{
+								$bOK = $db->ExecuteNonQuery();
+							}
+							if($bOK)
+							{
+								$rCount++;
+								if($useAutoNumber)
+								{
+								}
+								for ($c = 0; $c < $cn; $c++)
+								{
+									if ($tbl->Columns[$c]->isAutoNumber)
+									{
+										break;
+									}
+								}
+							}
+							else
+							{
+								$rfCount++;
+								$this->ServerErrorMessage = $this->ServerErrorMessage.'<br>'.$db->ErrorMessage;
+								$this->ActionFail = true;
+								$ret = false;
+							}
+						}
+						if($this->DEBUG)
+						{
+							echo "MySql: rows added:". $rCount. "<br>";
+							echo "MySql: rows failed adding:". $rfCount. "<br>";
+						}
+						if(count($autoNumberList) > 0)
+						{
+							$this->AddDownloadValue("autoNumList_".$db->TableName,$autoNumberList);
+						}
+					}
+					if ($hasDeleted)
+					{
+						$db->Parameters = array();
+						$sbQry = "DELETE FROM ";
+						$sbQry .= $db->NameDelimitBegin;
+						$sbQry .= $db->SourceTableName;
+						$sbQry .= $db->NameDelimitEnd;
+						$sbQry .= " WHERE ";
+						for ($k = 0; $k < $pn; $k++)
+						{
+							if ($k > 0)
+							{
+								$sbQry .= " AND ";
+							}
+							$sbQry .= $db->NameDelimitBegin;
+							$sbQry .= $tbl->PrimaryKey[$k];
+							$sbQry .= $db->NameDelimitEnd;
+							$sbQry .= "=?";
+							$db->AddFilterParameter($tbl->Columns[$ColumnIndex[$tbl->PrimaryKey[$k]]], $k);
+						}
+						$db->SetQuery($sbQry);
+						//
+						$rCount = 0;
+						$rfCount = 0;
+						for ($r = 0; $r < $rn; $r++)
+						{
+							$ru = $tbl->Rows[$r];// as JsonDataRowUpdate;
+							$b = property_exists($ru,'deleted');
+							if($b)
+							{
+								$b = $ru->deleted;
+							}
+							if($b)
+							{
+								for ($k = 0; $k < $pn; $k++)
+								{
+									$db->SetFilterParameterValue($tbl->Columns[$ColumnIndex[$tbl->PrimaryKey[$k]]], $k, $ru->ItemArray[$keyColumnIndex[$k]]);
+								}
+								if($db->ExecuteNonQuery())
+								{
+									$rCount++;
+								}
+								else
+								{
+									$rfCount++;
+									$this->ServerErrorMessage = $this->ServerErrorMessage.'<br>'.$db->ErrorMessage;
+									$this->ActionFail = true;
+									$ret = false;
+								}
+							}
+						}
+						if($this->DEBUG)
+						{
+							echo "MySql: rows deleted:". $rCount. "<br>";
+							echo "MySql: rows failed deleting:". $rfCount. "<br>";
+						}
+					}
+				}
+			}
+		}
+		$this->LogDebugInfo("End UpdateData<br>");
+		return $ret;
+	}
+	protected function UpdateTable($db)
+	{
+		$ret=$this->UpdateData($db);
+		if($ret)
+		{
+			if(!array_key_exists('updatedtables',$this->response->values)) $this->response->values['updatedtables'] = array();
+			array_push($this->response->values['updatedtables'], $db->TableName);
+		}
+		else
+		{
+			if(!array_key_exists('updatefailedtables',$this->response->values)) $this->response->values['updatefailedtables'] = array();
+			$err = new KeyValue;
+			$err->key = $db->TableName;
+			$err->value = $db->ErrorMessage;
+			array_push($this->response->values['updatefailedtables'], $err);
+		}
+		return $ret;
+	}
+	protected function DownloadAllUploads($name)
+	{
+		$this->AddDownloadValue('uploadedValues_'.$name, $this->jsonFromClient->values);
+		//$ups = get_object_vars($this->jsonFromClient->values);
+		/*foreach($ups as $key => $val)
+		{
+			if ($this->DEBUG)
+			{
+				echo "upload value name:".$key.", value:".$val."<br>";
+			}
+			$this->AddDownloadValue($key, $val);
+		}*/
+	}
+	public function ProcessClientRequest()
+	{
+		$raw = file_get_contents('php://input');
+		if($raw === false || strlen($raw) == 0)
+		{
+			if (get_magic_quotes_gpc()) {
+				$raw = stripslashes($_POST["clientRequest"]);
+			}
+			else {
+				$raw = $_POST["clientRequest"];
+			}
+		}
+		$debugLen = strlen($this->DEBUG_SYMBOL);
+		if(strncmp($raw, $this->DEBUG_SYMBOL, $debugLen) == 0)
+		{
+			$this->DEBUG = true;
+			$raw = substr($raw, $debugLen);
+		}
+		else
+		{
+			$this->DEBUG = false;
+		}
+	//
+		$GLOBALS["debug"] = $this->DEBUG;
+		$thisInstance = $this;
+		set_error_handler("myErrorHandler");
+		//
+		if ($this->DEBUG)
+		{
+			echo "client request:".$raw."<br>";
+		}
+		$this->OnRequestStart();
+		try
+		{
+			$this->jsonFromClient = json_decode($raw);
+			if ($this->DEBUG)
+			{
+				echo "Number of client commands:";
+				if($this->jsonFromClient->Calls == null)
+				{
+					echo "0";
+				}
+				else
+				{
+					echo count($this->jsonFromClient->Calls);
+				}
+				echo "<br>";
+			}
+			$this->OnRequestClientData();
+			if(property_exists($this->jsonFromClient,'values') && property_exists($this->jsonFromClient->values,'serverComponentName'))
+			{
+				$this->SetServerComponentName($this->jsonFromClient->values->serverComponentName);
+				if ($this->DEBUG)
+				{
+					echo "Server component name:".$this->jsonFromClient->values->serverComponentName."<br>";
+				}
+			}
+			else
+			{
+				if ($this->DEBUG)
+				{
+					echo "Server component name was not sent from client.<br>";
+				}
+			}
+			if( $this->jsonFromClient->Calls == null)
+			{
+			}
+			else
+			{
+				$pn = count($this->jsonFromClient->Calls);
+				for($i=0;$i<$pn;$i++)
+				{
+					if($this->jsonFromClient->Calls[$i]->method == 'jsonDb_getData')
+					{
+						if ($this->DEBUG)
+						{
+							echo "jsonDb_getData start:";
+							if ($this->jsonFromClient->Calls[$i]->value != null)
+							{
+								echo  $this->jsonFromClient->Calls[$i]->value;
+							}
+							echo "<br>";
+						}
+						$this->OnRequestGetData($this->jsonFromClient->Calls[$i]->value);
+						if ($this->DEBUG)
+						{
+							echo "jsonDb_getData end:";
+							if ($this->jsonFromClient->Calls[$i]->value != null)
+							{
+								echo  $this->jsonFromClient->Calls[$i]->value;
+							}
+							echo "<br>";
+						}					
+					}
+					else if($this->jsonFromClient->Calls[$i]->method == 'jsonDb_putData')
+					{
+						if ($this->DEBUG)
+						{
+							echo "jsonDb_putData start:";
+							if ($this->jsonFromClient->Calls[$i]->value != null)
+							{
+								echo  $this->jsonFromClient->Calls[$i]->value;
+							}
+							echo "<br>";
+						}
+						$this->ServerErrorMessage = '';
+						$this->ActionFail = false;
+						$this->OnRequestPutData($this->jsonFromClient->Calls[$i]->value);
+						if ($this->DEBUG)
+						{
+							echo "jsonDb_putData end:";
+							if ($this->jsonFromClient->Calls[$i]->value != null)
+							{
+								echo  $this->jsonFromClient->Calls[$i]->value;
+							}
+							echo "<br>";
+						}
+						if($this->ActionFail)
+						{
+							if ($this->DEBUG)
+							{
+								$this->AddDownloadValue('ServerError', 'Update failed. Database error message is in the debug window.');
+							}
+							else
+							{
+								$this->AddDownloadValue('ServerError', $this->ServerErrorMessage);
+							}
+							$this->response->Calls[] = '_ondataupdatefailed.call(this,\''.$this->jsonFromClient->Calls[$i]->value.'\');';
+						}
+						else
+						{
+							$this->response->Calls[] = '_ondataupdated.call(this,\''.$this->jsonFromClient->Calls[$i]->value.'\');';
+						}
+					}
+					else
+					{
+						if ($this->DEBUG)
+						{
+							echo " execute : ";
+						}
+						if ($this->jsonFromClient->Calls[$i]->method != null)
+						{
+							if ($this->DEBUG)
+							{
+								echo  $this->jsonFromClient->Calls[$i]->method;
+								echo  "(";
+								if ($this->jsonFromClient->Calls[$i]->value != null)
+								{
+									echo $this->jsonFromClient->Calls[$i]->value;
+								}
+								echo ")<br> ";
+							}
+							$this->OnRequestExecution($this->jsonFromClient->Calls[$i]->method,$this->jsonFromClient->Calls[$i]->value);
+						}
+						if ($this->DEBUG)
+						{
+							echo "Finish executing the method. <br>";
+						}
+					}
+				}
+			}
+			$this->OnRequestFinish();
+			if($this->shoudlSendResponse)
+			{
+				if ($this->DEBUG)
+				{
+					echo $this->DEBUG_SYMBOL;
+				}
+				echo FastJSON::encode($this->response);
+			}
+		}
+		catch (Exception $e) 
+		{
+			echo 'Server process exception: '.  $e->getMessage(). "<br>";
+			echo $this->DEBUG_SYMBOL;
+			echo FastJSON::encode($this->response);
+		}
+	}
+}
+
+?>
