@@ -1,0 +1,797 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A7287685-2A25-4A8D-9604-FC95CA9432C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MathExp</RootNamespace>
+    <AssemblyName>MathExp</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DOTNET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;DOTNET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveDrawing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="BasicOperatorNodes.cs" />
+    <Compile Include="CodeDomUtil.cs" />
+    <Compile Include="CodeValue.cs" />
+    <Compile Include="CustomPropertyDescriptor.cs" />
+    <Compile Include="DesignDef.cs" />
+    <Compile Include="Diagram.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Diagram.Designer.cs">
+      <DependentUpon>Diagram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgMathExpGroupEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgMathExpGroupEditor.Designer.cs">
+      <DependentUpon>dlgMathExpGroupEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgTest.Designer.cs">
+      <DependentUpon>dlgTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgValue.Designer.cs">
+      <DependentUpon>dlgValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawTextAttributes.cs" />
+    <Compile Include="EnumNumTypeCastDir.cs" />
+    <Compile Include="ExpressionValue.cs" />
+    <Compile Include="ExpressionValueConverter.cs" />
+    <Compile Include="FormCompilerError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompilerError.Designer.cs">
+      <DependentUpon>FormCompilerError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMessage.Designer.cs">
+      <DependentUpon>FormMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWaitMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWaitMessage.Designer.cs">
+      <DependentUpon>FormWaitMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GradientColorTable.cs" />
+    <Compile Include="IActionInput.cs" />
+    <Compile Include="ICustomMethodCompiler.cs" />
+    <Compile Include="IDatabaseFieldPointer.cs" />
+    <Compile Include="ImageID.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="INamedMathNode.cs" />
+    <Compile Include="ItemDesignerHost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemDesignerHost.Designer.cs">
+      <DependentUpon>ItemDesignerHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ITypeSelector.cs" />
+    <Compile Include="MathNodeBitShif.cs" />
+    <Compile Include="MathNodeChar.cs" />
+    <Compile Include="MathNodeNow.cs" />
+    <Compile Include="MathNodeRandomA.cs" />
+    <Compile Include="MathNodeRandomString.cs" />
+    <Compile Include="MathNodeTrim.cs" />
+    <Compile Include="ProjectItemAttribute.cs" />
+    <Compile Include="UseModalSelectorAttribute.cs" />
+    <Compile Include="LinkLineEnds.cs" />
+    <Compile Include="LinkLineUndo.cs" />
+    <Compile Include="MathExpGroup.cs" />
+    <Compile Include="MathExpGroupUndo.cs" />
+    <Compile Include="MathNodeArgument.cs" />
+    <Compile Include="MathNodeAssign.cs" />
+    <Compile Include="MathNodeCategoryAttribute.cs" />
+    <Compile Include="MathNodeCondition.cs" />
+    <Compile Include="MathNodeConditions.cs" />
+    <Compile Include="MathNodeInc.cs" />
+    <Compile Include="MathNodeNegative.cs" />
+    <Compile Include="MathNodeNull.cs" />
+    <Compile Include="MathNodeObjRef.cs" />
+    <Compile Include="MathNodeParameter.cs" />
+    <Compile Include="MathNodeDefaultValue.cs" />
+    <Compile Include="MathNodeRandom.cs" />
+    <Compile Include="MathNodeStringAdd.cs" />
+    <Compile Include="MathNodeValue.cs" />
+    <Compile Include="MathPropertyGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DesignMessageFilter.cs" />
+    <Compile Include="DiagramDesignerHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DiagramDesignerHolder.Designer.cs">
+      <DependentUpon>DiagramDesignerHolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiagramViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="dlgMathEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgMathEditor.Designer.cs">
+      <DependentUpon>dlgMathEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DrawingVariable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormDebug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDebug.Designer.cs">
+      <DependentUpon>FormDebug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GreekLetters.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GreekLetters.Designer.cs">
+      <DependentUpon>GreekLetters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HitTestResult.cs" />
+    <Compile Include="Integral.cs" />
+    <Compile Include="LinkLine.cs" />
+    <Compile Include="LinkLineNode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MathException.cs" />
+    <Compile Include="MathExpCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MathExpCtrl.Designer.cs">
+      <DependentUpon>MathExpCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MathExpEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MathExpEditor.Designer.cs">
+      <DependentUpon>MathExpEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MathExpViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MathExpViewer.Designer.cs">
+      <DependentUpon>MathExpViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MathNode.cs" />
+    <Compile Include="MathNodeFunction.cs" />
+    <Compile Include="MathNodeInteger.cs" />
+    <Compile Include="MathNodeLogic.cs" />
+    <Compile Include="MathNodeRoot.cs" />
+    <Compile Include="MathNodeString.cs" />
+    <Compile Include="MathNodeSum.cs" />
+    <Compile Include="MathPropertyPointer.cs" />
+    <Compile Include="MathSite.cs" />
+    <Compile Include="NameCreation.cs" />
+    <Compile Include="ObjectAndPos.cs" />
+    <Compile Include="ObjectIconData.cs">
+    </Compile>
+    <Compile Include="PositionUndo.cs" />
+    <Compile Include="primaryNodes.cs" />
+    <Compile Include="PrimaryTypeSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrimaryValueSelector.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyBag.cs" />
+    <Compile Include="PropertyPointerList.cs" />
+    <Compile Include="PropertySorter.cs" />
+    <Compile Include="RaisTypes\Data.cs" />
+    <Compile Include="MathNodeMethodInvoke.cs" />
+    <Compile Include="RaisTypes\IProgramEntity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaisTypes\IVplDesigner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RaisTypes\MethodRef.cs" />
+    <Compile Include="RaisTypes\MethodType.cs" />
+    <Compile Include="RaisTypes\ObjectDrawing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaisTypes\ObjectRef.cs" />
+    <Compile Include="RaisTypes\Parameter.cs" />
+    <Compile Include="RaisTypes\ParameterDef.cs" />
+    <Compile Include="RaisTypes\ParameterDrawing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaisTypes\ProgEntityDrawing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaisTypes\RaisDataType.cs" />
+    <Compile Include="RelativeDrawing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReturnIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelectorListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ServiceHolder.cs" />
+    <Compile Include="sqrt.cs" />
+    <Compile Include="StandardFunctions.cs" />
+    <Compile Include="TestData.cs" />
+    <Compile Include="TypeConverterMathPropertyPointer.cs" />
+    <Compile Include="TypeIcons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TypeIcons.Designer.cs">
+      <DependentUpon>TypeIcons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UITypeEditorArgumentSelector.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UITypeEditorMethodSelector.cs" />
+    <Compile Include="UITypeEditorTypeSelector.cs" />
+    <Compile Include="UITypeEditorValueSelector.cs" />
+    <Compile Include="UndoEngine.cs" />
+    <Compile Include="UndoEngine2.cs" />
+    <Compile Include="UndoEngineImpl.cs" />
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ValueTypes.cs" />
+    <Compile Include="Variable.cs" />
+    <Compile Include="VariableMap.cs" />
+    <Compile Include="MathMenuCommandService.cs" />
+    <Compile Include="XmlSerialization.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormWaitMessage.resx">
+      <DependentUpon>FormWaitMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MathExpCtrl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MathExpCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MathExpEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MathExpEditor.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeNumber.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeVariable.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DivNode.bmp">
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MinusNode.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MultiplyNode.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\PlusNode.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodePower.bmp" />
+    <EmbeddedResource Include="TypeIcons.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TypeIcons.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Modulus.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeBitAnd.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeBitOr.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LogicAnd.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LogicOr.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LogicVariable.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\IntegerVariable.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LogicGreaterThan.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LogicGreaterThanOrEqual.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LogicValueEquality.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LogicLessThan.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LogicLessThanOrEqual.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeAbs.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeAcos.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeAsin.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeAtan.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeAtan2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeCeiling.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MultiplyNodeBig.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeCos.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeCosh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeCos2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeFloor.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeIEEERemainder.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeConstE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeConstPI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeExp.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeLog.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeLog10.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeLogX.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeMax.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeMin.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeRound.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeRound2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeSign.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeSin.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeSinh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeTan.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeTanh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeTruncate.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeSqrt.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeSum.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\StringVariable.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LogicNot.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringValue.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringContains.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringBegins.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringEnds.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringGT.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringGET.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringLET.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringLT.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringEQ.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeFunction.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DiagramDesignerHolder.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DiagramDesignerHolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiagramViewer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DiagramViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgMathEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>dlgMathEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDebug.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormDebug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MathExpViewer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MathExpViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MathNodeIntegral.bmp" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LogicValueInEquality.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeConditions.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dlgMathExpGroupEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>dlgMathExpGroupEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgTest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>dlgTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCompilerError.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCompilerError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ReturnIcon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LogicFalse.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dlgValue.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>dlgValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LogicTrue.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OK.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel3d.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeValue.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeMethodInvoke.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeObjRef.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeAssign.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringAdd.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diagram.resx">
+      <DependentUpon>Diagram.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MathNodeArgument.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeDomHelper\CodeDomHelper.csproj">
+      <Project>{63aca503-c1f1-44b5-80ef-d6822e0a92bc}</Project>
+      <Name>CodeDomHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProgElements\ProgElements.csproj">
+      <Project>{CEE3B972-82A2-4069-B64E-3703400CBE8D}</Project>
+      <Name>ProgElements</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\TraceLog\TraceLog.csproj">
+      <Project>{12B36BAB-E964-4BD8-8E4C-CB856BE9147F}</Project>
+      <Name>TraceLog</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\UIUtil\UIUtil.csproj">
+      <Project>{4AA4020F-EDB8-4A53-8EAE-00740985A910}</Project>
+      <Name>UIUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VPLDrawing\VPLDrawing.csproj">
+      <Project>{09A4BD50-F0A7-45E1-AA4B-635B8F5E37E2}</Project>
+      <Name>VPLDrawing</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VPL\VPL.csproj">
+      <Project>{66ED66A8-13A5-4E70-B482-8143EC714DEF}</Project>
+      <Name>VPL</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsUtility\WindowsUtility.csproj">
+      <Project>{345C1F39-8E66-4464-9CBE-537F792E6B10}</Project>
+      <Name>WindowsUtility</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlUtil\XmlUtil.csproj">
+      <Project>{C025E0A3-A59B-465B-A4DE-9E90534B63F4}</Project>
+      <Name>XmlUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\inc.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <EmbeddedResource Include="Resources\eq.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeRandom.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormMessage.resx">
+      <DependentUpon>FormMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MathNodeSin2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\negative.bmp" />
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newLineBreak.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disconnect.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeNull.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringIsEmpty.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ok.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_separate.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\str_lf.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\str_cr.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\str_cl.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\str_tab.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\str_char.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeNow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeNow2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeRandomA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeRandomStr.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\shiftLeft.bmp" />
+    <EmbeddedResource Include="Resources\shiftRight.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeChar2Int.bmp" />
+    <EmbeddedResource Include="Resources\MathNodeInt2Char.bmp" />
+    <EmbeddedResource Include="Resources\MathNodeTrim.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringSub.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MathNodeStringAdd2.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)$(ConfigurationName)
+copy $(TargetDir)$(TargetName).pdb $(SolutionDir)$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>
