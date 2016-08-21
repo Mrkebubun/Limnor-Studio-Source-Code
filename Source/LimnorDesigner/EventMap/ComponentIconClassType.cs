@@ -9,29 +9,25 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using VSPrj;
 using XmlSerializer;
 using System.Xml;
-using VSPrj;
 using XmlUtility;
-using System.Windows.Forms;
-using System.Drawing;
 using LimnorDesigner.MenuUtil;
-using MathExp;
 using VPL;
-using System.Globalization;
-using WindowsUtility;
 
 namespace LimnorDesigner.EventMap
 {
 	/// <summary>
-	/// represents a custom class as an action executer for executing static methods
+	/// represents a TypePointer
 	/// </summary>
-	public class ComponentIconClass : ComponentIconEvent
+	public class ComponentIconClassType : ComponentIconEvent
 	{
 		#region fields and constructors
 		private LimnorProject _prj;
 		private ClassPointer _root;
-		public ComponentIconClass()
+
+		public ComponentIconClassType()
 		{
 			OnSetImage();
 		}
@@ -45,6 +41,25 @@ namespace LimnorDesigner.EventMap
 				return _prj;
 			}
 		}
+		public ClassPointer RootPointer
+		{
+			get
+			{
+				return _root;
+			}
+		}
+		public Type ClassType
+		{
+			get
+			{
+				DataTypePointer tp = this.ClassPointer as DataTypePointer;
+				if (tp != null)
+				{
+					return tp.BaseClassType;
+				}
+				return null;
+			}
+		}
 		/// <summary>
 		/// not for creating context menu
 		/// </summary>
@@ -55,32 +70,12 @@ namespace LimnorDesigner.EventMap
 				return false;
 			}
 		}
+
 		public override ClassPointer RootClassPointer
 		{
 			get
 			{
 				return _root;
-			}
-		}
-		public ClassPointer OwnerClassPointer
-		{
-			get
-			{
-				if (this.ClassId != 0)
-				{
-					if (_prj == null)
-					{
-						if (Designer != null && Designer.ObjectMap != null)
-						{
-							_prj = Designer.ObjectMap.Project;
-						}
-					}
-					if (_prj != null)
-					{
-						return LimnorDesigner.ClassPointer.CreateClassPointer(this.ClassId, _prj);
-					}
-				}
-				return null;
 			}
 		}
 		protected override bool IsClassType
@@ -93,22 +88,16 @@ namespace LimnorDesigner.EventMap
 		#endregion
 
 		#region Methods
-		protected override void OnCreateContextMenu(ContextMenu mnu, Point location)
-		{
-			base.OnCreateContextMenu(mnu, location);
-			if (_root.ClassId != this.ClassId)
-			{
-				if (mnu.MenuItems.Count > 0)
-				{
-					mnu.MenuItems.Add("-");
-				}
-				MenuItem mi = new MenuItemWithBitmap("Delete", mi_delete, Resources._cancel.ToBitmap());
-				mnu.MenuItems.Add(mi);
-			}
-		}
+		const string XML_Type = "Type";
 		public override void OnWriteToXmlNode(IXmlCodeWriter writer, XmlNode node)
 		{
 			base.OnWriteToXmlNode(writer, node);
+			Type t = this.ClassType;
+			if (t != null)
+			{
+				XmlNode nd = XmlUtil.CreateSingleNewElement(node, XML_Type);
+				XmlUtil.SetLibTypeAttribute(nd, t);
+			}
 		}
 		public override void OnReadFromXmlNode(IXmlCodeReader reader0, XmlNode node)
 		{
@@ -116,19 +105,23 @@ namespace LimnorDesigner.EventMap
 			XmlObjectReader reader = (XmlObjectReader)reader0;
 			_prj = reader.ObjectList.Project;
 			_root = reader.ObjectList.RootPointer as ClassPointer;
-			ClassPointer cp = OwnerClassPointer;
-			if (cp != null)
+			XmlNode nd = node.SelectSingleNode(XML_Type);
+			if (nd != null)
 			{
-				this.ClassPointer = cp;
-				SetLabelText(cp.Name);
-				OnSetImage();
+				Type t = XmlUtil.GetLibTypeAttribute(nd);
+				if (t != null)
+				{
+					this.ClassPointer = new DataTypePointer(new TypePointer(t));
+					SetLabelText(t.Name);
+					OnSetImage();
+				}
 			}
 		}
 		protected override void OnInit(ILimnorDesigner designer, IClass pointer)
 		{
 			_prj = designer.Project;
 			_root = designer.GetRootId();
-			ClassPointer cp = OwnerClassPointer;
+			DataTypePointer cp = pointer as DataTypePointer;
 			if (cp != null)
 			{
 				this.ClassPointer = cp;
@@ -138,7 +131,7 @@ namespace LimnorDesigner.EventMap
 		}
 		protected override void OnSetImage()
 		{
-			ClassPointer cp = OwnerClassPointer;
+			DataTypePointer cp = this.ClassPointer as DataTypePointer;
 			if (cp != null)
 			{
 				if (cp.ImageIcon != null)
@@ -153,19 +146,22 @@ namespace LimnorDesigner.EventMap
 		}
 		public override bool IsForThePointer(IObjectPointer pointer)
 		{
-			ClassPointer cp = pointer as ClassPointer;
-			if (cp != null)
+			DataTypePointer cp = pointer as DataTypePointer;
+			if (cp != null && cp.BaseClassType != null)
 			{
-				return (cp.ClassId == this.ClassId);
+				return cp.BaseClassType.Equals(this.ClassType);
 			}
 			return false;
 		}
 		public override bool IsActionExecuter(IAction act, ClassPointer root)
 		{
-			ClassPointer cp = root.GetExternalExecuterClass(act);
-			if (cp != null)
+			if (act.IsStatic)
 			{
-				return (cp.ClassId == this.ClassId);
+				DataTypePointer cp = act.ActionMethod.Owner as DataTypePointer;
+				if (cp != null && cp.BaseClassType != null)
+				{
+					return cp.BaseClassType.Equals(this.ClassType);
+				}
 			}
 			return false;
 		}
@@ -173,7 +169,7 @@ namespace LimnorDesigner.EventMap
 		{
 			_prj = objMap.Project;
 			_root = objMap.RootPointer as ClassPointer;
-			ClassPointer cp = OwnerClassPointer;
+			Type cp = this.ClassType;
 			if (cp != null)
 			{
 				SetLabelText(cp.Name);
@@ -183,7 +179,7 @@ namespace LimnorDesigner.EventMap
 		{
 			_prj = root.Project;
 			_root = root;
-			ClassPointer cp = OwnerClassPointer;
+			Type cp = this.ClassType;
 			if (cp != null)
 			{
 				SetLabelText(cp.Name);
@@ -192,32 +188,5 @@ namespace LimnorDesigner.EventMap
 			return false;
 		}
 		#endregion
-
-		#region private methods
-		private void mi_delete(object sender, EventArgs e)
-		{
-			XmlNodeList nl = _root.XmlData.SelectNodes(string.Format(CultureInfo.InvariantCulture,
-				"//{0}/{1}//*[@{2}='{3}']", XmlTags.XML_ACTIONS, XmlTags.XML_ACTION, XmlTags.XMLATT_ClassID, this.ClassPointer.ClassId));
-			if (nl != null && nl.Count > 0)
-			{
-				MessageBox.Show(this.FindForm(), "Cannot delete this component. It is being used in actions", "Delete component", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			else
-			{
-				this.RemoveIcon();
-				if (DataXmlNode != null)
-				{
-					XmlNode np = DataXmlNode.ParentNode;
-					np.RemoveChild(DataXmlNode);
-				}
-				ILimnorDesignPane dp = _prj.GetTypedData<ILimnorDesignPane>(_root.ClassId);
-				if (dp != null)
-				{
-					dp.Loader.NotifyChanges();
-				}
-			}
-		}
-		#endregion
-
 	}
 }
