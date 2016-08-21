@@ -1,0 +1,749 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77E6BE2E-B10D-40BD-A439-BFDA0AF47D21}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LimnorDatabase</RootNamespace>
+    <AssemblyName>LimnorDatabase</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Limnor56</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;Limnor56</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CellValueEditor.cs" />
+    <Compile Include="Connection.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConnectionConfig.cs" />
+    <Compile Include="ConnectionItem.cs" />
+    <Compile Include="ConnectionStringSelector.cs" />
+    <Compile Include="ConnectionTypeSelector.cs" />
+    <Compile Include="ConnectStringContext.cs" />
+    <Compile Include="CsvText.cs" />
+    <Compile Include="CustomColumnCollectionEditor.cs" />
+    <Compile Include="DatabaseExecuter.cs" />
+    <Compile Include="DatabaseQuery.cs" />
+    <Compile Include="DataBatch.cs" />
+    <Compile Include="DataGridViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DbCommandCollection.cs" />
+    <Compile Include="DbTypeListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DbParameterList.cs" />
+    <Compile Include="DialogCommandParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogCommandParameters.Designer.cs">
+      <DependentUpon>DialogCommandParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogDbCommand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogDbCommand.Designer.cs">
+      <DependentUpon>DialogDbCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogTableNames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogTableNames.Designer.cs">
+      <DependentUpon>DialogTableNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgDataEditorCheckedListbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgDataEditorCheckedListbox.Designer.cs">
+      <DependentUpon>DlgDataEditorCheckedListbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgEditColumns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgEditColumns.Designer.cs">
+      <DependentUpon>DlgEditColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgParameters.Designer.cs">
+      <DependentUpon>DlgParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataQuery.cs" />
+    <Compile Include="EasyDataSetDesigner.cs" />
+    <Compile Include="EasyTransactor.cs" />
+    <Compile Include="EasyUpdator.cs" />
+    <Compile Include="DbTypeComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dlgPropSQLNonQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgSelectDateTimeSmall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAdapterFinder.cs" />
+    <Compile Include="DatabaseEdit.cs" />
+    <Compile Include="DatabaseSchema.cs" />
+    <Compile Include="DataBind.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataValues.cs" />
+    <Compile Include="dbWrapper.cs" />
+    <Compile Include="dlgAddIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgAddTableToQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgConnection.Designer.cs">
+      <DependentUpon>DlgConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgConnectionManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgConnectionManager.Designer.cs">
+      <DependentUpon>DlgConnectionManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgDataEditDatabaseLookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgDataEditDatabaseLookup.Designer.cs">
+      <DependentUpon>DlgDataEditDatabaseLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgDBAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgEditField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgEditNameValueList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgEditNameValueList.Designer.cs">
+      <DependentUpon>DlgEditNameValueList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgFieldEditorEnum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgFieldEditorEnum.Designer.cs">
+      <DependentUpon>DlgFieldEditorEnum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgFieldEditors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgFieldEditors.Designer.cs">
+      <DependentUpon>DlgFieldEditors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgIndexes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgMySQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgMySQL.Designer.cs">
+      <DependentUpon>DlgMySQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgNewTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgPropDataLink.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgPropField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgPropFields.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgPropParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgQryGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgQryGroupField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgQryOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgQueryBuilder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectDatabaseType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectDatabaseType.Designer.cs">
+      <DependentUpon>DlgSelectDatabaseType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgSelectDateTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectorOptionDateTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectorOptionDateTime.Designer.cs">
+      <DependentUpon>DlgSelectorOptionDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgSelectString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgSelParam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSetCredential.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSetCredential.Designer.cs">
+      <DependentUpon>DlgSetCredential.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgSetRelation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgSQLServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgWhere.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EasyDetailsGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EasyGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EnumAppLocation.cs" />
+    <Compile Include="EnumTopRecStyle.cs" />
+    <Compile Include="EPBLOB.cs" />
+    <Compile Include="EPDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EPJoin.cs" />
+    <Compile Include="EPQuery.cs">
+    </Compile>
+    <Compile Include="EventArgsDataFill.cs" />
+    <Compile Include="EventArgsDbTransaction.cs" />
+    <Compile Include="ExceptionLimnorDatabase.cs" />
+    <Compile Include="ExecParameter.cs" />
+    <Compile Include="Field.cs" />
+    <Compile Include="FieldCalculatorCollection.cs" />
+    <Compile Include="FieldCollection.cs" />
+    <Compile Include="FieldEditorList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FieldExpressionList.cs" />
+    <Compile Include="FieldsParser.cs" />
+    <Compile Include="FieldsPropertyCollection.cs" />
+    <Compile Include="FormHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHelp.Designer.cs">
+      <DependentUpon>FormHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLog.Designer.cs">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQryMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HideUITypeEditor.cs" />
+    <Compile Include="IDatabaseAccess.cs" />
+    <Compile Include="IDataBinder.cs" />
+    <Compile Include="IDataGrid.cs" />
+    <Compile Include="IFieldListHolder.cs" />
+    <Compile Include="IMasterSource.cs" />
+    <Compile Include="LinkedList.cs" />
+    <Compile Include="LogicExp.cs" />
+    <Compile Include="LookupCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NativeWIN32.cs" />
+    <Compile Include="ODBCSchema.cs" />
+    <Compile Include="PrintDGV.cs" />
+    <Compile Include="PrintOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintOptions.designer.cs">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropDropData.cs" />
+    <Compile Include="PropDropTypes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryParameterList.cs" />
+    <Compile Include="QueryParser.cs" />
+    <Compile Include="QuerySelector.cs" />
+    <Compile Include="QuerySelectorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QuerySelectorControl.Designer.cs">
+      <DependentUpon>QuerySelectorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SQLNoneQuery.cs" />
+    <Compile Include="SQLParser.cs" />
+    <Compile Include="SQLStatement.cs" />
+    <Compile Include="TableAlias.cs" />
+    <Compile Include="TypeEditorDbParameters.cs" />
+    <Compile Include="TypeEditorFieldProperties.cs" />
+    <Compile Include="TypeEditorSelectFieldName.cs" />
+    <Compile Include="TypeEditorTableFieldsSelection.cs" />
+    <Compile Include="TypeSelectorTable.cs" />
+    <Compile Include="TableRelation.cs" />
+    <Compile Include="TextColumnStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TreeNodeConnectionItem.cs" />
+    <Compile Include="TypeEditorCommand.cs" />
+    <Compile Include="TypeEditorConnection.cs" />
+    <Compile Include="TypeEditorSelectConnection.cs" />
+    <Compile Include="TypeEditorSelectDbDataType.cs" />
+    <Compile Include="TypeEditorSelectFieldNames.cs" />
+    <Compile Include="TypeEditorSQLNoneQuery.cs" />
+    <Compile Include="UIQueryEditor.cs" />
+    <Compile Include="UserControlSelectFieldNames.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSelectFieldNames.Designer.cs">
+      <DependentUpon>UserControlSelectFieldNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ValueConvertor.cs" />
+    <Compile Include="WebLoginManager.cs" />
+    <Compile Include="WMPasser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DialogCommandParameters.resx">
+      <DependentUpon>DialogCommandParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogTableNames.resx">
+      <DependentUpon>DialogTableNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgEditColumns.resx">
+      <DependentUpon>DlgEditColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintOptions.resx">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dlgDatabase.resx">
+      <DependentUpon>dlgDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgDBAccess.resx">
+      <DependentUpon>dlgDBAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgSelectDateTime.resx">
+      <DependentUpon>dlgSelectDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgSQLServer.resx">
+      <DependentUpon>dlgSQLServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLog.resx">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\connect.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FtpClient\InternetUtility.csproj">
+      <Project>{0954745b-e345-49d7-bddd-8c011c9f8dba}</Project>
+      <Name>InternetUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LFilePath\LFilePath.csproj">
+      <Project>{CE3B2995-8D4C-4632-BF4B-24EA0E3E86F9}</Project>
+      <Name>LFilePath</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\M1\MonthCalendar.csproj">
+      <Project>{898ECB12-D464-4514-AE2E-45FE430FE04E}</Project>
+      <Name>MonthCalendar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MathExp\MathExp.csproj">
+      <Project>{A7287685-2A25-4A8D-9604-FC95CA9432C0}</Project>
+      <Name>MathExp</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ProgElements\ProgElements.csproj">
+      <Project>{CEE3B972-82A2-4069-B64E-3703400CBE8D}</Project>
+      <Name>ProgElements</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\TraceLog\TraceLog.csproj">
+      <Project>{12B36BAB-E964-4BD8-8E4C-CB856BE9147F}</Project>
+      <Name>TraceLog</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\UIUtil\UIUtil.csproj">
+      <Project>{4AA4020F-EDB8-4A53-8EAE-00740985A910}</Project>
+      <Name>UIUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VPLDrawing\VPLDrawing.csproj">
+      <Project>{09A4BD50-F0A7-45E1-AA4B-635B8F5E37E2}</Project>
+      <Name>VPLDrawing</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VPL\VPL.csproj">
+      <Project>{66ED66A8-13A5-4E70-B482-8143EC714DEF}</Project>
+      <Name>VPL</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebBuilder\WebBuilder.csproj">
+      <Project>{26578B6E-E604-4765-9FCA-95DA597B7190}</Project>
+      <Name>WebBuilder</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebServerBuilder\WebServerBuilder.csproj">
+      <Project>{52A1E501-EEB4-4131-B864-2B5F0630265F}</Project>
+      <Name>WebServerBuilder</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebServerProcessor\WebServerProcessor.csproj">
+      <Project>{50C75605-C26F-4B6F-B1F2-EA36360B10E2}</Project>
+      <Name>WebServerProcessor</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsUtility\WindowsUtility.csproj">
+      <Project>{345C1F39-8E66-4464-9CBE-537F792E6B10}</Project>
+      <Name>WindowsUtility</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlUtil\XmlUtil.csproj">
+      <Project>{C025E0A3-A59B-465B-A4DE-9E90534B63F4}</Project>
+      <Name>XmlUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dlgAddIndex.resx">
+      <DependentUpon>dlgAddIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgAddTableToQuery.resx">
+      <DependentUpon>dlgAddTableToQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgConnection.resx">
+      <DependentUpon>DlgConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgEditField.resx">
+      <DependentUpon>dlgEditField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgIndexes.resx">
+      <DependentUpon>dlgIndexes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgNewTable.resx">
+      <DependentUpon>dlgNewTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgPropDataLink.resx">
+      <DependentUpon>dlgPropDataLink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgPropField.resx">
+      <DependentUpon>dlgPropField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgPropFields.resx">
+      <DependentUpon>dlgPropFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgPropParams.resx">
+      <DependentUpon>dlgPropParams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgQryGroup.resx">
+      <DependentUpon>dlgQryGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgQryGroupField.resx">
+      <DependentUpon>dlgQryGroupField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgQryOrder.resx">
+      <DependentUpon>dlgQryOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgQueryBuilder.resx">
+      <DependentUpon>dlgQueryBuilder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgSelectString.resx">
+      <DependentUpon>dlgSelectString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgSelParam.resx">
+      <DependentUpon>dlgSelParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgSetRelation.resx">
+      <DependentUpon>dlgSetRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgWhere.resx">
+      <DependentUpon>dlgWhere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQryMsg.resx">
+      <DependentUpon>frmQryMsg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\save.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\datagrid.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgDataEditDatabaseLookup.resx">
+      <DependentUpon>DlgDataEditDatabaseLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgEditNameValueList.resx">
+      <DependentUpon>DlgEditNameValueList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgFieldEditors.resx">
+      <DependentUpon>DlgFieldEditors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgMySQL.resx">
+      <DependentUpon>DlgMySQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSelectDatabaseType.resx">
+      <DependentUpon>DlgSelectDatabaseType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\qry.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\empty.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\calendar.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\file.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\question.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dropDown.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgConnectionManager.resx">
+      <DependentUpon>DlgConnectionManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgFieldEditorEnum.resx">
+      <DependentUpon>DlgFieldEditorEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHelp.resx">
+      <DependentUpon>FormHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\_enum.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ok.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_new.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newItem.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delItem.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ConnectionManager.rtf" />
+    <None Include="Resources\_help.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dlgSelectDateTimeSmall.resx">
+      <DependentUpon>dlgSelectDateTimeSmall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSelectorOptionDateTime.resx">
+      <DependentUpon>DlgSelectorOptionDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSetCredential.resx">
+      <DependentUpon>DlgSetCredential.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\easyDataset.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\detailsdatagrid.bmp" />
+    <EmbeddedResource Include="UserControlSelectFieldNames.resx">
+      <DependentUpon>UserControlSelectFieldNames.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ok2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_up.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgParameters.resx">
+      <DependentUpon>DlgParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgPropSQLNonQuery.resx">
+      <DependentUpon>dlgPropSQLNonQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\dbUpdator.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dbTransactor.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del_all.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect_invalid.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect_ok.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ok.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DialogDbCommand.resx">
+      <DependentUpon>DialogDbCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgDataEditorCheckedListbox.resx">
+      <DependentUpon>DlgDataEditorCheckedListbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuerySelectorControl.resx">
+      <DependentUpon>QuerySelectorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\dbExec.bmp" />
+    <EmbeddedResource Include="Resources\key.bmp" />
+    <EmbeddedResource Include="Resources\dgvEx.bmp" />
+    <Content Include="Resources\key.png" />
+    <Content Include="Resources\_erase.ico" />
+    <Content Include="Resources\_helpIcon.ico" />
+    <None Include="Resources\_mssql.ico" />
+    <Content Include="Resources\_removeFromList.ico" />
+    <Content Include="Resources\_select.ico" />
+    <None Include="WebLoginManager.php.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)$(ConfigurationName)
+copy $(TargetDir)$(TargetName).pdb $(SolutionDir)$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>

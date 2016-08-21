@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="w3" xml:space="preserve">
+    <value>Please select operation first</value>
+  </data>
+  <data name="w7" xml:space="preserve">
+    <value>Value not given</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="qry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\qry.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UseJet" xml:space="preserve">
+    <value>Jet Database Driver is used, which is a 32-bit software.</value>
+  </data>
+  <data name="deLinkTbl" xml:space="preserve">
+    <value>Do you want to de-link this table as a child?</value>
+  </data>
+  <data name="datagrid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\datagrid.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_newItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\_newItem.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flds3" xml:space="preserve">
+    <value>Identity</value>
+  </data>
+  <data name="ParamName" xml:space="preserve">
+    <value>Parameter name</value>
+  </data>
+  <data name="connect_ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\connect_ok.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TestValue" xml:space="preserve">
+    <value>Test value</value>
+  </data>
+  <data name="w0" xml:space="preserve">
+    <value>contains</value>
+  </data>
+  <data name="connect_invalid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\connect_invalid.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flds0" xml:space="preserve">
+    <value>FieldName</value>
+  </data>
+  <data name="dbConnection" xml:space="preserve">
+    <value>Set Database Connection</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="_erase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\_erase.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flds2" xml:space="preserve">
+    <value>DataType</value>
+  </data>
+  <data name="_cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\_cancel.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="askDeleteField" xml:space="preserve">
+    <value>Do you want to delete this field?</value>
+  </data>
+  <data name="dbMsg5" xml:space="preserve">
+    <value>Failed to restore the database from the backup. You may manually copy the backup file to the database file.</value>
+  </data>
+  <data name="_help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\_help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="connect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\connect.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ok.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="relNotFound" xml:space="preserve">
+    <value>Relation not found</value>
+  </data>
+  <data name="Operation" xml:space="preserve">
+    <value>Operation</value>
+  </data>
+  <data name="flds1" xml:space="preserve">
+    <value>Only one Identity field is allowed</value>
+  </data>
+  <data name="dbMsg7" xml:space="preserve">
+    <value>Database file:</value>
+  </data>
+  <data name="_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\_select.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_null" xml:space="preserve">
+    <value>{null}</value>
+  </data>
+  <data name="_ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\_ok.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SelFlds" xml:space="preserve">
+    <value>Please select fields first</value>
+  </data>
+  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\save.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addT1" xml:space="preserve">
+    <value>Join-to table</value>
+  </data>
+  <data name="_mssql" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\_mssql.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="del_all" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\del_all.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addT3" xml:space="preserve">
+    <value>Not all field joins are fully defined.</value>
+  </data>
+  <data name="ok_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ok_up.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_helpIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\_helpIcon.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dbMsg3" xml:space="preserve">
+    <value>Do you want to de-link this table as a child?</value>
+  </data>
+  <data name="w2" xml:space="preserve">
+    <value>end with</value>
+  </data>
+  <data name="Field" xml:space="preserve">
+    <value>Field</value>
+  </data>
+  <data name="test" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\test.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\delItem.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dbMsg6" xml:space="preserve">
+    <value>Backup file:</value>
+  </data>
+  <data name="w1" xml:space="preserve">
+    <value>begin with</value>
+  </data>
+  <data name="w4" xml:space="preserve">
+    <value>Please select field</value>
+  </data>
+  <data name="addT0" xml:space="preserve">
+    <value>New table Join field</value>
+  </data>
+  <data name="w6" xml:space="preserve">
+    <value>Parameter name missing</value>
+  </data>
+  <data name="ConnectionManager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>ConnectionManager.rtf;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="fieldNameMissing" xml:space="preserve">
+    <value>Field name not specified</value>
+  </data>
+  <data name="_removeFromList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\_removeFromList.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addT4" xml:space="preserve">
+    <value>No field joins are defined.</value>
+  </data>
+  <data name="dbMsg2" xml:space="preserve">
+    <value>Do you want to delete this field?</value>
+  </data>
+  <data name="dbMsg1" xml:space="preserve">
+    <value>The table name is in use</value>
+  </data>
+  <data name="fkMissing" xml:space="preserve">
+    <value>Not all child table foreign key fields specified</value>
+  </data>
+  <data name="cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\cancel.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flds4" xml:space="preserve">
+    <value>Only one Timestamp field is allowed</value>
+  </data>
+  <data name="indexNameMissing" xml:space="preserve">
+    <value>Index name cannot be empty</value>
+  </data>
+  <data name="w5" xml:space="preserve">
+    <value>Value field not selected</value>
+  </data>
+  <data name="Err_group_field" xml:space="preserve">
+    <value>'Group by' fields not specified</value>
+  </data>
+  <data name="_newIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\_newIcon.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addT2" xml:space="preserve">
+    <value>Join-to field</value>
+  </data>
+  <data name="dbMsg0" xml:space="preserve">
+    <value>New table name</value>
+  </data>
+  <data name="dbMsg4" xml:space="preserve">
+    <value>Relation not found</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="WebLoginManager_php" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>WebLoginManager.php.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+</root>

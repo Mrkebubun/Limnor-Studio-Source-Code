@@ -1,0 +1,551 @@
+<?php
+class WebLoginManager
+{
+	public $myname;
+	public $NameDelimiterBegin;
+	public $NameDelimiterEnd;
+	public $FailedMessageLableId;
+	public $InactivityMinutes;
+	public $LoginFailedMessage;
+	public $UserAccountIdFieldName;
+	public $UserAccountLoginFieldName;
+	public $UserAccountPasswordFieldName;
+	public $UserAccountSaltFieldName;
+	public $UserAccountLevelFieldName;
+	public $UserAccountTableName;
+	public $UserAccountResetCodeFieldName;
+	public $UserAccountResetCodeTimeFieldName;
+	public $jsMySql;
+	public $jsp;
+	public $UserLevel;
+	public $LoginName;
+	public $LoginID;
+	public $PasswordHash;
+	private $salt;
+	public $COOKIE_UserLogin;
+	function __construct($name)
+	{
+		$this->myname = $name;
+	}
+	public function Initialize($page, $c, $id)
+	{
+		$this->jsp = $page;
+		$this->jsMySql = new JsonSourceMySql();
+		$this->jsMySql->SetCredential($c);
+		$this->COOKIE_UserLogin = $id;
+		$this->UserLevel = 0;
+		$this->LoginName = "";
+		$this->LoginID = 0;
+	}
+	private function showmsgclient($msg)
+	{
+		if($this->FailedMessageLableId != null && strlen($this->FailedMessageLableId) > 0)
+		{
+			$this->jsp->AddClientScript("document.getElementById('".$this->FailedMessageLableId. "').innerHTML = '". str_replace("'","\'", $msg)."';");
+		}
+	}
+	private function getHash($input, $salt, $algo)
+	{
+		$hashRet = "";
+		if ($salt != null && strlen($salt) > 0)
+		{
+			$input = $salt . $input;
+		}
+		if($this->PasswordHash == 0)
+		{
+			$hashRet = hash("md5", $input, false);
+		}
+		else if($this->PasswordHash == 1)
+		{
+			$hashRet = hash("sha1", $input, false);
+		}
+		else if($this->PasswordHash == 2)
+		{
+			$hashRet = hash("sha256", $input, false);
+		}
+		else if($this->PasswordHash == 3)
+		{
+			$hashRet = hash("sha384", $input, false);
+		}
+		else if($this->PasswordHash == 4)
+		{
+			$hashRet = hash("sha512", $input, false);
+		}
+		else
+		{
+			$hashRet = hash("md5", $input, false);
+		}
+		return $hashRet;
+	}
+	private function checkLogin($loginName, $password)
+	{
+		$this->salt = "";
+		$this->jsp->LogDebugInfo("using ". $this->myname. "<br>");
+		$this->jsp->LogDebugInfo("checkLogin<br>");
+		$bPassed = false;
+		$sSQL;
+		$sSQL = "SELECT ".
+					$this->NameDelimiterBegin.
+					$this->UserAccountPasswordFieldName.
+					$this->NameDelimiterEnd.
+					", PASSWORD(?)";
+		if($this->UserAccountLevelFieldName != null && strlen($this->UserAccountLevelFieldName)>0)
+		{
+			$sSQL = $sSQL. ",".
+				$this->NameDelimiterBegin.
+				$this->UserAccountLevelFieldName.
+				$this->NameDelimiterEnd;
+		}
+		if($this->UserAccountIdFieldName != null && strlen($this->UserAccountIdFieldName)>0)
+		{
+			$sSQL = $sSQL. ",".
+				$this->NameDelimiterBegin.
+				$this->UserAccountIdFieldName.
+				$this->NameDelimiterEnd;
+		}
+		if($this->UserAccountSaltFieldName != null && strlen($this->UserAccountSaltFieldName)>0)
+		{
+			$sSQL = $sSQL. ",".
+				$this->NameDelimiterBegin.
+				$this->UserAccountSaltFieldName.
+				$this->NameDelimiterEnd;
+		}
+		$sSQL = $sSQL.
+				" FROM ".
+				$this->NameDelimiterBegin.
+				$this->UserAccountTableName.
+				$this->NameDelimiterEnd.
+				" WHERE ".
+				$this->NameDelimiterBegin. 
+				$this->UserAccountLoginFieldName.
+				$this->NameDelimiterEnd.
+				"=?";
+		$this->jsp->LogDebugInfo("SQL:". $sSQL. "<br>");
+		$ps = array();
+		$p = new SqlClientParameter();
+		$p->name = '@c1';
+		$p->type = 's';
+		$p->value = $password;
+		$ps[] = $p;
+		//
+		$p = new SqlClientParameter();
+		$p->name = '@c2';
+		$p->type = 's';
+		$p->value = $loginName;
+		$ps[] = $p;
+		//
+		$tbl = new JsonDataTable();
+		$this->jsMySql->GetData($tbl, $sSQL, $ps);
+		$rn = count($tbl->Rows);
+		if($rn > 0)
+		{
+			$fidx = 2;
+			$hashInDB = $tbl->Rows[0]->ItemArray[0];
+			$mysqlPass = $tbl->Rows[0]->ItemArray[1];
+			if($this->UserAccountLevelFieldName != null && strlen($this->UserAccountLevelFieldName)>0)
+			{
+				$this->UserLevel = $tbl->Rows[0]->ItemArray[$fidx];
+				if($this->UserLevel == NULL) 
+				{
+					$this->UserLevel = 0;
+				}
+				$fidx++;
+			}
+			if($this->UserAccountIdFieldName != null && strlen($this->UserAccountIdFieldName)>0)
+			{
+				$this->LoginID = $tbl->Rows[0]->ItemArray[$fidx];
+				if($this->LoginID == NULL) 
+				{
+					$this->LoginID = 0;
+				}
+				$fidx++;
+			}
+			if($this->UserAccountSaltFieldName != null && strlen($this->UserAccountSaltFieldName)>0)
+			{
+				$this->salt = $tbl->Rows[0]->ItemArray[$fidx];
+				if($this->salt == NULL) 
+				{
+					$this->salt = "";
+				}
+				$fidx++;
+			}
+			if ($hashInDB == $mysqlPass)
+			{
+				$bPassed = true;
+			}
+			else
+			{
+				if(($hashInDB == null || strlen($hashInDB) == 0) && ($password == null || strlen($password) == 0))
+				{
+					$this->jsp->LogDebugInfo("log in failed. Password in DB is empty");
+				}
+				else
+				{
+					$hashInput = $this->getHash($password, $this->salt, $this->PasswordHash);
+					if($hashInDB == $hashInput)
+					{
+						$bPassed = true;
+					}
+					else
+					{
+						$this->jsp->LogDebugInfo("log in failed. password in db:[");
+						$this->jsp->LogDebugInfo($hashInDB);
+						$this->jsp->LogDebugInfo("] password tried:[");
+						$this->jsp->LogDebugInfo($hashInput);
+						$this->jsp->LogDebugInfo(",");
+						$this->jsp->LogDebugInfo($mysqlPass);
+						$this->jsp->LogDebugInfo("]<br>");
+					}
+				}
+			}
+		}
+		else
+		{
+			$this->jsp->LogDebugInfo( "log in failed. invalid user:[");
+			$this->jsp->LogDebugInfo( $loginName);
+			$this->jsp->LogDebugInfo( "]<br>");
+		}
+		return $bPassed;
+	}
+	public function Login($loginName, $password)
+	{
+		$bPassed = false;
+		$this->jsMySql->SetDebug($this->jsp->DEBUG);
+		$this->jsp->SetServerComponentName($this->myname);
+		/*
+		if (isset($_COOKIE[$this->COOKIE_UserLogin]))
+		{
+			if(strlen($_COOKIE[$this->COOKIE_UserLogin]) > 0)
+			{
+				$this->jsp->LogDebugInfo( "Already log in to:{0}". $_COOKIE[$this->COOKIE_UserLogin]);
+				$this->jsp->LogDebugInfo( "<br>");
+				$this->jsp->AddClientScript("JsonDataBinding.LoginPassed2();");
+				return;
+			}
+		}
+		*/
+		$this->jsp->LogDebugInfo( "Start log in<br>");
+		if(strlen($loginName) == 0 && strlen($password) == 0)
+		{
+			$this->jsp->LogDebugInfo( "Missing login information");
+		}
+		else
+		{
+			$bPassed = $this->checkLogin($loginName, $password);
+		}
+		if ($bPassed)
+		{
+			if ($this->InactivityMinutes <= 0)
+			{
+				$this->InactivityMinutes = 10;
+			}
+			$this->jsp->AddClientScript("JsonDataBinding.LoginPassed('". $loginName. "',". $this->InactivityMinutes. ", ". $this->UserLevel. ", ". $this->LoginID. ");");
+		}
+		else
+		{
+			if($this->LoginFailedMessage != null && strlen($this->LoginFailedMessage) > 0)
+			{
+				$this->jsp->AddClientScript("JsonDataBinding.LoginFailed('". $this->FailedMessageLableId. "','". str_replace("'","_",$this->LoginFailedMessage). "');");
+			}
+			else
+			{
+				$this->jsp->AddClientScript("JsonDataBinding.LoginFailed('". $this->FailedMessageLableId. "','Login failed');");
+			}
+		}
+	}
+	public function ResetPassword($loginName, $newPassword)
+	{
+		if($this->UserAccountTableName == null || strlen($this->UserAccountTableName) == 0
+			|| $this->UserAccountLoginFieldName == null || strlen($this->UserAccountLoginFieldName) == 0
+			|| $this->UserAccountPasswordFieldName == null || strlen($this->UserAccountPasswordFieldName) == 0)
+		{
+			$this->showmsgclient('Missing required properties.');
+			return false;
+		}
+		$this->salt = "";
+		$sSQL = "UPDATE ".
+			$this->NameDelimiterBegin.
+			$this->UserAccountTableName.
+			$this->NameDelimiterEnd.
+			" SET ".
+			$this->NameDelimiterBegin.
+			$this->UserAccountPasswordFieldName.
+			$this->NameDelimiterEnd.
+			" = ?";
+		if($this->UserAccountSaltFieldName != null && strlen($this->UserAccountSaltFieldName)>0)
+		{
+			$sSQL = $sSQL. ",".
+				$this->NameDelimiterBegin.
+				$this->UserAccountSaltFieldName.
+				$this->NameDelimiterEnd.
+				" = ?";
+		}
+		$sSQL = $sSQL.
+			" WHERE ".
+			$this->NameDelimiterBegin.
+			$this->UserAccountLoginFieldName.
+			$this->NameDelimiterEnd.
+			" = ?";
+		$this->jsp->LogDebugInfo("SQL:". $sSQL. "<br>");
+		$ps = array();
+		//
+		if($this->UserAccountSaltFieldName != null && strlen($this->UserAccountSaltFieldName)>0)
+		{
+			$this->salt = hash('sha256', uniqid(mt_rand(), true) . $loginName);
+		}
+		//
+		$p = new SqlClientParameter();
+		$p->name = '@c1';
+		$p->type = 's';
+		$p->value = $this->getHash($newPassword, $this->salt, $this->PasswordHash);
+		$ps[] = $p;
+		//
+		if($this->UserAccountSaltFieldName != null && strlen($this->UserAccountSaltFieldName)>0)
+		{
+			$p = new SqlClientParameter();
+			$p->name = '@csalt';
+			$p->type = 's';
+			$p->value = $this->salt;
+			$ps[] = $p;
+		}
+		//
+		$p = new SqlClientParameter();
+		$p->name = '@c2';
+		$p->type = 's';
+		$p->value = $loginName;
+		$ps[] = $p;
+		//
+		$this->jsMySql->ExecuteNonQuery($sSQL, $ps);
+		//
+		$this->showmsgclient('Password changed');
+		return true;
+	}
+	public function CreatePasswordResetCode($loginName, $expiratonInMinutes)
+	{
+		$this->jsMySql->SetDebug($this->jsp->DEBUG);
+		$this->jsp->SetServerComponentName($this->myname);
+		$this->jsp->LogDebugInfo("Changing password<br>");
+		if (strlen($this->UserAccountTableName) != 0
+			&& strlen($this->UserAccountLoginFieldName) != 0
+			&& strlen($this->UserAccountResetCodeFieldName) != 0
+			&& strlen($this->UserAccountResetCodeTimeFieldName) != 0
+			)
+		{
+			if (strlen($loginName) == 0)
+			{
+				$this->jsp->LogDebugInfo("Missing login name<br>");
+				$this->showmsgclient('Missing required parameters.');
+			}
+			else
+			{
+				$this->salt = "";
+				if($this->UserAccountSaltFieldName != null && strlen($this->UserAccountSaltFieldName)>0)
+				{
+					$sSQL = "SELECT ".
+						$this->NameDelimiterBegin.
+						$this->UserAccountSaltFieldName.
+						$this->NameDelimiterEnd.
+						" FROM ".
+						$this->NameDelimiterBegin.
+						$this->UserAccountTableName.
+						$this->NameDelimiterEnd.
+						" WHERE ".
+						$this->NameDelimiterBegin. 
+						$this->UserAccountLoginFieldName.
+						$this->NameDelimiterEnd.
+						"=?";
+					$this->jsp->LogDebugInfo("SQL:". $sSQL. "<br>");
+					$ps = array();
+					$p = new SqlClientParameter();
+					$p->name = '@c1';
+					$p->type = 's';
+					$p->value = $loginName;
+					$ps[] = $p;
+					$tbl = new JsonDataTable();
+					$this->jsMySql->GetData($tbl, $sSQL, $ps);
+					$rn = count($tbl->Rows);
+					if($rn > 0)
+					{
+						$this->salt = $tbl->Rows[0]->ItemArray[0];
+					}
+				}
+				$sSQL = "UPDATE ".
+					$this->NameDelimiterBegin.
+					$this->UserAccountTableName.
+					$this->NameDelimiterEnd.
+					" SET ".
+					$this->NameDelimiterBegin.
+					$this->UserAccountResetCodeFieldName.
+					$this->NameDelimiterEnd.
+					" = ?,".
+					$this->NameDelimiterBegin.
+					$this->UserAccountResetCodeTimeFieldName.
+					$this->NameDelimiterEnd.
+					" = ? WHERE ".
+					$this->NameDelimiterBegin.
+					$this->UserAccountLoginFieldName.
+					$this->NameDelimiterEnd.
+					" = ?";
+				$this->jsp->LogDebugInfo("SQL:". $sSQL. "<br>");
+				$ps = array();
+				//
+				$resetCode = randomString(8);
+				//
+				$p = new SqlClientParameter();
+				$p->name = '@cCode';
+				$p->type = 's';
+				$p->value = $this->getHash($resetCode, $this->salt, $this->PasswordHash);
+				$ps[] = $p;
+				//
+				$expTime = addMinutesToDate(date("Y-m-d H:i:s"),$expiratonInMinutes);
+				$p = new SqlClientParameter();
+				$p->name = '@cExp';
+				$p->type = 's';
+				$p->value = $expTime;
+				$ps[] = $p;
+				//
+				$p = new SqlClientParameter();
+				$p->name = '@c2';
+				$p->type = 's';
+				$p->value = $loginName;
+				$ps[] = $p;
+				//
+				$this->jsMySql->ExecuteNonQuery($sSQL, $ps);
+				//
+				$this->jsp->LogDebugInfo("<br>Reset code generated:".$resetCode."<br>");
+				//
+				return $resetCode;
+			}
+		}
+		else
+		{
+			$this->showmsgclient('Missing required properties.');
+			$this->jsp->LogDebugInfo("Missing required properties. UserAccountTableName:". $this->UserAccountTableName. ", UserAccountLoginFieldName:". $this->UserAccountLoginFieldName. ", UserAccountPasswordFieldName:". $this->UserAccountPasswordFieldName);
+		}
+		return "";
+	}
+	public function ResetPasswordByUser($loginName, $resetCode, $newPassword)
+	{
+		$this->salt = "";
+		$sSQL = "SELECT ".
+			$this->NameDelimiterBegin.
+			$this->UserAccountResetCodeFieldName.
+			$this->NameDelimiterEnd.
+			",".
+			$this->NameDelimiterBegin.
+			$this->UserAccountResetCodeTimeFieldName.
+			$this->NameDelimiterEnd;
+		if($this->UserAccountSaltFieldName != null && strlen($this->UserAccountSaltFieldName)>0)
+		{
+			$sSQL = $sSQL. ",".
+				$this->NameDelimiterBegin.
+				$this->UserAccountSaltFieldName.
+				$this->NameDelimiterEnd;
+		}
+		$sSQL = $sSQL.
+			" FROM ".
+			$this->NameDelimiterBegin.
+			$this->UserAccountTableName.
+			$this->NameDelimiterEnd.
+			" WHERE ".
+			$this->NameDelimiterBegin. 
+			$this->UserAccountLoginFieldName.
+			$this->NameDelimiterEnd.
+			"=?";
+		$this->jsp->LogDebugInfo("SQL:". $sSQL. "<br>");
+		$ps = array();
+		$p = new SqlClientParameter();
+		$p->name = '@c1';
+		$p->type = 's';
+		$p->value = $loginName;
+		$ps[] = $p;
+		$tbl = new JsonDataTable();
+		$this->jsMySql->GetData($tbl, $sSQL, $ps);
+		$rn = count($tbl->Rows);
+		if($rn > 0)
+		{
+			$codeHashDb = $tbl->Rows[0]->ItemArray[0];
+			$expTime = $tbl->Rows[0]->ItemArray[1];
+			if($expTime == null || timeDiffInSeconds(date("Y-m-d H:i:s"),$expTime) < 0)
+			{
+				$this->showmsgclient("Reset-code not created or expired.");
+				$this->jsp->LogDebugInfo("Reset-code not created or expired.");
+			}
+			else
+			{
+				if($this->UserAccountSaltFieldName != null && strlen($this->UserAccountSaltFieldName)>0)
+				{
+					$this->salt = $tbl->Rows[0]->ItemArray[2];
+				}
+				$inputHash = $this->getHash($resetCode, $this->salt, $this->PasswordHash);
+				if($inputHash != $codeHashDb)
+				{
+					$this->showmsgclient("Invalid user name or reset code.");
+					$this->jsp->LogDebugInfo("Invalid reset code");
+				}
+				else
+				{
+					return $this->ResetPassword($loginName, $newPassword);
+				}
+			}
+		}
+		else
+		{
+			$this->showmsgclient("Invalid user name or reset code.");
+			$this->jsp->LogDebugInfo("Invalid user name");
+		}
+		return false;
+	}
+	public function ChangePassword($loginName, $currentPassword, $newPassword)
+	{
+		$this->jsMySql->SetDebug($this->jsp->DEBUG);
+		$this->jsp->SetServerComponentName($this->myname);
+		$this->jsp->LogDebugInfo("Changing password<br>");
+		if (strlen($this->UserAccountTableName) != 0
+			&& strlen($this->UserAccountLoginFieldName) != 0
+			&& strlen($this->UserAccountPasswordFieldName) != 0)
+		{
+			if (strlen($loginName) == 0 || strlen($newPassword) == 0)
+			{
+				if (strlen($loginName) == 0)
+				{
+					$this->jsp->LogDebugInfo("Missing login name<br>");
+				}
+				if (strlen($newPassword) == 0)
+				{
+					$this->jsp->LogDebugInfo("Missing new password<br>");
+				}
+				$this->showmsgclient('Missing required parameters.');
+			}
+			else
+			{
+				$bOK = $this->checkLogin($loginName, $currentPassword);
+				if ($bOK)
+				{
+					return $this->ResetPassword($loginName, $newPassword);
+				}
+				else
+				{
+					$logonfail;
+					if($this->LoginFailedMessage != null && strlen($this->LoginFailedMessage) > 0)
+					{
+						$logonfail = $this->LoginFailedMessage;
+					}
+					else
+					{
+						$logonfail = "Invalid credential";
+					}
+					$this->showmsgclient($logonfail);
+					$this->jsp->LogDebugInfo($logonfail);
+				}
+			}
+		}
+		else
+		{
+			$this->showmsgclient('Missing required properties.');
+			$this->jsp->LogDebugInfo("Missing required properties. UserAccountTableName:". $this->UserAccountTableName. ", UserAccountLoginFieldName:". $this->UserAccountLoginFieldName. ", UserAccountPasswordFieldName:". $this->UserAccountPasswordFieldName);
+		}
+		return false;
+	}
+}
+?>
