@@ -1,1 +1,144 @@
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4685A423-B3BB-4739-9CAB-73D2BD90BFA7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LimnorWix</RootNamespace>
+    <AssemblyName>LimnorWix</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Distributor.cs" />
+    <Compile Include="DlgChangeAssemblyVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgChangeAssemblyVersion.Designer.cs">
+      <DependentUpon>DlgChangeAssemblyVersion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgFolderName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgFolderName.designer.cs">
+      <DependentUpon>DlgFolderName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgShortcutTarget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgShortcutTarget.Designer.cs">
+      <DependentUpon>DlgShortcutTarget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventArgsNameChange.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TreeViewWix.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TypeEditorShortcutTarget.cs" />
+    <Compile Include="UserControlSetupProperties.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSetupProperties.designer.cs">
+      <DependentUpon>UserControlSetupProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WixXmlNode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IISutility\IISutility.csproj">
+      <Project>{0d209aa3-e3a5-4ee5-8cb2-d79df71deda2}</Project>
+      <Name>IISutility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VPL\VPL.csproj">
+      <Project>{66ed66a8-13a5-4e70-b482-8143ec714def}</Project>
+      <Name>VPL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSPrj\VSPrj.csproj">
+      <Project>{3ce654bd-4a8b-4069-bcce-c46ac55e056c}</Project>
+      <Name>VSPrj</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsUtility\WindowsUtility.csproj">
+      <Project>{345c1f39-8e66-4464-9cbe-537f792e6b10}</Project>
+      <Name>WindowsUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WixLib\WixLib.csproj">
+      <Project>{4fe9a7ff-1333-45e6-bbd9-372f862b2cc2}</Project>
+      <Name>WixLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlUtil\XmlUtil.csproj">
+      <Project>{c025e0a3-a59b-465b-a4de-9e90534b63f4}</Project>
+      <Name>XmlUtil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgChangeAssemblyVersion.resx">
+      <DependentUpon>DlgChangeAssemblyVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgFolderName.resx">
+      <DependentUpon>DlgFolderName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgShortcutTarget.resx">
+      <DependentUpon>DlgShortcutTarget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSetupProperties.resx">
+      <DependentUpon>UserControlSetupProperties.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_newIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_rename.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)$(ConfigurationName)
+copy $(TargetDir)$(TargetName).pdb $(SolutionDir)$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
