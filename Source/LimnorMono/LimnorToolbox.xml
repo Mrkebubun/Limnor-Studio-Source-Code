@@ -1,0 +1,55 @@
+<Tools>
+	<File name="MousePointer.dll">
+		<Item name="Limnor.InputDevice.MousePointer" tool="1"></Item>
+	</File>
+	<File name="Keyboard.dll">
+		<Item name="Limnor.InputDevice.Keyboard" tool="1"></Item>
+                <Item name="Limnor.InputDevice.HotKeyList"></Item>
+	</File>
+
+	<File name="ApplicationConfig.dll">
+		<Item name="Limnor.Application.ApplicationConfiguration" tool="1"></Item>
+		<Item name="Limnor.Application.CategoryList"></Item>
+	</File>
+	<File name="MathComponent.dll">
+		<Item name="MathComponent.MathematicExpression" tool="1"></Item>
+	</File>
+	<File name="InternetUtility.dll">
+		<Item name="Limnor.Net.FtpClient" tool="1"></Item>
+		<Item name="Limnor.Net.MailSender" tool="1"></Item>
+		<Item name="Limnor.Net.OperationFailEventArgs"></Item>
+		<Item name="Limnor.Net.OperationFailHandler"></Item>
+		<Item name="Limnor.Net.EnumCharEncode"></Item>
+		<Item name="Limnor.Net.FtpFileInfo"></Item>
+		<Item name="Limnor.Net.EnumFtpOperation"></Item>
+		<Item name="Limnor.Net.FtpOperationEvent"></Item>
+		<Item name="Limnor.Net.FtpTransferEventArgs"></Item>
+	</File>
+	<File name="FormComponents.dll">
+		<Item name="FormComponents.TextBoxNumber" tool="1"></Item>
+		<Item name="FormComponents.LabelNumber" tool="1"></Item>
+		<Item name="FormComponents.ButtonKey" tool="1"></Item>
+		<Item name="FormComponents.KeyPair"></Item>
+		<Item name="FormComponents.KeyPairList"></Item>
+		<Item name="FormComponents.KeyBuffer"></Item>
+		<Item name="FormComponents.PrinterManager" tool="1"></Item>
+	</File>
+	<File name="ProgUtility.dll">
+		<Item name="ProgUtility.StringTool" tool="1"></Item>
+	</File>
+	<File name="Capturer.dll">
+		<Item name="Limnor.DirectXCapturer.Capturer" tool="1"></Item>
+	</File>
+	<File name="CopyProtection.dll">
+		<Item name="Limnor.CopyProtection.CopyProtector" tool="1"></Item>
+	</File>
+	<File name="OskUtility.dll">
+		<Item name="OskUtility.OskWindow" tool="1"></Item>
+	</File>
+	<File name="LimnorWebBrowser.dll">
+		<Item name="LimnorWebBrowser.WebBrowserControl" tool="1"></Item>
+	</File>
+	<File name="RichTextBoxEx.dll">
+		<Item name="LimnorForms.RichTextBoxEx" tool="1"></Item>
+	</File>
+</Tools>
