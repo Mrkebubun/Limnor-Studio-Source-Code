@@ -1,0 +1,65 @@
+
+using System;
+using System.Globalization;
+internal sealed class {0}
+{{
+	public static event EventHandler ProjectCultureChanged;
+	public static CultureInfo ProjectCulture
+	{{
+		get
+		{{
+			if({1}.Culture != null)
+				return {1}.Culture;
+			return CultureInfo.CurrentUICulture;
+		}}
+	}}
+	public static string ProjectCultureName
+	{{
+		get
+		{{ 
+			if({1}.Culture != null)
+				return {1}.Culture.Name;
+			return CultureInfo.CurrentUICulture.Name;
+		}}
+		set
+		{{
+			if(string.IsNullOrEmpty(value))
+			{{
+				if({1}.Culture != null)
+				{{
+					{1}.Culture = null;
+					if(ProjectCultureChanged != null)
+					{{
+						ProjectCultureChanged(null,EventArgs.Empty);
+					}}
+				}}
+			}}
+			else
+			{{
+				CultureInfo c = CultureInfo.GetCultureInfo(value);
+				if( c != null )
+				{{
+					if({1}.Culture == null)
+					{{
+						{1}.Culture = c;
+						if(ProjectCultureChanged != null)
+						{{
+							ProjectCultureChanged(null,EventArgs.Empty);
+						}}
+					}}
+					else
+					{{
+						if( string.CompareOrdinal({1}.Culture.Name,value) != 0)
+						{{
+							{1}.Culture = c;
+							if(ProjectCultureChanged != null)
+							{{
+								ProjectCultureChanged(null,EventArgs.Empty);
+							}}
+						}}
+					}}
+				}}
+			}}
+		}}
+	}}
+}}
