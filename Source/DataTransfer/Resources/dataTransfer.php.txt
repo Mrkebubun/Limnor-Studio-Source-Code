@@ -1,1 +1,219 @@
+﻿<?php
+class DataSourceTextFile
+{
+	public $filepath;
+	public $delimiter;
+	public $hasHeader;
+	public $errorMessage;
+	private function popField(&$sIn)
+	{
+		if (strlen($sIn) == 0)
+			return "";
+		$startIndex = 0;
+		$qi2 = -1;
+		$qi = strpos($sIn,'"');
+		if ($qi >= 0)
+		{
+			$qi2 = strpos($sIn,'"', qi + 1);
+		}
+		$nTab = -1;
+		while (true)
+		{
+			switch ($this->delimiter)
+			{
+				case ",":
+					$nTab = strpos($sIn,',', $startIndex);
+					break;
+				case "\t":
+					$nTab = strpos($sIn,'\t', $startIndex);
+					break;
+				default:
+					//$this->errorMessage = "Unsupported delimiter";
+					$nTab = strpos($sIn,',', $startIndex);
+					break;
+			}
+			if($nTab === FALSE)
+			{
+				break;
+			}
+			if ($qi === FALSE || $qi2 === FALSE || $nTab <= 0)
+			{
+				break;
+			}
+			if ($nTab > $qi && $nTab < $qi2)
+			{
+				$startIndex = $qi2 + 1;
+			}
+			else
+			{
+				break;
+			}
+		}
+		$sRet;
+		if($nTab === FALSE)
+		{
+			$sRet = $sIn;
+			$sIn = "";
+		}
+		else if ($nTab == 0)
+		{
+			$sIn = substr($sIn,1);
+			return "";
+		}
+		else if($nTab < 0)
+		{
+			$sRet = $sIn;
+			$sIn = "";
+		}
+		else
+		{
+			$sRet = substr($sIn, 0, $nTab);
+			if ($nTab == strlen($sIn) - 1)
+			{
+				$sIn = "";
+			}
+			else
+			{
+				$sIn = substr($sIn,$nTab + 1);
+			}
+		}
+		if (strlen($sRet) > 1)
+		{
+			if (substr($sRet, 0 ,1) == '"' && substr($sRet,strlen($sRet)-1,1)=='"')
+			{
+				$sRet = substr($sRet, 1, strlen($sRet) - 2);
+			}
+		}
+		return $sRet;
+	}
+	private function parseFieldHeaders($sFirstLine, $tbl)
+	{
+		$s;
+		$ItemArray = array();
+		$i = 0;
+		while (strlen($sFirstLine)>0)
+		{
+			$s = $this->popField($sFirstLine);
+			//echo "ret:".$s.", remain:".$sFirstLine."<br>";
+			$cn;
+			if ($this->hasHeader)
+			{
+				$cn = $s;
+			}
+			else
+			{
+				$cn = "Column".  i;
+				$ItemArray[] = $s;
+			}
+			if($GLOBALS["debug"])
+			{
+				echo " column ".$i.":".$cn."<br>";
+			}
+			$tbl->addColumn($cn, false, false, false, "s");
+			$i++;
+		}
+		if (!$this->hasHeader)
+		{
+			$r = new JsonDataRow($ItemArray);
+			$tbl->Rows[] = $r;
+		}
+	}
+	private function parseFields($buffer, $tbl)
+	{
+		$s;
+		$ItemArray = array();
+		$i = 0;
+		while($i<count($tbl->Columns))
+		{
+			$s = $this->popField($buffer);
+			//echo "ret:".$s.", remain:".$buffer."<br>";
+			$ItemArray[] = $s;
+			$i++;
+		}
+		$r = new JsonDataRow();
+		$r->ItemArray = $ItemArray;
+		$tbl->Rows[] = $r;
+	}
+	public function GetData($tbl)
+	{
+		$this->errorMessage = '';
+		if(strlen($this->filepath) == 0)
+		{
+			$this->errorMessage = 'file path is empty';
+		}
+		else if(!file_exists($this->filepath))
+		{
+			$this->errorMessage = 'file path does not exist:'.$this->filepath;
+		}
+		else
+		{
+			if($GLOBALS["debug"])
+			{
+				echo "reading file ".$this->filepath."<br>";
+			}
+			$buffer = '';
+			ini_set('auto_detect_line_endings',true);
+			$fh = fopen($this->filepath,'r');
+			while (!feof($fh))
+			{
+				$buffer = fgets($fh);
+				if(strlen($buffer) > 0)
+				{
+					break;
+				}
+			}
+			if($GLOBALS["debug"])
+			{
+				echo "first line:".$buffer."<br>";
+			}
+			if(strlen($buffer) > 0)
+			{
+				$this->parseFieldHeaders($buffer, $tbl);
+				if($GLOBALS["debug"])
+				{
+					echo "column count:".count($tbl->Columns)."<br>";
+				}
+				while (!feof($fh))
+				{
+					$buffer = fgets($fh);
+					if($GLOBALS["debug"])
+					{
+						echo "  line:".$buffer."<br>";
+					}
+					if(strlen($buffer) > 0)
+					{
+						$this->parseFields($buffer, $tbl);
+					}
+				}
+				if($GLOBALS["debug"])
+				{
+					echo "Rows:".count($tbl->Rows)."<br>";
+				}
+			}
+			fclose($fh);
+		}
+	}
+}
+class EasyTransfer
+{
+	public $ObjectName;
+	public $EndPointType;
+	public $sourceCredential;
+	public $destinationCredential;
+	public $PhpTimeoutInMinutes;
+	public $DEBUG;
+	public $ErrorMessage;
+	function __construct($name)
+	{
+		$this->ObjectName = $name;
+		$this->PhpTimeoutInMinutes = 0;
+	}
+	public function startDataTransfer() 
+	{
+		$msql = new JsonSourceMySql();
+		$msql->SetCredential($this->sourceCredential);
+		$msql->SetDebug($this->DEBUG);
+	}
+}
 
+?>
