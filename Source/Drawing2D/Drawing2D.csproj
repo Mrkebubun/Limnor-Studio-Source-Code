@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D07DAF1C-D5B9-4049-9B77-88E77E74A0F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Limnor.Drawing2D</RootNamespace>
+    <AssemblyName>Limnor.Drawing2D</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CollectionEditorDrawingItem.cs" />
+    <Compile Include="CollectionEditorDrawingLayer.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Draw2DGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DLineArrow2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DLineArrow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DefaultDrawings.cs" />
+    <Compile Include="DesignBehavior.cs" />
+    <Compile Include="DesignMessageFilter.cs" />
+    <Compile Include="DlgMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgMessage.Designer.cs">
+      <DependentUpon>DlgMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Draw2DArc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DBezier.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DCircle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DClosedCurve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DEllipse.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DPolygon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DRect.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DRectText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Draw2DTextRect.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DrawingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DrawingControlLayer.cs" />
+    <Compile Include="DrawingItemDesigner.cs" />
+    <Compile Include="DrawingItemDesignerGlyph.cs" />
+    <Compile Include="DrawingItems.cs">
+    </Compile>
+    <Compile Include="CPoint.cs" />
+    <Compile Include="dlgBezierStep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgDrawingBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgDrawings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgEditArc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgEditBezier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgEditCircle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgEditEllips.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgEditImg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgEditLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgEditPolygon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgEditText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgModalMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorCondition.cs" />
+    <Compile Include="dlgNewDrawing2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgPageAttrs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrawingLayer.cs" />
+    <Compile Include="DrawingLayerCollection.cs" />
+    <Compile Include="DrawingLayerHeader.cs" />
+    <Compile Include="DrawingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrawingPage.Designer.cs">
+      <DependentUpon>DrawingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawingsHolder.cs" />
+    <Compile Include="DrawItemListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EnumLineDirection.cs" />
+    <Compile Include="ExceptionDrawing2D.cs" />
+    <Compile Include="ForHotspotsAttribute.cs" />
+    <Compile Include="FormDebug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDebug.Designer.cs">
+      <DependentUpon>FormDebug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDrawingProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDrawingProperties.Designer.cs">
+      <DependentUpon>FormDrawingProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormToolbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormToolbox.Designer.cs">
+      <DependentUpon>FormToolbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDrawings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHotspots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hotspots.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IDrawDesignControl.cs" />
+    <Compile Include="IDrawingPage.cs" />
+    <Compile Include="IOwnerDraw.cs" />
+    <Compile Include="ITextInput.cs" />
+    <Compile Include="LayerSelector.cs" />
+    <Compile Include="MenuWithID.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NativeWIN32.cs" />
+    <Compile Include="PageAttrs.cs" />
+    <Compile Include="PrintPreviewDialogEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Rotation.cs" />
+    <Compile Include="RoundRect.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScreenSaverBackgroundForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaticMethodAsInstanceAttribute.cs" />
+    <Compile Include="TypeConverterLayerHead.cs" />
+    <Compile Include="TypeConverterLayerHeaderList.cs" />
+    <Compile Include="UserControlDrawingBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDrawingBoard.Designer.cs">
+      <DependentUpon>UserControlDrawingBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VectorUtil.cs" />
+    <Compile Include="win32_ts.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dlgBezierStep.resx">
+      <DependentUpon>dlgBezierStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgDrawingBoard.resx">
+      <DependentUpon>dlgDrawingBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgDrawings.resx">
+      <DependentUpon>dlgDrawings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgEditArc.resx">
+      <DependentUpon>dlgEditArc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgEditBezier.resx">
+      <DependentUpon>dlgEditBezier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgEditCircle.resx">
+      <DependentUpon>dlgEditCircle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgEditEllips.resx">
+      <DependentUpon>dlgEditEllips.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgEditImg.resx">
+      <DependentUpon>dlgEditImg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgEditLine.resx">
+      <DependentUpon>dlgEditLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgEditPolygon.resx">
+      <DependentUpon>dlgEditPolygon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgEditText.resx">
+      <DependentUpon>dlgEditText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgModalMenu.resx">
+      <DependentUpon>dlgModalMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgNewDrawing2.resx">
+      <DependentUpon>dlgNewDrawing2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgPageAttrs.resx">
+      <DependentUpon>dlgPageAttrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDrawings.resx">
+      <DependentUpon>frmDrawings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHotspots.resx">
+      <DependentUpon>frmHotspots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuWithID.resx">
+      <DependentUpon>MenuWithID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\defaultIcon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\coordinates.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\rotation.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\origin.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\line.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\circle.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\text.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\textRect.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\arc.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ellips.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\bezier.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\rect.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\img.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\closedCurve.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\polygon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgMessage.resx">
+      <DependentUpon>DlgMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDebug.resx">
+      <DependentUpon>FormDebug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDrawingProperties.resx">
+      <DependentUpon>FormDrawingProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\dataTable.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\rectr.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LFilePath\LFilePath.csproj">
+      <Project>{CE3B2995-8D4C-4632-BF4B-24EA0E3E86F9}</Project>
+      <Name>LFilePath</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VPL\VPL.csproj">
+      <Project>{66ED66A8-13A5-4E70-B482-8143EC714DEF}</Project>
+      <Name>VPL</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlUtil\XmlUtil.csproj">
+      <Project>{C025E0A3-A59B-465B-A4DE-9E90534B63F4}</Project>
+      <Name>XmlUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\rectrtxt.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormToolbox.resx">
+      <DependentUpon>FormToolbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\rectrtxt2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\arrow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\arrow2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PrintPreviewDialogEx.resx">
+      <DependentUpon>PrintPreviewDialogEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\marquee.bmp" />
+    <EmbeddedResource Include="UserControlDrawingBoard.resx">
+      <DependentUpon>UserControlDrawingBoard.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prnDlg.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pgDlg.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\group.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)$(ConfigurationName)
+copy $(TargetDir)$(TargetName).pdb $(SolutionDir)$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>

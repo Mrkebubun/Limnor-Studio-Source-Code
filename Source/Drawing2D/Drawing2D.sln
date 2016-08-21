@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drawing2D", "Drawing2D.csproj", "{D07DAF1C-D5B9-4049-9B77-88E77E74A0F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrawing2D", "..\TestDrawing2D\TestDrawing2D.csproj", "{8D516807-D9F6-4122-AB54-A117B1C3563A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VPL", "..\VPL\VPL.csproj", "{66ED66A8-13A5-4E70-B482-8143EC714DEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D07DAF1C-D5B9-4049-9B77-88E77E74A0F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D07DAF1C-D5B9-4049-9B77-88E77E74A0F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D07DAF1C-D5B9-4049-9B77-88E77E74A0F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D07DAF1C-D5B9-4049-9B77-88E77E74A0F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D516807-D9F6-4122-AB54-A117B1C3563A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D516807-D9F6-4122-AB54-A117B1C3563A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D516807-D9F6-4122-AB54-A117B1C3563A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D516807-D9F6-4122-AB54-A117B1C3563A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66ED66A8-13A5-4E70-B482-8143EC714DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66ED66A8-13A5-4E70-B482-8143EC714DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66ED66A8-13A5-4E70-B482-8143EC714DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66ED66A8-13A5-4E70-B482-8143EC714DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
