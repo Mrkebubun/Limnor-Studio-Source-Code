@@ -11,10 +11,11 @@ using System.Text;
 
 namespace Limnor.Application
 {
-	public enum EnumProfileType
+	public class ConfigException : Exception
 	{
-		Default = 0,
-		Named = 1,
-		User
+		public ConfigException(string message, params object[] values)
+			: base(values == null ? message : values.Length == 0 ? message : string.Format(System.Globalization.CultureInfo.InvariantCulture, message, values))
+		{
+		}
 	}
 }
