@@ -1,1 +1,264 @@
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AAF6A35C-F035-4CB7-99B7-B5566842BF21}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MathComponent</RootNamespace>
+    <AssemblyName>MathComponent</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DlgMathXmlString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgMathXmlString.Designer.cs">
+      <DependentUpon>DlgMathXmlString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSelectProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectProperty.Designer.cs">
+      <DependentUpon>DlgSelectProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfo.Designer.cs">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormulaProperty.cs" />
+    <Compile Include="MathematicExpression.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MathematicExpression.Designer.cs">
+      <DependentUpon>MathematicExpression.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropEditorMathExp.cs" />
+    <Compile Include="PropEditorMathPropertyPointer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TreeViewObjectBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TypeEditorMathXmlString.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MathExp\MathExp.csproj">
+      <Project>{A7287685-2A25-4A8D-9604-FC95CA9432C0}</Project>
+      <Name>MathExp</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ProgElements\ProgElements.csproj">
+      <Project>{CEE3B972-82A2-4069-B64E-3703400CBE8D}</Project>
+      <Name>ProgElements</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\TraceLog\TraceLog.csproj">
+      <Project>{12B36BAB-E964-4BD8-8E4C-CB856BE9147F}</Project>
+      <Name>TraceLog</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\UIUtil\UIUtil.csproj">
+      <Project>{4AA4020F-EDB8-4A53-8EAE-00740985A910}</Project>
+      <Name>UIUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VPLDrawing\VPLDrawing.csproj">
+      <Project>{09A4BD50-F0A7-45E1-AA4B-635B8F5E37E2}</Project>
+      <Name>VPLDrawing</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VPL\VPL.csproj">
+      <Project>{66ED66A8-13A5-4E70-B482-8143EC714DEF}</Project>
+      <Name>VPL</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlUtil\XmlUtil.csproj">
+      <Project>{C025E0A3-A59B-465B-A4DE-9E90534B63F4}</Project>
+      <Name>XmlUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgMathXmlString.resx">
+      <DependentUpon>DlgMathXmlString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSelectProperty.resx">
+      <DependentUpon>DlgSelectProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInfo.resx">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceA.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceA.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MathNodeFunction.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_defaultObject.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bool.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\byte.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\char.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\decimal.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\int.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sbyte.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abc.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sc.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\math.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3color.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_size.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_rect.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_point.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enumValues.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)$(ConfigurationName)
+copy $(TargetDir)$(TargetName).pdb $(SolutionDir)$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>
