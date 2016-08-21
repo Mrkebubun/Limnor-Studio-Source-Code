@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Component"
+    targetNamespace="http://tempuri.org/Component.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/Component.xsd"
+    xmlns:mstns="http://tempuri.org/Component.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="Object">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="Action" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ActionList" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="EventHandler" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:integer" use="required" />
+      <xs:attribute name="name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Action">
+    <xs:complexType>
+      <xs:sequence>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{301AA317-15CA-4BA9-A981-13D211B7298E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LimnorDesigner</RootNamespace>
+    <AssemblyName>LimnorDesigner</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Compile\Action\Action.cs" />
+    <Compile Include="Compile\Action\ActionBranching.cs" />
+    <Compile Include="Compile\Action\ActionCustom.cs" />
+    <Compile Include="ActionEventCollection.cs" />
+    <Compile Include="Compile\Action\ActionString.cs" />
+    <Compile Include="Compile\Action\ActionVisual.cs" />
+    <Compile Include="Compile\Action\BranchList.cs" />
+    <Compile Include="Compile\CompilerSettings.cs" />
+    <Compile Include="MethodBuilder\ActionPort.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewer.designer.cs">
+      <DependentUpon>ActionViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewerIF.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\ActionViewerSingleAction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\DlgMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\DlgMethod.Designer.cs">
+      <DependentUpon>DlgMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\dlgMethodTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\dlgMethodTest.designer.cs">
+      <DependentUpon>dlgMethodTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\FileName.cs" />
+    <Compile Include="MethodBuilder\IMethodDiagram.cs" />
+    <Compile Include="MethodBuilder\ListItem.cs" />
+    <Compile Include="MethodBuilder\MethodDesignerHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\MethodDesignerHolder.designer.cs">
+      <DependentUpon>MethodDesignerHolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\MethodDiagramViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MethodBuilder\MethodDiagramViewer.designer.cs">
+      <DependentUpon>MethodDiagramViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodBuilder\MethodNameCreation.cs" />
+    <Compile Include="MethodBuilder\MethodClass.cs" />
+    <Compile Include="ClassRef.cs" />
+    <Compile Include="ComponentSerializer.cs" />
+    <Compile Include="DataTypePointer.cs" />
+    <Compile Include="DebugConsole.cs" />
+    <Compile Include="DebugRun.cs" />
+    <Compile Include="DebugRunForm.cs" />
+    <Compile Include="DesignerException.cs" />
+    <Compile Include="DesignUtil.cs" />
+    <Compile Include="ClassId.cs" />
+    <Compile Include="DictionaryProperty.cs" />
+    <Compile Include="DlgComponents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgComponents.Designer.cs">
+      <DependentUpon>DlgComponents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventAction.cs" />
+    <Compile Include="FormActionParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormActionParameters.Designer.cs">
+      <DependentUpon>FormActionParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMsg.Designer.cs">
+      <DependentUpon>FormMsg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMsgList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMsgList.Designer.cs">
+      <DependentUpon>FormMsgList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmObjectExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmObjectExplorer.Designer.cs">
+      <DependentUpon>FrmObjectExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IXDesignerViewer.cs" />
+    <Compile Include="LimnorApp.cs" />
+    <Compile Include="LimnorConsole.cs" />
+    <Compile Include="LimnorKiosk.cs" />
+    <Compile Include="LimnorWinApp.cs" />
+    <Compile Include="ListProperty.cs" />
+    <Compile Include="MathNodePointer.cs" />
+    <Compile Include="MethodBuilder\MethodTest.cs" />
+    <Compile Include="MethodBuilder\MethodTestData.cs" />
+    <Compile Include="MethodBuilder\UndoDelComponent.cs" />
+    <Compile Include="MethodBuilder\UndoActionGroupState.cs" />
+    <Compile Include="MultiPanes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MultiPanes.Designer.cs">
+      <DependentUpon>MultiPanes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NameID.cs" />
+    <Compile Include="ObjectExplorer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ParameterListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ParameterListBox.Designer.cs">
+      <DependentUpon>ParameterListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectSerializer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyPointer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RootComponentData.cs" />
+    <Compile Include="TypeEditors.cs" />
+    <Compile Include="TypePointer.cs" />
+    <Compile Include="XmlTags.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Component.xsd" />
+    <None Include="project.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicEventLinker\DynamicEventLinker.csproj">
+      <Project>{FC941E3E-3232-40B5-AE21-BF4E7BA8CBD5}</Project>
+      <Name>DynamicEventLinker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileUtil\FileUtil.csproj">
+      <Project>{286619B2-161A-4076-BE1E-66E46E9F79C4}</Project>
+      <Name>FileUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MathExp\MathExp.csproj">
+      <Project>{A7287685-2A25-4A8D-9604-FC95CA9432C0}</Project>
+      <Name>MathExp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PMEXmlParser\PMEXmlParser\PMEXmlParser.csproj">
+      <Project>{EA85C1D2-751B-4B1F-846E-5129A49DBC97}</Project>
+      <Name>PMEXmlParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProgElements\ProgElements.csproj">
+      <Project>{CEE3B972-82A2-4069-B64E-3703400CBE8D}</Project>
+      <Name>ProgElements</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SerializeInterface\SerializeInterface.csproj">
+      <Project>{EC03F383-00BA-4B34-822F-8C32FFE1237E}</Project>
+      <Name>SerializeInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UIUtil\UIUtil.csproj">
+      <Project>{4AA4020F-EDB8-4A53-8EAE-00740985A910}</Project>
+      <Name>UIUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VPLDrawing\VPLDrawing.csproj">
+      <Project>{09A4BD50-F0A7-45E1-AA4B-635B8F5E37E2}</Project>
+      <Name>VPLDrawing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VPL\VPL.csproj">
+      <Project>{66ED66A8-13A5-4E70-B482-8143EC714DEF}</Project>
+      <Name>VPL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSPrj\VSPrj.csproj">
+      <Project>{3CE654BD-4A8B-4069-BCCE-C46AC55E056C}</Project>
+      <Name>VSPrj</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlSerializer\XmlSerializer.csproj">
+      <Project>{BDDB3976-4FBD-4F85-85AA-ED8D6474C141}</Project>
+      <Name>XmlSerializer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\defObjectIcon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\attributes.bmp" />
+    <EmbeddedResource Include="Resources\eventHandlers.bmp" />
+    <EmbeddedResource Include="Resources\events.bmp" />
+    <EmbeddedResource Include="Resources\methods.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\properties.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\event.bmp" />
+    <EmbeddedResource Include="Resources\eventHandler.bmp" />
+    <EmbeddedResource Include="Resources\method.bmp" />
+    <EmbeddedResource Include="Resources\methodAsHandler.bmp" />
+    <EmbeddedResource Include="Resources\param.bmp" />
+    <EmbeddedResource Include="Resources\property.bmp" />
+    <EmbeddedResource Include="Resources\prop_readonly.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\enumValue.bmp" />
+    <EmbeddedResource Include="Resources\enumValues.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormActionParameters.resx">
+      <DependentUpon>FormActionParameters.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmObjectExplorer.resx">
+      <DependentUpon>FrmObjectExplorer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\cancel.bmp" />
+    <EmbeddedResource Include="Resources\OK.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormMsg.resx">
+      <DependentUpon>FormMsg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultiPanes.resx">
+      <DependentUpon>MultiPanes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\arrorLT.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\maxbuttonHighlight.bmp" />
+    <EmbeddedResource Include="Resources\maxbuttonNormal.bmp" />
+    <EmbeddedResource Include="Resources\maxRestoreHighlight.bmp" />
+    <EmbeddedResource Include="Resources\maxRestoreNormal.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\run.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\actions.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\methods_withActs.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\propertyWithAction.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\propertiesWithAction.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormMsgList.resx">
+      <DependentUpon>FormMsgList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\actiongroup.bmp" />
+    <EmbeddedResource Include="Resources\actiongroups.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\form2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\consoleApp.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\console2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\objects.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgComponents.resx">
+      <DependentUpon>DlgComponents.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\object.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MethodBuilder\ActionViewer.resx">
+      <DependentUpon>ActionViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\DlgMethod.resx">
+      <DependentUpon>DlgMethod.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\dlgMethodTest.resx">
+      <DependentUpon>dlgMethodTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\MethodDesignerHolder.resx">
+      <DependentUpon>MethodDesignerHolder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodBuilder\MethodDiagramViewer.resx">
+      <DependentUpon>MethodDiagramViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\msgbox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\abc.bmp" />
+    <EmbeddedResource Include="Resources\bool.bmp" />
+    <EmbeddedResource Include="Resources\byte.bmp" />
+    <EmbeddedResource Include="Resources\char.bmp" />
+    <EmbeddedResource Include="Resources\date.bmp" />
+    <EmbeddedResource Include="Resources\decimal.bmp" />
+    <EmbeddedResource Include="Resources\int.bmp" />
+    <EmbeddedResource Include="Resources\obj.bmp" />
+    <EmbeddedResource Include="Resources\sbyte.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ParameterListBox.resx">
+      <DependentUpon>ParameterListBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\abd_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_void.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\eargv.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\3color.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>Copy $(ProjectDir)$(OutDir)$(TargetName).* $(SolutionDir)$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>
