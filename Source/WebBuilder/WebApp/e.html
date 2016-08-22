@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"> 
+
+<html>
+<head>
+<title>Editor Test</title>
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript" src="./libjs/jsonDataBind.js"></script>
+<script type="text/javascript" src="./libjs/jscolor.js"></script>
+<script type="text/javascript" src="./libjs/htmleditor.js"></script>
+
+<script type="text/javascript">
+function init()
+{
+//alert(navigator.userAgent);
+    //document.body.contentEditable = true;
+    //alert(typeof document.addEventListener);
+    //alert(typeof document.attachEvent);
+    HtmlEditor.createEditor(null, function(html) {
+	    JsonDataBinding.setServerPage('e.php');
+	    var u54106747 = new Object();
+	    u54106747.htmlStr = html;
+	    JsonDataBinding.executeServerMethod('testProcHtml', u54106747); 
+	 });
+	document.getElementById("tb1").contentEditable = false;
+	document.getElementById("tb1").designMode = 'off';
+	document.getElementById("btx").contentEditable = false;
+	document.getElementById("btx2").contentEditable = false;
+	//
+	document.getElementById("bt1").contentEditable = false;
+	document.getElementById("bt2").contentEditable = false;
+	document.getElementById("bt3").contentEditable = false;
+	document.getElementById("bt4").contentEditable = false;
+	//
+	document.getElementById("bt1").forProperties = true;
+	document.getElementById("bt2").forProperties = true;
+	document.getElementById("bt3").forProperties = true;
+	document.getElementById("bt4").forProperties = true;
+}
+function showMap()
+{
+    var tb = document.getElementById("tbl2").tBodies[0];
+    alert(tb.rows.length);
+    var map = HtmlEditor.getTableMap(tb);
+    var t = document.getElementById("tbl3").tBodies[0];
+    while (t.rows.length > 0) {
+        t.deleteRow(t.rows.length - 1);
+    }
+    for(var r=0;r<map.length;r++){
+        var row = t.insertRow(-1);
+        for(var c=0;c<map[r].length;c++){
+            var td = row.insertCell(c);
+            td.innerHTML = map[r][c].id;
+            td.bgColor = map[r][c].bgColor;
+        }
+    }
+}
+function showSel()
+{
+    alert(JsonDataBinding.GetSelectedText());
+}
+var div1;
+function createDiv() {
+    document.body.contentEditable = false;
+    div1 = document.createElement("div");
+    document.body.appendChild(div1);
+    div1.style.position = 'absolute';
+    div1.style.left = '100px';
+    div1.style.top = '100px';
+    var sp = document.createElement("span");
+    div1.appendChild(sp);
+    sp.innerHTML = 'TEST';
+}
+function hideDiv() {
+    div1.style.display = 'none';
+}
+function showDiv() {
+    div1.style.display = 'block';
+}
+function te() {
+    //    document.body.contentEditable = document.body.isContentEditable ? false : true;
+    document.body.contentEditable = false;
+}
+</script>
+</head>
+<body onload="init();">
+Test
+<hr>
+<input type="button" id="bt1" onclick="createDiv();" value="   Create DIV ">
+<input type="button" id="bt2" onclick="hideDiv();" value="   Hide DIV ">
+<input type="button" id="bt3" onclick="showDiv();" value="   show DIV ">
+<input type="button" id="bt4" contentEditable="false" onclick="te();" value="   toggle edit ">
+<table border="1" id="tbl2">
+<tr>
+<td>a</td><td>g</td>
+</tr>
+</table>
+<table id="tb1" border="1" contentEditable="false">
+<tr>
+<td>a</td><td>g<input type="text" value="MM" /></td>
+</tr>
+</table>
+<input class="color" />
+<p>a paragraph <input type="button" id="btx" value="show Map" onclick="showMap();" /><input type="button" id="btx2" value="show selection" onclick="showSel();" />
+<table border="1" id="tbl3">
+<tr>
+<td>a</td><td>g</td>
+</tr>
+</table>
+<!--
+<TABLE BORDER="1">
+  <THEAD>        
+    <TR>
+      <TH>Stock Symbol</TH><TH>High</TH><TH>Low</TH><TH>Close</TH>
+    </TR>
+  </THEAD>
+  <TBODY>
+    <TR>
+      <TD>ABCD</TD><TD>88.625</TD><TD>85.50</TD><TD>85.81</TD>
+    </TR>
+    <TR>
+      <TD>EFGH</TD><TD>102.75</TD><TD>97.50</TD><TD>100.063</TD>
+    </TR>
+    <TR>
+      <TD>IJKL</TD><TD>56.125</TD><TD>54.50</TD><TD>55.688</TD>
+    </TR>
+    <TR>
+      <TD>MNOP</TD><TD>71.75</TD><TD>69.00</TD><TD>69.00</TD>
+    </TR>
+  </TBODY>
+  <TFOOT>        
+    <TR>
+      <TD>Stock Symbol</TD><TD>High</TD><TD>Low</TD><TD>Close</TD>
+    </TR>
+  </TFOOT>
+</TABLE>
+-->
+a <font color=red>test</font> font.
+</p>
+</body>
+</html>
