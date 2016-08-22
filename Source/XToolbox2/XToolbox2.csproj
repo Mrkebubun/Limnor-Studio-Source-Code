@@ -1,1 +1,210 @@
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{32070273-D65A-49A1-9D53-ACFE4D0491C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XToolbox2</RootNamespace>
+    <AssemblyName>XToolbox2</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clsToolList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CPP.cs" />
+    <Compile Include="dlgToolboxTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgToolboxTab.designer.cs">
+      <DependentUpon>dlgToolboxTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDebug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDebug.Designer.cs">
+      <DependentUpon>FormDebug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelToolboxTabTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LabelToolboxTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TabsPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolboxItem.cs" />
+    <Compile Include="ToolboxPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToolboxTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolboxTabProject.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TypeImporter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dlgToolboxTab.resx">
+      <DependentUpon>dlgToolboxTab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="arrow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="minus.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="plus.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="int.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="abc.bmp" />
+    <EmbeddedResource Include="decimal.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="obj.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="bool.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="date.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="void.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="byte.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="eargv.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sbyte.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="char.bmp" />
+    <EmbeddedResource Include="FormDebug.resx">
+      <DependentUpon>FormDebug.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImportActiveX\ImportActiveX.csproj">
+      <Project>{22755690-445E-46E4-BABB-FB02E17C783B}</Project>
+      <Name>ImportActiveX</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\PerformerImport\PerformerImport.csproj">
+      <Project>{5043C642-123C-4DF3-A9D3-F796862D2382}</Project>
+      <Name>PerformerImport</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\TraceLog\TraceLog.csproj">
+      <Project>{12B36BAB-E964-4BD8-8E4C-CB856BE9147F}</Project>
+      <Name>TraceLog</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VOB\VOB.csproj">
+      <Project>{BD196C20-F9EB-48A0-BE42-31906DFC0A91}</Project>
+      <Name>VOB</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VPL\VPL.csproj">
+      <Project>{66ED66A8-13A5-4E70-B482-8143EC714DEF}</Project>
+      <Name>VPL</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)$(ConfigurationName)
+copy $(TargetDir)$(TargetName).pdb $(SolutionDir)$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>
