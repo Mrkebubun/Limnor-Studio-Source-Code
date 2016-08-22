@@ -20,6 +20,7 @@ namespace WixGen
 		static XmlNamespaceManager _xm;
 		static ShortCutList _shortcuts;
 		static StringBuilder _errors;
+		static string _projectFolder;
 		public const string uri = "http://schemas.microsoft.com/wix/2006/wi";
 		static string formErrTxt(Exception e)
 		{
@@ -220,14 +221,23 @@ namespace WixGen
 					Console.WriteLine(args[0]);
 					Console.Write("Output folder:");
 					Console.WriteLine(args[1]);
+					_projectFolder = Path.GetDirectoryName(args[0]);
 					_errors = new StringBuilder();
 					doc = new XmlDocument();
 					doc.LoadXml(Resource1.wixTemplate);
 					_xm = new XmlNamespaceManager(doc.NameTable);
 					_xm.AddNamespace("x", uri);
 					XmlNode tempProd = doc.DocumentElement.SelectSingleNode("x:Product", _xm);
+					//
+					//replace project folders references in the setup XML file
+					StreamReader sr = new StreamReader(args[0]);
+					string setupXml = sr.ReadToEnd();
+					sr.Close();
+					setupXml = setupXml.Replace("$$SRC$$", _projectFolder);
+					//
 					XmlDocument docPrj = new XmlDocument();
-					docPrj.Load(args[0]);
+					docPrj.LoadXml(setupXml);
+					//
 					XmlNode prodNode = docPrj.DocumentElement.SelectSingleNode("Product");
 					_shortcuts = new ShortCutList(prodNode.SelectSingleNode("shortCuts"));
 					//
