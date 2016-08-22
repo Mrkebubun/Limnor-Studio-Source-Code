@@ -1,1 +1,62 @@
-
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <system.serviceModel>
+    <bindings>
+      <wsHttpBinding>
+        <binding name="wsHttpBinding_I{name}">
+          <security mode="None">
+            <transport clientCredentialType="None" />
+            <message clientCredentialType="None" negotiateServiceCredential="false" establishSecurityContext="false" />
+          </security>
+        </binding>
+      </wsHttpBinding>
+      <netTcpBinding>
+        <binding name="netTcpBinding_I{name}">
+          <security mode="None">
+            <transport clientCredentialType="None" />
+            <message clientCredentialType="None" />
+          </security>
+        </binding>
+      </netTcpBinding>
+    </bindings>
+    <services>
+      <service name="{serviceapp}" behaviorConfiguration="Behavior{name}">
+        <endpoint 
+          address="net.tcp://localhost:{tcpport}/{serviceName}"
+          binding="netTcpBinding"
+          bindingConfiguration="netTcpBinding_I{name}"
+          name="{serviceName}_tcp"
+          contract="{contractname}" />
+        <endpoint
+          address="http://localhost:{wsport}/{serviceName}" 
+          binding="wsHttpBinding"
+          bindingConfiguration="wsHttpBinding_I{name}"
+          name="{serviceName}_ws"
+          contract="{contractname}"  >
+          <identity>
+            <dns value="localhost" />
+          </identity>
+        </endpoint>
+        <endpoint address="mex" binding="mexHttpBinding" contract="IMetadataExchange" />
+        <host>
+          <baseAddresses>
+            <add baseAddress="http://localhost:{baseport}/" />
+          </baseAddresses>
+        </host>
+      </service>
+    </services>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior name="Behavior{name}">
+          <!-- To avoid disclosing metadata information, 
+          set the value below to false and remove the metadata endpoint above before deployment -->
+          <serviceMetadata httpGetEnabled="True"/>
+          <!-- To receive exception details in faults for debugging purposes, 
+          set the value below to true.  Set to false before deployment 
+          to avoid disclosing exception information -->
+          <serviceDebug includeExceptionDetailInFaults="False" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+  </system.serviceModel>
+</configuration>
