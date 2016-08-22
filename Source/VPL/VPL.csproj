@@ -1,1 +1,529 @@
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66ED66A8-13A5-4E70-B482-8143EC714DEF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VPL</RootNamespace>
+    <AssemblyName>VPL</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AttributeDesigntimeReadOnly.cs" />
+    <Compile Include="CheckedListBoxLanguages.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassIdAttribute.cs" />
+    <Compile Include="CollectionComponentNames.cs" />
+    <Compile Include="CollectionEditorX.cs" />
+    <Compile Include="CompileResults.cs" />
+    <Compile Include="ComponentInterfaceWrapper.cs" />
+    <Compile Include="ComponentReferenceSelector.cs" />
+    <Compile Include="ConstValueAttribute.cs" />
+    <Compile Include="ControlDesigner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlDesigner.Designer.cs">
+      <DependentUpon>ControlDesigner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlSelectKeys.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlSelectKeys.Designer.cs">
+      <DependentUpon>ControlSelectKeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataEditor.cs" />
+    <Compile Include="DataFlow.cs" />
+    <Compile Include="delegates.cs" />
+    <Compile Include="DesignerOnlyAttribute.cs" />
+    <Compile Include="DesignTimeColumnsHolderAttribute.cs" />
+    <Compile Include="DialogFileMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogFileMap.Designer.cs">
+      <DependentUpon>DialogFileMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogSelectIDs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogSelectIDs.Designer.cs">
+      <DependentUpon>DialogSelectIDs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgLanguages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgLanguages.Designer.cs">
+      <DependentUpon>DlgLanguages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgMsHtml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgMsHtml.designer.cs">
+      <DependentUpon>DlgMsHtml.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgNewTypedNamedValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgNewTypedNamedValue.Designer.cs">
+      <DependentUpon>DlgNewTypedNamedValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSelectFieldEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectFieldEditor.Designer.cs">
+      <DependentUpon>DlgSelectFieldEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSelectName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectName.Designer.cs">
+      <DependentUpon>DlgSelectName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSelectPen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgSelectPen.Designer.cs">
+      <DependentUpon>DlgSelectPen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgSetEditorAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgText.Designer.cs">
+      <DependentUpon>DlgText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnumCulture.cs" />
+    <Compile Include="EnumDivBorderWidth.cs" />
+    <Compile Include="EnumImageFormat.cs" />
+    <Compile Include="EnumWebCursor.cs" />
+    <Compile Include="EnumWebElementPositionType.cs" />
+    <Compile Include="EventArgGeneric.cs" />
+    <Compile Include="EventArgNameChange.cs" />
+    <Compile Include="ExceptionIgnore.cs" />
+    <Compile Include="FilenameCollection.cs" />
+    <Compile Include="FontUsage.cs" />
+    <Compile Include="FormNavigator.cs" />
+    <Compile Include="FormStringList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStringList.Designer.cs">
+      <DependentUpon>FormStringList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTypeSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTypeSelection.Designer.cs">
+      <DependentUpon>FormTypeSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GACWrap.cs" />
+    <Compile Include="GenericValue.cs" />
+    <Compile Include="GuidListSelector.cs" />
+    <Compile Include="HoverListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IAppConfigConsumer.cs" />
+    <Compile Include="IAppType.cs" />
+    <Compile Include="IBeforeXmlSerialize.cs" />
+    <Compile Include="IBindingContextHolder.cs" />
+    <Compile Include="IClassId.cs" />
+    <Compile Include="IClassInstance.cs" />
+    <Compile Include="IComponentContainer.cs" />
+    <Compile Include="IControlChild.cs" />
+    <Compile Include="ICustomCodeName.cs" />
+    <Compile Include="ICustomDataSource.cs" />
+    <Compile Include="ICustomMethodDescriptor.cs" />
+    <Compile Include="ICustomPropertyCompile.cs" />
+    <Compile Include="ICustomPropertyNames.cs" />
+    <Compile Include="IDatabaseConnectionUserBase.cs" />
+    <Compile Include="IDataBindingNameMapHolder.cs" />
+    <Compile Include="IDataQueryUser.cs" />
+    <Compile Include="IDeserized.cs" />
+    <Compile Include="IDesignerRefresh.cs" />
+    <Compile Include="IDistributeFile.cs" />
+    <Compile Include="IDynamicMethodParameters.cs" />
+    <Compile Include="IEventInfoTree.cs" />
+    <Compile Include="IExternalPhpFileReferencer.cs" />
+    <Compile Include="IForm.cs" />
+    <Compile Include="IgnoreDefaultValue.cs" />
+    <Compile Include="IgnoreXmlIgnore.cs" />
+    <Compile Include="IIdeSpecific.cs" />
+    <Compile Include="IInstanceClass.cs" />
+    <Compile Include="IItemsHolder.cs" />
+    <Compile Include="IJavaScriptEventOwner.cs" />
+    <Compile Include="IJavascriptType.cs" />
+    <Compile Include="IJavascriptVariable.cs" />
+    <Compile Include="ILimnorStudioProject.cs" />
+    <Compile Include="ILimnorSudioIDE.cs" />
+    <Compile Include="ILimnorToolbox.cs" />
+    <Compile Include="ILoaderInitializer.cs" />
+    <Compile Include="INewObjectInit.cs" />
+    <Compile Include="INotifyComponentChanged.cs" />
+    <Compile Include="IComponentReferenceHolder.cs" />
+    <Compile Include="ICustomEventMethodDescriptor.cs" />
+    <Compile Include="ICustomEventMethodType.cs" />
+    <Compile Include="ICustomPropertyCollection.cs" />
+    <Compile Include="ICustomSerialization.cs" />
+    <Compile Include="IDynamicProperty.cs" />
+    <Compile Include="IErrorLog.cs" />
+    <Compile Include="IExtendedPropertyOwner.cs" />
+    <Compile Include="IIdentityByInteger.cs" />
+    <Compile Include="IIndexerAsProperty.cs" />
+    <Compile Include="INonDesignSerializable.cs" />
+    <Compile Include="InternalTypeAttribute.cs" />
+    <Compile Include="IObjectManager.cs" />
+    <Compile Include="IObjectPointer.cs" />
+    <Compile Include="IOwnerDrawControl.cs" />
+    <Compile Include="IPostDeserializeProcess.cs" />
+    <Compile Include="IPostRootDeserialize.cs" />
+    <Compile Include="IProjectFolderRequester.cs" />
+    <Compile Include="IPropertyDescriptor.cs" />
+    <Compile Include="IPropertyListChangeNotify.cs" />
+    <Compile Include="IPropertyReseter.cs" />
+    <Compile Include="IPropertyValueLink.cs">
+    </Compile>
+    <Compile Include="IPropertyValueSetter.cs" />
+    <Compile Include="IReport32Usage.cs" />
+    <Compile Include="IRuntimeExecuter.cs" />
+    <Compile Include="IScriptCodeName.cs" />
+    <Compile Include="ISelectPropertySave.cs" />
+    <Compile Include="ISerializeNotify.cs" />
+    <Compile Include="ISingleton.cs" />
+    <Compile Include="ISqlDataSet.cs" />
+    <Compile Include="ISupportWebClientMethods.cs" />
+    <Compile Include="ITypedNamedValuesHolder.cs" />
+    <Compile Include="IUseDefaultInstance.cs" />
+    <Compile Include="IVplMethodSelector.cs" />
+    <Compile Include="IWebClientInitializer.cs" />
+    <Compile Include="IWebPage.cs" />
+    <Compile Include="JavaScriptEnumAttribute.cs" />
+    <Compile Include="LogonUser.cs" />
+    <Compile Include="MethodParameterJsCodeAttribute.cs" />
+    <Compile Include="NameChangeEventArgs.cs" />
+    <Compile Include="NameList.cs" />
+    <Compile Include="NotForProgrammingAttribute.cs" />
+    <Compile Include="ObjectCompilerAttribute.cs" />
+    <Compile Include="ObjectCreationCodeGen.cs" />
+    <Compile Include="PhpTypeAttribute.cs" />
+    <Compile Include="NoRecreatePropertyAttribute.cs" />
+    <Compile Include="PointFX.cs" />
+    <Compile Include="PropertyDescriptorInformation.cs" />
+    <Compile Include="PropertyDescriptorNamedValue.cs" />
+    <Compile Include="PropertyDescriptorNewTypedNamedValue.cs" />
+    <Compile Include="PropertyDescriptorReadOnlyValue.cs" />
+    <Compile Include="PropertyRepresenter.cs" />
+    <Compile Include="PropertyValueLinks.cs" />
+    <Compile Include="ReadOnlyInProgrammingAttribute.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectExceptionToHandle.cs" />
+    <Compile Include="SetupContentsHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IValueEnumProvider.cs" />
+    <Compile Include="IVplNameService.cs" />
+    <Compile Include="IXmlNodeSerializable.cs" />
+    <Compile Include="ListProperty.cs" />
+    <Compile Include="MethodInfoIndexer.cs" />
+    <Compile Include="ObjectStringTypeConverter.cs" />
+    <Compile Include="PenSelector.cs" />
+    <Compile Include="PenWrapper.cs" />
+    <Compile Include="PenWrapperConverter.cs" />
+    <Compile Include="ProjectEnvironment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyDescriptorForDisplay.cs" />
+    <Compile Include="PropertyDescriptorValue.cs" />
+    <Compile Include="PropertyDescriptorWrapper.cs" />
+    <Compile Include="RAIS.cs" />
+    <Compile Include="RAISException.cs" />
+    <Compile Include="ReadOnlyPropertyDesc.cs" />
+    <Compile Include="RefreshOnComponentChangeAttribute.cs" />
+    <Compile Include="SimpleMethodInfo.cs" />
+    <Compile Include="SimpleParameterInfo.cs" />
+    <Compile Include="StandaloneOnlyActionAttribute.cs" />
+    <Compile Include="StaticAsInstanceAttribute.cs" />
+    <Compile Include="StaticOnlyAttribute.cs" />
+    <Compile Include="PropertyInfoDescriptor.cs" />
+    <Compile Include="StringConstructorInfo.cs" />
+    <Compile Include="StringMap.cs" />
+    <Compile Include="StringUtility.cs" />
+    <Compile Include="SupportFileAttribute.cs" />
+    <Compile Include="ToolboxItemXType.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolboxItemXType.Designer.cs">
+      <DependentUpon>ToolboxItemXType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TypeConverterNoExpand.cs" />
+    <Compile Include="TypeData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TypedNamedValue.cs" />
+    <Compile Include="TypedValue.cs" />
+    <Compile Include="TypeEditorDescriptionAttribute.cs" />
+    <Compile Include="TypeEditorFontFamily.cs" />
+    <Compile Include="TypeEditorHide.cs" />
+    <Compile Include="TypeEditorImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TypeEditorKeys.cs" />
+    <Compile Include="TypeEditorValueEnum.cs" />
+    <Compile Include="TypeMappingAttribute.cs" />
+    <Compile Include="TypePropertyDescriptor.cs" />
+    <Compile Include="TypeSelectorEditTypedNamedValue.cs">
+    </Compile>
+    <Compile Include="TypeSelectorObjectPointer.cs" />
+    <Compile Include="TypeSelectorSelectDevClass.cs" />
+    <Compile Include="TypeSelectorSelEvent.cs" />
+    <Compile Include="TypeSelectorSelMethod.cs" />
+    <Compile Include="TypeSelectorText.cs" />
+    <Compile Include="UIDesignerWrapperAttribute.cs" />
+    <Compile Include="UseDefaultInstanceAttribute.cs" />
+    <Compile Include="ValueWithDesc.cs" />
+    <Compile Include="VariableParameterAttribute.cs" />
+    <Compile Include="Variant.cs" />
+    <Compile Include="VplForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VplMethodPointer.cs" />
+    <Compile Include="VPLUtil.cs" />
+    <Compile Include="WcfServiceProxy.cs" />
+    <Compile Include="WebClientEventAttribute.cs" />
+    <Compile Include="WebClientMemberAttribute.cs" />
+    <Compile Include="WebClientOnlyAttribute.cs" />
+    <Compile Include="WebEnums.cs" />
+    <Compile Include="WebKeyEventArgs.cs" />
+    <Compile Include="WebMouseEventArgs.cs" />
+    <Compile Include="WebServiceProxy.cs" />
+    <Compile Include="XComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="XControlRootDesigner.cs" />
+    <Compile Include="XDesignerAttribute.cs" />
+    <Compile Include="XEventService.cs" />
+    <Compile Include="XmlObjectReaderReadingAttribute.cs" />
+    <Compile Include="XmlSerialization.cs" />
+    <Compile Include="XPropertyGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XType.cs" />
+    <Compile Include="XTypeSite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ControlSelectKeys.resx">
+      <DependentUpon>ControlSelectKeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogFileMap.resx">
+      <DependentUpon>DialogFileMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogSelectIDs.resx">
+      <DependentUpon>DialogSelectIDs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgLanguages.resx">
+      <DependentUpon>DlgLanguages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgNewTypedNamedValue.resx">
+      <DependentUpon>DlgNewTypedNamedValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSelectFieldEditor.resx">
+      <DependentUpon>DlgSelectFieldEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSelectName.resx">
+      <DependentUpon>DlgSelectName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgSelectPen.resx">
+      <DependentUpon>DlgSelectPen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgText.resx">
+      <DependentUpon>DlgText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStringList.resx">
+      <DependentUpon>FormStringList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTypeSelection.resx">
+      <DependentUpon>FormTypeSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProgElements\ProgElements.csproj">
+      <Project>{cee3b972-82a2-4069-b64e-3703400cbe8d}</Project>
+      <Name>ProgElements</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsUtility\WindowsUtility.csproj">
+      <Project>{345C1F39-8E66-4464-9CBE-537F792E6B10}</Project>
+      <Name>WindowsUtility</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ok.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_upIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_downIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rightArrow.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leftArrow.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_rename.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\question.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DlgMsHtml.resx">
+      <DependentUpon>DlgMsHtml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\empty.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)$(ConfigurationName)
+copy $(TargetDir)$(TargetName).pdb $(SolutionDir)$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>
