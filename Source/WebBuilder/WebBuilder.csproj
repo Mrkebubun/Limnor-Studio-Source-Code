@@ -1,1 +1,559 @@
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{26578B6E-E604-4765-9FCA-95DA597B7190}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Limnor.WebBuilder</RootNamespace>
+    <AssemblyName>WebBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DelegateTypes.cs" />
+    <Compile Include="DialogHtmlContents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogHtmlContents.Designer.cs">
+      <DependentUpon>DialogHtmlContents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogJsVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogJsVariables.Designer.cs">
+      <DependentUpon>DialogJsVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMapMarkers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogMapMarkers.Designer.cs">
+      <DependentUpon>DialogMapMarkers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogPlaceTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogPlaceTypes.Designer.cs">
+      <DependentUpon>DialogPlaceTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogWebClientValues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogWebClientValues.Designer.cs">
+      <DependentUpon>DialogWebClientValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgDataColumns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgDataColumns.Designer.cs">
+      <DependentUpon>DlgDataColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgEditNameValueList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgEditNameValueList.Designer.cs">
+      <DependentUpon>DlgEditNameValueList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgHtmlTreeViewEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgHtmlTreeViewEditor.Designer.cs">
+      <DependentUpon>DlgHtmlTreeViewEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgMenuItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgMenuItems.Designer.cs">
+      <DependentUpon>DlgMenuItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgWebClientVariable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgWebClientVariable.Designer.cs">
+      <DependentUpon>DlgWebClientVariable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgWebPageData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgWebPageData.Designer.cs">
+      <DependentUpon>DlgWebPageData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditContents.cs" />
+    <Compile Include="EnumHtmlSizeMode.cs" />
+    <Compile Include="EnumInlineFloat.cs" />
+    <Compile Include="EnumTextAlign.cs" />
+    <Compile Include="FileUploadItem.cs" />
+    <Compile Include="GoogleMapsDirectionsRoute.cs" />
+    <Compile Include="GoogleMapsEnums.cs" />
+    <Compile Include="GoogleMapsMarker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GoogleMapsPlace.cs" />
+    <Compile Include="GoogleMapsPlaceDetails.cs" />
+    <Compile Include="GoogleMapsPlacesEnum.cs" />
+    <Compile Include="HtmlAnchor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlClientObject.cs" />
+    <Compile Include="HtmlContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HtmlContent.designer.cs">
+      <DependentUpon>HtmlContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlDataRepeater.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlDataRepeater.Designer.cs">
+      <DependentUpon>HtmlDataRepeater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlFileBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlFilesSelector.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlFileUpload.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HtmlFileUpload.Designer.cs">
+      <DependentUpon>HtmlFileUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlFileUploadGroup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlFlash.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlFlowLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlGoogleMap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlMarquee.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlMenu.Designer.cs">
+      <DependentUpon>HtmlMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlMenuItem.cs" />
+    <Compile Include="HtmlMultiSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HtmlPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlRichTextEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HtmlTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HtmlTable.Designer.cs">
+      <DependentUpon>HtmlTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlTableCell.cs" />
+    <Compile Include="HtmlTableLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlTableRow.cs" />
+    <Compile Include="HtmlTextArea.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlTimer.cs" />
+    <Compile Include="HtmlTreeNode.cs" />
+    <Compile Include="HtmlTreeNodeCollection.cs" />
+    <Compile Include="HtmlTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IExternalJavascriptIncludes.cs" />
+    <Compile Include="IFormSubmitter.cs" />
+    <Compile Include="IHtmlTreeViewDesigner.cs" />
+    <Compile Include="IJsFilesResource.cs" />
+    <Compile Include="IPhpUser.cs" />
+    <Compile Include="IScrollableWebControl.cs" />
+    <Compile Include="IServerPageReferencer.cs" />
+    <Compile Include="IWebComponent.cs" />
+    <Compile Include="IWebDataEditorsHolder.cs" />
+    <Compile Include="IWebEventProcess.cs" />
+    <Compile Include="IWebPageLayout.cs" />
+    <Compile Include="IWebServerUser.cs" />
+    <Compile Include="JavascriptFiles.cs" />
+    <Compile Include="JavascriptString.cs" />
+    <Compile Include="JsArray.cs" />
+    <Compile Include="JsBool.cs" />
+    <Compile Include="JsDateTime.cs" />
+    <Compile Include="JsNumber.cs" />
+    <Compile Include="JsObject.cs" />
+    <Compile Include="JsString.cs" />
+    <Compile Include="JsTimeSpan.cs" />
+    <Compile Include="KeyMouseEventAttribute.cs" />
+    <Compile Include="LinkDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LinkDialog.designer.cs">
+      <DependentUpon>LinkDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodInfoWebClient.cs" />
+    <Compile Include="ParameterInfoWebClientMethod.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RepresenterTabPage.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchDialog.designer.cs">
+      <DependentUpon>SearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="TableCell.cs" />
+    <Compile Include="TableColumn.cs" />
+    <Compile Include="TableEvents.cs" />
+    <Compile Include="TypeEditorHtmlContents.cs" />
+    <Compile Include="TypeEditorHtmlTreeNodes.cs" />
+    <Compile Include="TypeEditorManageJsVariables.cs" />
+    <Compile Include="TypeEditorMenuItems.cs" />
+    <Compile Include="TypeEditorSelectPlaceTypes.cs" />
+    <Compile Include="TypeEditorWebClientValue.cs" />
+    <Compile Include="TypeSelectorJsonDataSet.cs" />
+    <Compile Include="TypeSelectorJsVariable.cs" />
+    <Compile Include="WebBuilderException.cs" />
+    <Compile Include="WebClientClassAttribute.cs" />
+    <Compile Include="WebClientData.cs" />
+    <Compile Include="WebClientValueCollection.cs" />
+    <Compile Include="WebComponentAttribute.cs" />
+    <Compile Include="WebDataEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebDataEditorCheckedListbox.cs" />
+    <Compile Include="WebDataEditorList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebDataEditorLookupDB.cs" />
+    <Compile Include="WebElementBox.cs" />
+    <Compile Include="WebMessageBox.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebPageCompilerUtility.cs" />
+    <Compile Include="WebPageData.cs" />
+    <Compile Include="WebResourceFile.cs" />
+    <Compile Include="XhtmlTags.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LFilePath\LFilePath.csproj">
+      <Project>{CE3B2995-8D4C-4632-BF4B-24EA0E3E86F9}</Project>
+      <Name>LFilePath</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MathExp\MathExp.csproj">
+      <Project>{A7287685-2A25-4A8D-9604-FC95CA9432C0}</Project>
+      <Name>MathExp</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\VPL\VPL.csproj">
+      <Project>{66ED66A8-13A5-4E70-B482-8143EC714DEF}</Project>
+      <Name>VPL</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebServerBuilder\WebServerBuilder.csproj">
+      <Project>{52A1E501-EEB4-4131-B864-2B5F0630265F}</Project>
+      <Name>WebServerBuilder</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebServerProcessor\WebServerProcessor.csproj">
+      <Project>{50C75605-C26F-4B6F-B1F2-EA36360B10E2}</Project>
+      <Name>WebServerProcessor</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsUtility\WindowsUtility.csproj">
+      <Project>{345C1F39-8E66-4464-9CBE-537F792E6B10}</Project>
+      <Name>WindowsUtility</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlUtil\XmlUtil.csproj">
+      <Project>{C025E0A3-A59B-465B-A4DE-9E90534B63F4}</Project>
+      <Name>XmlUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DialogJsVariables.resx">
+      <DependentUpon>DialogJsVariables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMapMarkers.resx">
+      <DependentUpon>DialogMapMarkers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogPlaceTypes.resx">
+      <DependentUpon>DialogPlaceTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlContent.resx">
+      <DependentUpon>HtmlContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkDialog.resx">
+      <DependentUpon>LinkDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\button.bmp" />
+    <EmbeddedResource Include="SearchDialog.resx">
+      <DependentUpon>SearchDialog.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DialogWebClientValues.resx">
+      <DependentUpon>DialogWebClientValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgHtmlTreeViewEditor.resx">
+      <DependentUpon>DlgHtmlTreeViewEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgMenuItems.resx">
+      <DependentUpon>DlgMenuItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgWebClientVariable.resx">
+      <DependentUpon>DlgWebClientVariable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlDataRepeater.resx">
+      <DependentUpon>HtmlDataRepeater.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlMenu.resx">
+      <DependentUpon>HtmlMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\abc.bmp" />
+    <EmbeddedResource Include="Resources\array.bmp" />
+    <EmbeddedResource Include="Resources\anchor.bmp" />
+    <Content Include="Resources\backcolor.bmp" />
+    <Content Include="Resources\blank.bmp" />
+    <Content Include="Resources\bold.bmp" />
+    <Content Include="Resources\br.bmp" />
+    <EmbeddedResource Include="DlgDataColumns.resx">
+      <DependentUpon>DlgDataColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgEditNameValueList.resx">
+      <DependentUpon>DlgEditNameValueList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgWebPageData.resx">
+      <DependentUpon>DlgWebPageData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlFileUpload.resx">
+      <DependentUpon>HtmlFileUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlTable.resx">
+      <DependentUpon>HtmlTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\checkbox.bmp" />
+    <None Include="Resources\browse.jpg" />
+    <EmbeddedResource Include="Resources\calendar.bmp" />
+    <EmbeddedResource Include="Resources\chklist.bmp" />
+    <Content Include="Resources\cj.bmp" />
+    <Content Include="Resources\color.bmp" />
+    <EmbeddedResource Include="Resources\dropdown.bmp" />
+    <EmbeddedResource Include="Resources\datagrid.bmp" />
+    <EmbeddedResource Include="Resources\fileupload.bmp" />
+    <None Include="Resources\FileBrowseButton.bmp" />
+    <EmbeddedResource Include="Resources\fileuploadgroup.bmp" />
+    <EmbeddedResource Include="Resources\filebrowse.bmp" />
+    <EmbeddedResource Include="Resources\textarea.bmp" />
+    <EmbeddedResource Include="Resources\empty.bmp" />
+    <EmbeddedResource Include="Resources\datarepeater.bmp" />
+    <EmbeddedResource Include="Resources\datepicker.bmp" />
+    <EmbeddedResource Include="Resources\tabcontrol.bmp" />
+    <Content Include="Resources\fj.bmp" />
+    <EmbeddedResource Include="Resources\groupbox.bmp" />
+    <EmbeddedResource Include="Resources\flowlayout.bmp" />
+    <EmbeddedResource Include="Resources\flash.bmp" />
+    <EmbeddedResource Include="Resources\folder.bmp" />
+    <EmbeddedResource Include="Resources\googlemap.bmp" />
+    <Content Include="Resources\hideToolbar.bmp" />
+    <Content Include="Resources\hr.bmp" />
+    <EmbeddedResource Include="DialogHtmlContents.resx">
+      <DependentUpon>DialogHtmlContents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\html.bmp" />
+    <EmbeddedResource Include="Resources\image.bmp" />
+    <EmbeddedResource Include="Resources\htmlData.bmp" />
+    <EmbeddedResource Include="Resources\htmlEditor.bmp" />
+    <Content Include="Resources\indent.bmp" />
+    <EmbeddedResource Include="Resources\int.bmp" />
+    <Content Include="Resources\italic.bmp" />
+    <EmbeddedResource Include="Resources\label.bmp" />
+    <EmbeddedResource Include="Resources\js.bmp" />
+    <None Include="Resources\limnortabs.css" />
+    <Content Include="Resources\link.bmp" />
+    <EmbeddedResource Include="Resources\listbox.bmp" />
+    <Content Include="Resources\lj.bmp" />
+    <EmbeddedResource Include="Resources\msg.bmp" />
+    <EmbeddedResource Include="Resources\marquee.bmp" />
+    <EmbeddedResource Include="Resources\menu.bmp" />
+    <EmbeddedResource Include="Resources\multisel.bmp" />
+    <Content Include="Resources\ol.bmp" />
+    <Content Include="Resources\outdent.bmp" />
+    <EmbeddedResource Include="Resources\radiobutton.bmp" />
+    <EmbeddedResource Include="Resources\qry.bmp" />
+    <EmbeddedResource Include="Resources\panel.bmp" />
+    <Content Include="Resources\right_arrow.bmp" />
+    <Content Include="Resources\rj.bmp" />
+    <EmbeddedResource Include="Resources\textbox.bmp" />
+    <EmbeddedResource Include="Resources\tablelayout.bmp" />
+    <EmbeddedResource Include="Resources\treeview.bmp" />
+    <EmbeddedResource Include="Resources\timer.bmp" />
+    <Content Include="Resources\underscore.bmp" />
+    <Content Include="Resources\uol.bmp" />
+    <Content Include="WebApp\FileUploadItem.php.txt" />
+    <None Include="WebApp\htmleditorClient_min.js" />
+    <None Include="WebApp\htmleditorDiv_min.js" />
+    <None Include="WebApp\htmleditorStarter_min.js" />
+    <Content Include="WebApp\menu.js" />
+    <None Include="WebApp\menu_min.js" />
+    <Content Include="WebApp\treeview.js" />
+    <None Include="WebApp\treeview_min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)$(ConfigurationName)
+copy $(TargetDir)$(TargetName).pdb $(SolutionDir)$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>
