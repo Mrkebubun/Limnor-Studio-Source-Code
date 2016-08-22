@@ -49,8 +49,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(ProjectDir)..\..\Utility\WixGen\WixGen\bin\Release\WixGen.exe $(ProjectDir)setupProj.xml $(ProjectDir)Release
-Copy $(ProjectDir)Release\LimnorStudio5Net4.msi c:\shared</PostBuildEvent>
+    <PostBuildEvent>$(ProjectDir)..\WixGen\bin\Release\WixGen.exe $(ProjectDir)setupProj.xml $(ProjectDir)Release
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
