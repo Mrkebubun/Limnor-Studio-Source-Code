@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi' xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+  <Product Id='12345678-1234-1234-1234-123456789012' Name='MySetup' Language='1033'
+           Version='1.0.0.0' Manufacturer='!(loc.ManufacturerName)'>
+    <Package 
+              Description='!(loc.SetupDesc)'
+              Comments='!(loc.SetupComments)'
+              Manufacturer='!(loc.ManufacturerName)' 
+             InstallerVersion='200' 
+             Compressed='yes'
+							/>
+
+    <Media Id='1' Cabinet='product.cab' EmbedCab='yes' DiskPrompt='CD-ROM #1' />
+    <Property Id='DiskPrompt' Value="Acme's Foobar 1.0 Installation [1]" />
+    <Property Id='DISABLEADVTSHORTCUTS' Value="1" />
+    <PropertyRef Id="NETFRAMEWORK40FULL"/>
+    <Condition Message="This edition of [ProductName] requires .NET Framework 4.0.">
+      <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+    </Condition>
+    <MajorUpgrade
+      DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />
+
+		<Directory Id='TARGETDIR' Name='SourceDir'>
+			<Directory Id='ProgramFilesFolder' Name='PFiles'>
+				<Directory Id='CompanyFolder' >
+					<Directory Id='INSTALLDIR' Name='TestProg'>
+						<Component Id='MainComponent' Guid='12345678-1234-1234-1234-123456789012'>
+						</Component>
+					</Directory>
+				</Directory>
+			</Directory>
+			<Directory Id="ProgramMenuFolder" Name="Programs">
+				<Directory Id="ProgramMenuDir" Name="ProgramMenuDir">
+					<Component Id="ProgramMenuDir" Guid="">
+						<RemoveFolder Id='ProgramMenuDir' On='uninstall' />
+						<RegistryValue Root='HKCU' Key='Software\[Manufacturer]\[ProductName]' Type='string' Value='' KeyPath='yes' />
+					</Component>
+				</Directory>
+			</Directory>
+			<Directory Id="DesktopFolder" Name="Desktop" />
+		</Directory>
+    <Feature Id='MainFeature' Title='Product Files' Level='1'>
+      <ComponentRef Id='MainComponent' />
+      <ComponentRef Id='ProgramMenuDir' />
+    </Feature>
+  </Product>
+</Wix>
