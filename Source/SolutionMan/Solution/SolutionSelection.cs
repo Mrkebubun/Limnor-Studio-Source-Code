@@ -12,18 +12,18 @@ using System.Text;
 
 namespace SolutionMan.Solution
 {
-	public class ItemSelection
+	public class SolutionSelection
 	{
-		public const string Safeitemname = "$safeitemname$";
 		private Dictionary<string, string> _replaceNames;
-		public ItemSelection()
+		public SolutionSelection()
 		{
 			_replaceNames = new Dictionary<string, string>();
 		}
-		public string ItemName;
-		public string ItemTemplate;
-		public string ClassTemplate;
-		public string NewClassFile;
+		public bool CreateSolutionFolder;
+		public string SolutionName;
+		public string ProjectName;
+		public string Location; //folder
+		public string ProjectTemplate;
 		public Dictionary<string, string> ReplaceNames
 		{
 			get
@@ -31,6 +31,5 @@ namespace SolutionMan.Solution
 				return _replaceNames;
 			}
 		}
-
 	}
 }
