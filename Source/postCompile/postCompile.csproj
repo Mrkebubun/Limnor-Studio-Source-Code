@@ -49,7 +49,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(ProjectDir)..\WixGen\bin\Release\WixGen.exe $(ProjectDir)setupProj.xml $(ProjectDir)Release
+    <PostBuildEvent>"$(ProjectDir)..\WixGen\bin\Release\WixGen.exe" "$(ProjectDir)setupProj.xml" "$(ProjectDir)Release"
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
