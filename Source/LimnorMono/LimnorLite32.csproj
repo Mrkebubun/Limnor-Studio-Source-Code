@@ -59,8 +59,7 @@
   <ItemGroup>
     <Reference Include="CopyProtection, Version=1.2.2.0, Culture=neutral, PublicKeyToken=ca220ff085716474, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Distribute\CopyProtection.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\DistributeBin\CopyProtection.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
