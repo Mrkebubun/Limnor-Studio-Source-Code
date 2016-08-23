@@ -1,10 +1,10 @@
 This folder contains source code for Limnor Studio.
 
 Development Solution:
-LimnorStudioSolution/LimnorStudioDev.sln
+LimnorStudioSolutions/LimnorStudioDev.sln
 
 Distribution Solution:
-LimnorStudioSolution/LimnorStudioDist.sln
+LimnorStudioSolutions/LimnorStudioDist.sln
 
 Limnor Studio distribution relies on WIX. Please download and install WIX from http://wixtoolset.org/releases/
 Once installed WIX, modify postCompile/setupProj.xml to specify WIX installation folder via "wixbin" attribute of "root" element, i.e.
