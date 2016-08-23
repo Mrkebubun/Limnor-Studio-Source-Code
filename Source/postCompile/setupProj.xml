@@ -21,7 +21,7 @@
         <ExcludeFolder name="libjs"></ExcludeFolder>
         <ExcludeFolder name="jscolor"></ExcludeFolder>
       </SourceFolder>
-      <SourceFolder folder="$$SRC$$\..\LimnorStudioSolution\Release">
+      <SourceFolder folder="$$SRC$$\..\LimnorStudioSolutions\Release">
         <ExcludeFile ext=".pdb"></ExcludeFile>
       </SourceFolder>
       <SourceFolder folder="$$SRC$$\..\DistributeBin">
@@ -36,9 +36,9 @@
       </Item>
       <Item  file="$$SRC$$\..\Distribute\LimnorStudioStarter.exe" Directory="ProgramMenuDir" Name="Limnor Studio 5.6 (32-bit)" WorkingDirectory='INSTALLDIR' Icon="LimnorStudio32.ico" IconIndex="0" >
       </Item>
-      <Item  file="$$SRC$$\..\LimnorStudioSolution\Release\ConnectionManager.exe" Directory="ProgramMenuDir" Name="Connection Manager(Any CPU)" WorkingDirectory='INSTALLDIR' Icon="dbconn.ICO" IconIndex="0" >
+      <Item  file="$$SRC$$\..\LimnorStudioSolutions\Release\ConnectionManager.exe" Directory="ProgramMenuDir" Name="Connection Manager(Any CPU)" WorkingDirectory='INSTALLDIR' Icon="dbconn.ICO" IconIndex="0" >
       </Item>
-      <Item  file="$$SRC$$\..\LimnorStudioSolution\Release\ConnectionManager32.exe" Directory="ProgramMenuDir" Name="Connection Manager (32-bit)" WorkingDirectory='INSTALLDIR' Icon="dbconn.ICO" IconIndex="0" >
+      <Item  file="$$SRC$$\..\LimnorStudioSolutions\Release\ConnectionManager32.exe" Directory="ProgramMenuDir" Name="Connection Manager (32-bit)" WorkingDirectory='INSTALLDIR' Icon="dbconn.ICO" IconIndex="0" >
       </Item>
     </shortCuts>
 
