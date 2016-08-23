@@ -9,40 +9,40 @@
            UpgradeCode="151BB741-3F48-4D83-9771-9276E566383F"
            companyFolderName="Longflow Enterprises"
           productName="Limnor Studio 5.6 for .Net Framework 4"
-           licFile="C:\Limnor\VSLimnor10\Distribute\LimnorStudioLicense.rtf"
-           banner="C:\Limnor\SetupResources\banner.bmp"
-           dialog="C:\Limnor\SetupResources\dialog.bmp"
+           licFile="$$SRC$$\..\Distribute\LimnorStudioLicense.rtf"
+           banner="$$SRC$$\..\SetupResources\banner.bmp"
+           dialog="$$SRC$$\..\SetupResources\dialog.bmp"
            netfrm="NETFRAMEWORK40FULL"
-	   ARPPRODUCTICON="C:\Limnor\VSLimnor10\Distribute\LimnorMain.ico"
+	   ARPPRODUCTICON="$$SRC$$\..\Distribute\LimnorMain.ico"
            >
     <appFolder Name="Limnor Studio 5.6 Net4"  mainId="5CE6B204-0387-4DBD-B369-0B1986259664">
-      <SourceFolder folder="C:\Limnor\VSLimnor10\Distribute">
+      <SourceFolder folder="$$SRC$$\..\Distribute">
         <ExcludeFolder name="wpfapp"></ExcludeFolder>
         <ExcludeFolder name="libjs"></ExcludeFolder>
         <ExcludeFolder name="jscolor"></ExcludeFolder>
       </SourceFolder>
-      <SourceFolder folder="C:\Limnor\VSLimnor10\LimnorStudioLite\Release">
+      <SourceFolder folder="$$SRC$$\..\LimnorStudioSolution\Release">
         <ExcludeFile ext=".pdb"></ExcludeFile>
       </SourceFolder>
-      <SourceFolder folder="C:\Limnor\Distribute">
+      <SourceFolder folder="$$SRC$$\..\DistributeBin">
       </SourceFolder>
     </appFolder>
     <shortCuts>
-      <Item  file="C:\Limnor\VSLimnor10\Distribute\LimnorStudioStarter64.exe" Directory="DesktopFolder" Name="LS Net4(Any CPU)" WorkingDirectory='INSTALLDIR' Icon="LimnorStudio32.ico" IconIndex="0" >
+      <Item  file="$$SRC$$\..\Distribute\LimnorStudioStarter64.exe" Directory="DesktopFolder" Name="LS Net4(Any CPU)" WorkingDirectory='INSTALLDIR' Icon="LimnorStudio32.ico" IconIndex="0" >
       </Item>
-      <Item  file="C:\Limnor\VSLimnor10\Distribute\LimnorStudioStarter.exe" Directory="DesktopFolder" Name="LS Net4(32-bit)" WorkingDirectory='INSTALLDIR' Icon="LimnorStudio32.ico" IconIndex="0" >
+      <Item  file="$$SRC$$\..\Distribute\LimnorStudioStarter.exe" Directory="DesktopFolder" Name="LS Net4(32-bit)" WorkingDirectory='INSTALLDIR' Icon="LimnorStudio32.ico" IconIndex="0" >
       </Item>
-      <Item  file="C:\Limnor\VSLimnor10\Distribute\LimnorStudioStarter64.exe" Directory="ProgramMenuDir" Name="Limnor Studio 5.6 (Any CPU)" WorkingDirectory='INSTALLDIR' Icon="LimnorStudio32.ico" IconIndex="0" >
+      <Item  file="$$SRC$$\..\Distribute\LimnorStudioStarter64.exe" Directory="ProgramMenuDir" Name="Limnor Studio 5.6 (Any CPU)" WorkingDirectory='INSTALLDIR' Icon="LimnorStudio32.ico" IconIndex="0" >
       </Item>
-      <Item  file="C:\Limnor\VSLimnor10\Distribute\LimnorStudioStarter.exe" Directory="ProgramMenuDir" Name="Limnor Studio 5.6 (32-bit)" WorkingDirectory='INSTALLDIR' Icon="LimnorStudio32.ico" IconIndex="0" >
+      <Item  file="$$SRC$$\..\Distribute\LimnorStudioStarter.exe" Directory="ProgramMenuDir" Name="Limnor Studio 5.6 (32-bit)" WorkingDirectory='INSTALLDIR' Icon="LimnorStudio32.ico" IconIndex="0" >
       </Item>
-      <Item  file="C:\Limnor\VSLimnor10\LimnorStudioLite\Release\ConnectionManager.exe" Directory="ProgramMenuDir" Name="Connection Manager(Any CPU)" WorkingDirectory='INSTALLDIR' Icon="dbconn.ICO" IconIndex="0" >
+      <Item  file="$$SRC$$\..\LimnorStudioSolution\Release\ConnectionManager.exe" Directory="ProgramMenuDir" Name="Connection Manager(Any CPU)" WorkingDirectory='INSTALLDIR' Icon="dbconn.ICO" IconIndex="0" >
       </Item>
-      <Item  file="C:\Limnor\VSLimnor10\LimnorStudioLite\Release\ConnectionManager32.exe" Directory="ProgramMenuDir" Name="Connection Manager (32-bit)" WorkingDirectory='INSTALLDIR' Icon="dbconn.ICO" IconIndex="0" >
+      <Item  file="$$SRC$$\..\LimnorStudioSolution\Release\ConnectionManager32.exe" Directory="ProgramMenuDir" Name="Connection Manager (32-bit)" WorkingDirectory='INSTALLDIR' Icon="dbconn.ICO" IconIndex="0" >
       </Item>
     </shortCuts>
 
-    <Icon Id="LimnorStudio32.ico" SourceFile="C:\Limnor\SetupResources\LimnorStudio32.ico" />
+    <Icon Id="LimnorStudio32.ico" SourceFile="$$SRC$$\..\SetupResources\LimnorStudio32.ico" />
     <Icon Id="dbconn.ICO" SourceFile="C:\Limnor\SetupResources\dbconn.ICO" />
     <MenuGroup Name="Limnor Studio 5.6 Net 4" Guid="F1074C7F-8611-4FD4-A22C-356FC387E06B">
       
