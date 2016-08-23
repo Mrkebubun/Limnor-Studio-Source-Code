@@ -34,9 +34,6 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="XmlUtility">
-      <HintPath>..\..\VSLimnor10\LimnorStudioLite\Debug\XmlUtility.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ILibCaller.cs" />
@@ -65,6 +62,10 @@
     <ProjectReference Include="..\VPL\VPL.csproj">
       <Project>{66ed66a8-13a5-4e70-b482-8143ec714def}</Project>
       <Name>VPL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlUtil\XmlUtil.csproj">
+      <Project>{c025e0a3-a59b-465b-a4de-9e90534b63f4}</Project>
+      <Name>XmlUtil</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
