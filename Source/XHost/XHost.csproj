@@ -53,10 +53,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CopyProtection, Version=1.1.4653.16168, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Distribute\CopyProtection.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="CopyProtection">
+      <HintPath>..\DistributeBin\CopyProtection.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
