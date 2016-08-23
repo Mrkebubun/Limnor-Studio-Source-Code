@@ -89,11 +89,11 @@
   </Target>
   -->
   <PropertyGroup>
-    <PreBuildEvent>rd /S /Q $(SolutionDir)..\ConnectionManager\obj
-cd $(SolutionDir)..\LimnorCompiler\webApp
+    <PreBuildEvent>rd /S /Q "$(SolutionDir)..\ConnectionManager\obj"
+cd "$(SolutionDir)..\LimnorCompiler\webApp"
 MergeFiles "$(SolutionDir)..\LimnorCompiler\webApp\json2.js" "$(SolutionDir)..\LimnorCompiler\webApp\jsonDataBind.js" "$(SolutionDir)..\LimnorCompiler\webApp\json_n_db.js"
 call jm.cmd
-cd $(SolutionDir)..\WebBuilder\WebApp
+cd "$(SolutionDir)..\WebBuilder\WebApp"
 call jm2.cmd
 </PreBuildEvent>
   </PropertyGroup>
