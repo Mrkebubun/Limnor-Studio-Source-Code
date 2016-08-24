@@ -1,0 +1,25 @@
+<Tools>
+	<Category name="PHP Components">
+		<File>
+			<Item type="EasyDataSet" tool="1"></Item>
+			<Item type="EasyUpdator" tool="1"></Item>
+			<Item type="DatabaseExecuter" tool="1"></Item>
+			<Item type="EasyTransfer" tool="1"></Item>
+			<Item type="PhpComponent" tool="1"></Item>
+			<Item type="SendMail" tool="1"></Item>
+			<Item type="ServerFile" tool="1"></Item>
+			<Item type="WebLoginManager" tool="1"></Item>
+		</File>
+		
+	</Category>
+	<Category name="Web Server Components">
+		<File>
+			<Item type="EasyDataSet" tool="1"></Item>
+			<Item type="EasyUpdator" tool="1"></Item>
+			<Item type="DatabaseExecuter" tool="1"></Item>
+			<Item type="EasyTransfer" tool="1"></Item>
+			<Item type="WebLoginManager" tool="1"></Item>
+		</File>
+		
+	</Category>
+</Tools>
