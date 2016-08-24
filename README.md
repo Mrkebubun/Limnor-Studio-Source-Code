@@ -5,6 +5,8 @@ Home page: http://www.limnor.com
 
 User forum: http://www.limnor.com/LimnorForum.html
 
+Documents: https://github.com/Limnor/Limnor-Studio-Documents
+
 Contact: support@limnor.com
 
 Contributors:
