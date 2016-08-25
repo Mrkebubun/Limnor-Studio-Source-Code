@@ -1,5 +1,5 @@
 # Visual-Codeless-Programming-System-Limnor-Studio
-It is a generic-purpose visual codeless programming system with built in support for Windows standalone applications, web development and web application.
+It is a generic-purpose visual codeless programming system. It can be used to develop various Windows standalone applications and web applications.
 
 Home page: http://www.limnor.com
 
